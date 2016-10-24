@@ -6,7 +6,8 @@ if [[ "$(uname)" == "Darwin" ]]; then
   export CXXFLAGS="-std=c++11 -stdlib=libc++ $CXXFLAGS"
 fi
 
-cd "$SRC_DIR"
+pushd "$SRC_DIR"
+pushd deps
 
 rm -rf $HOME/.instant
 
@@ -32,9 +33,11 @@ popd
 # pushd ffc/demo
 # popd
 
+popd # deps
+
 rm -rf $HOME/.instant
 
-pushd dolfin/build/test/unit/python
+pushd build/test/unit/python
 py.test -v fem/test_form.py || (
     find $HOME/.instant/error -name '*.log' -print -exec cat '{}' \;
     exit 1

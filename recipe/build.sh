@@ -1,11 +1,14 @@
 #!/bin/bash
 
-
 if [[ "$(uname)" == "Darwin" ]]; then
   export MACOSX_DEPLOYMENT_TARGET=10.9
   export CXXFLAGS="-std=c++11 -stdlib=libc++ $CXXFLAGS"
 fi
 
+mkdir deps
+pushd deps
+# download fenics components here while conda-build doesn't support multiple sources
+# see conda-build#1466 for tracking multiple-source support
 for pkg in dijitso ufl instant fiat ffc; do
     echo "installing ${pkg}-${PKG_VERSION}"
     git clone -q --depth 1 -b ${pkg}-${PKG_VERSION} https://bitbucket.org/fenics-project/${pkg}.git
@@ -13,16 +16,7 @@ for pkg in dijitso ufl instant fiat ffc; do
     pip install --no-deps .
     popd
 done
-
-pkg=dolfin
-echo "installing ${pkg}-${PKG_VERSION}"
-git clone -q --depth 1 -b ${pkg}-${PKG_VERSION} https://bitbucket.org/fenics-project/${pkg}.git
-pushd $pkg
-# apply patches
-git apply "${RECIPE_DIR}/swig-py3.patch"
-if [[ "$(uname)" == "Darwin" ]]; then
-    git apply "${RECIPE_DIR}/clang6-explicit-in-copy.patch"
-fi
+popd
 
 # DOLFIN
 rm -rf build
