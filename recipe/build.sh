@@ -9,6 +9,14 @@ fi
 pip install --no-deps --no-binary :all: -r "${RECIPE_DIR}/component-requirements.txt"
 
 # DOLFIN
+
+# cleanup artefacts in the tarball:
+find . -name '__pycache__' -name '*.pyc' -exec rm -v '{}' \;
+
+# tarball includes cached swig output built with Python 2.
+# Remove it because it breaks building on Python 3.
+rm -rf dolfin/swig/modules
+
 rm -rf build
 mkdir build
 cd build
