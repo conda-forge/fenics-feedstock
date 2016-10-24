@@ -7,34 +7,6 @@ if [[ "$(uname)" == "Darwin" ]]; then
 fi
 
 pushd "$SRC_DIR"
-pushd deps
-
-rm -rf $HOME/.instant
-
-pushd instant/test
-python run_tests.py
-popd
-
-rm -rf $HOME/.instant
-
-pushd ufl/test
-py.test -v
-popd
-
-rm -rf $HOME/.instant
-
-pushd fiat/test/unit
-python test.py
-popd
-
-
-# skip ffc tests for now, which take forever
-# rm -rf $HOME/.instant
-# pushd ffc/demo
-# popd
-
-popd # deps
-
 rm -rf $HOME/.instant
 
 pushd build/test/unit/python

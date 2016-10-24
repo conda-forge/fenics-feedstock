@@ -5,18 +5,8 @@ if [[ "$(uname)" == "Darwin" ]]; then
   export CXXFLAGS="-std=c++11 -stdlib=libc++ $CXXFLAGS"
 fi
 
-mkdir deps
-pushd deps
-# download fenics components here while conda-build doesn't support multiple sources
-# see conda-build#1466 for tracking multiple-source support
-for pkg in dijitso ufl instant fiat ffc; do
-    echo "installing ${pkg}-${PKG_VERSION}"
-    git clone -q --depth 1 -b ${pkg}-${PKG_VERSION} https://bitbucket.org/fenics-project/${pkg}.git
-    pushd $pkg
-    pip install --no-deps .
-    popd
-done
-popd
+# Components (ffc, etc.)
+pip install --no-deps --no-binary :all: -r "${RECIPE_DIR}/component-requirements.txt"
 
 # DOLFIN
 rm -rf build
