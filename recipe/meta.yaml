@@ -52,6 +52,9 @@ test:
     - pytest
     - git
 
+  files:
+    - test_dolfin.py
+
   imports:
     - dijitso
     - instant
