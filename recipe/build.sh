@@ -1,30 +1,22 @@
 #!/bin/bash
 
-
 if [[ "$(uname)" == "Darwin" ]]; then
   export MACOSX_DEPLOYMENT_TARGET=10.9
   export CXXFLAGS="-std=c++11 -stdlib=libc++ $CXXFLAGS"
 fi
 
-for pkg in dijitso ufl instant fiat ffc; do
-    echo "installing ${pkg}-${PKG_VERSION}"
-    git clone -q --depth 1 -b ${pkg}-${PKG_VERSION} https://bitbucket.org/fenics-project/${pkg}.git
-    pushd $pkg
-    pip install --no-deps .
-    popd
-done
-
-pkg=dolfin
-echo "installing ${pkg}-${PKG_VERSION}"
-git clone -q --depth 1 -b ${pkg}-${PKG_VERSION} https://bitbucket.org/fenics-project/${pkg}.git
-pushd $pkg
-# apply patches
-git apply "${RECIPE_DIR}/swig-py3.patch"
-if [[ "$(uname)" == "Darwin" ]]; then
-    git apply "${RECIPE_DIR}/clang6-explicit-in-copy.patch"
-fi
+# Components (ffc, etc.)
+pip install --no-deps --no-binary :all: -r "${RECIPE_DIR}/component-requirements.txt"
 
 # DOLFIN
+
+# cleanup artefacts in the tarball:
+find . -name '__pycache__' -name '*.pyc' -exec rm -v '{}' \;
+
+# tarball includes cached swig output built with Python 2.
+# Remove it because it breaks building on Python 3.
+rm -rf dolfin/swig/modules
+
 rm -rf build
 mkdir build
 cd build

@@ -3,15 +3,21 @@ package:
   name: fenics
   version: {{version}}
 
+source:
+  url: https://bitbucket.org/fenics-project/dolfin/downloads/dolfin-{{version}}.tar.gz
+  sha256: 6228b4d641829a4cd32141bfcd217a1596a27d5969aa00ee64ebba2b1c0fb148
+  patches:
+    - swig-py3.patch
+    - clang6-explicit-in-copy.patch  # [osx]
+
 build:
-  number: 0
-  skip: true  # [win or py34]
+  number: 1
+  skip: true  # [win]
 
 requirements:
   build:
     - python
     - pip
-
     - gcc  # [linux]
     - boost
     - cmake
@@ -19,7 +25,6 @@ requirements:
     - pkg-config
     - toolchain
     - zlib
-
     - swig >=3
     - numpy
     - ply
@@ -34,7 +39,6 @@ requirements:
     - gcc  # [linux]
     - pkg-config
     - zlib
-
     - ply
     - swig >=3
     - numpy
@@ -48,20 +52,19 @@ test:
     - pytest
     - git
 
+  files:
+    - test_dolfin.py
+
   imports:
     - dijitso
-
     - instant
-
     - ufl
     - ufl.utils
     - ufl.finiteelement
     - ufl.core
     - ufl.corealg
     - ufl.algorithms
-
     - FIAT
-
     - ffc
     - ffc.backends
     - ffc.backends.dolfin
@@ -70,7 +73,6 @@ test:
     - ffc.quadrature
     - ffc.tensor
     - ufc
-
     - dolfin
   
   commands:
@@ -85,6 +87,7 @@ test:
 about:
   home: http://www.fenicsproject.org
   license: LGPL 3.0
+  license_file: COPYING.LESSER
   summary: FEniCS is a collection of free software for automated, efficient solution of differential equations
 
 extra:
