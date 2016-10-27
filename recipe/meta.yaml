@@ -1,11 +1,11 @@
-{% set version = "2016.1.0" %}
+{% set version = "2016.2.dev" %}
 package:
   name: fenics
   version: {{version}}
 
 source:
-  url: https://bitbucket.org/fenics-project/dolfin/downloads/dolfin-{{version}}.tar.gz
-  sha256: 6228b4d641829a4cd32141bfcd217a1596a27d5969aa00ee64ebba2b1c0fb148
+  git_url: https://bitbucket.org/fenics-project/dolfin.git
+  git_tag: master
   patches:
     - swig-py3.patch
     - clang6-explicit-in-copy.patch  # [osx]
@@ -30,6 +30,7 @@ requirements:
     - ply
     - six
     - sympy
+    - subprocess32
 
   run:
     - python
@@ -44,6 +45,7 @@ requirements:
     - numpy
     - six
     - sympy
+    - subprocess32
 
 test:
 
