@@ -6,9 +6,6 @@ package:
 source:
   git_url: https://bitbucket.org/fenics-project/dolfin.git
   git_tag: master
-  patches:
-    - swig-py3.patch
-    - clang6-explicit-in-copy.patch  # [osx]
 
 build:
   number: 1
