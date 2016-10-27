@@ -27,7 +27,7 @@ requirements:
     - ply
     - six
     - sympy
-    - subprocess32
+    - subprocess32  # [not py3k]
 
   run:
     - python
@@ -42,7 +42,7 @@ requirements:
     - numpy
     - six
     - sympy
-    - subprocess32
+    - subprocess32 # [not py3k]
 
 test:
 
