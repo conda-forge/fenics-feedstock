@@ -71,7 +71,6 @@ test:
     - ffc.errorcontrol
     - ffc.quadrature
     - ffc.tensor
-    - ufc
     - dolfin
   
   commands:
