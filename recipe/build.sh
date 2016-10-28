@@ -10,9 +10,6 @@ pip install --no-deps --no-binary :all: -r "${RECIPE_DIR}/component-requirements
 
 # DOLFIN
 
-# cleanup artefacts in the tarball:
-find . -name '__pycache__' -name '*.pyc' -exec rm -v '{}' \;
-
 # tarball includes cached swig output built with Python 2.
 # Remove it because it breaks building on Python 3.
 rm -rf dolfin/swig/modules
@@ -24,12 +21,15 @@ cd build
 export LIBRARY_PATH=$PREFIX/lib
 export INCLUDE_PATH=$PREFIX/include
 
+export PETSC_DIR=$PREFIX
+export PETSC_ARCH=
 export BLAS_DIR=$LIBRARY_PATH
 
 cmake .. \
   -DDOLFIN_ENABLE_OPENMP=off \
-  -DDOLFIN_ENABLE_MPI=off \
-  -DDOLFIN_ENABLE_PETSC=off \
+  -DDOLFIN_ENABLE_MPI=on \
+  -DDOLFIN_ENABLE_PETSC=on \
+  -DDOLFIN_ENABLE_PETSC4PY=on \
   -DDOLFIN_ENABLE_HDF5=off \
   -DDOLFIN_ENABLE_VTK=off \
   -DCMAKE_INSTALL_PREFIX=$PREFIX \
