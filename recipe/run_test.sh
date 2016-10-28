@@ -16,4 +16,5 @@ RUN_TESTS="python -b -m pytest -vs $TESTS"
 # serial
 $RUN_TESTS
 # parallel
-mpiexec -n 3 $RUN_TESTS
+# FIXME: parallel requires parallel partitioner (parmetis or pt-scotch)
+# mpiexec -n 3 $RUN_TESTS
