@@ -2,7 +2,7 @@
 
 if [[ "$(uname)" == "Darwin" ]]; then
   export MACOSX_DEPLOYMENT_TARGET=10.9
-  export CXXFLAGS="-std=c++11 -stdlib=libc++ $CXXFLAGS"
+  export CXXFLAGS="-std=c++11 -stdlib=libc++ $CXXFLAGS -Wl,-rpath,$PREFIX/lib"
 fi
 
 # Components (ffc, etc.)
@@ -22,7 +22,6 @@ export LIBRARY_PATH=$PREFIX/lib
 export INCLUDE_PATH=$PREFIX/include
 
 export PETSC_DIR=$PREFIX
-export PETSC_ARCH=
 export BLAS_DIR=$LIBRARY_PATH
 
 cmake .. \
@@ -32,6 +31,7 @@ cmake .. \
   -DDOLFIN_ENABLE_PETSC4PY=on \
   -DDOLFIN_ENABLE_HDF5=off \
   -DDOLFIN_ENABLE_VTK=off \
+  -DDOLFIN_ENABLE_X=off \
   -DCMAKE_INSTALL_PREFIX=$PREFIX \
   -DCMAKE_INCLUDE_PATH=$INCLUDE_PATH \
   -DCMAKE_LIBRARY_PATH=$LIBRARY_PATH \
