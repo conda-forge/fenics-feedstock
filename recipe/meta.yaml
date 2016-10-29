@@ -19,7 +19,7 @@ requirements:
     - python
     - pip
     - gcc  # [linux]
-    - boost
+    - boost 1.61.*
     - cmake
     - eigen
     - pkg-config
@@ -33,7 +33,7 @@ requirements:
 
   run:
     - python
-    - boost
+    - boost 1.61.*
     - cmake
     - eigen
     - gcc  # [linux]
@@ -74,7 +74,7 @@ test:
     - ffc.tensor
     - ufc
     - dolfin
-  
+
   commands:
     - instant-clean
     - instant-showcache
