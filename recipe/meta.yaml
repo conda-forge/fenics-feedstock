@@ -8,7 +8,7 @@ source:
   git_tag: master
 
 build:
-  number: 1
+  number: 2
   skip: true  # [win]
 
 requirements:
@@ -16,12 +16,12 @@ requirements:
     - python
     - pip
     - gcc  # [linux]
-    - boost
+    - boost 1.61.*
     - cmake
     - eigen
     - pkg-config
     - toolchain
-    - zlib
+    - zlib 1.2.*
     - swig >=3
     - numpy
     - ply
@@ -31,12 +31,12 @@ requirements:
 
   run:
     - python
-    - boost
+    - boost 1.61.*
     - cmake
     - eigen
     - gcc  # [linux]
     - pkg-config
-    - zlib
+    - zlib 1.2.*
     - ply
     - swig >=3
     - numpy
