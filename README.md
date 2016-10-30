@@ -9,6 +9,10 @@ Feedstock license: BSD 3-Clause
 
 Summary: FEniCS is a collection of free software for automated, efficient solution of differential equations
 
+FEniCS is a collection of free software for automated, efficient solution of differential equations
+(<http://fenicsproject.org>). It provides C++ and Python interfaces, and creates effecient solvers via
+expression of finite variational statements in a domain-specific language that are transformed and
+just-in-time compiled into efficient implementations.
 
 
 Installing fenics
