@@ -24,7 +24,7 @@ requirements:
     - eigen
     - pkg-config
     - toolchain
-    - zlib
+    - zlib 1.2.*
     - swig >=3
     - numpy
     - ply
@@ -38,7 +38,7 @@ requirements:
     - eigen
     - gcc  # [linux]
     - pkg-config
-    - zlib
+    - zlib 1.2.*
     - ply
     - swig >=3
     - numpy
