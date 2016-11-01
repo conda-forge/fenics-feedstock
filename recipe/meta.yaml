@@ -26,9 +26,9 @@ requirements:
     - cmake
     - eigen
     - pkg-config
+    - ptscotch
     - toolchain
     - zlib 1.2.*
-    - zlib
     - mpich
     - petsc {{petsc_version}}
     - petsc4py {{petsc4py_version}}
@@ -48,7 +48,9 @@ requirements:
     - petsc {{petsc_version}}
     - petsc4py {{petsc4py_version}}
     - pkg-config
+    - ptscotch
     - zlib 1.2.*
+    - zlib
     - ply
     - swig >=3
     - numpy
