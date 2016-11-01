@@ -1,4 +1,7 @@
 {% set version = "2016.1.0" %}
+{% set petsc_version = '3.7.*' %}
+{% set petsc4py_version = '3.7.*' %}
+
 package:
   name: fenics
   version: {{version}}
@@ -11,7 +14,7 @@ source:
     - clang6-explicit-in-copy.patch  # [osx]
 
 build:
-  number: 2
+  number: 3
   skip: true  # [win]
 
 requirements:
@@ -23,8 +26,12 @@ requirements:
     - cmake
     - eigen
     - pkg-config
+    - ptscotch
     - toolchain
     - zlib 1.2.*
+    - mpich
+    - petsc {{petsc_version}}
+    - petsc4py {{petsc4py_version}}
     - swig >=3
     - numpy
     - ply
@@ -37,7 +44,11 @@ requirements:
     - cmake
     - eigen
     - gcc  # [linux]
+    - mpich
+    - petsc {{petsc_version}}
+    - petsc4py {{petsc4py_version}}
     - pkg-config
+    - ptscotch
     - zlib 1.2.*
     - ply
     - swig >=3
@@ -51,9 +62,6 @@ test:
     - nose
     - pytest
     - git
-
-  files:
-    - test_dolfin.py
 
   imports:
     - dijitso
