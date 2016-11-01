@@ -50,7 +50,6 @@ requirements:
     - pkg-config
     - ptscotch
     - zlib 1.2.*
-    - zlib
     - ply
     - swig >=3
     - numpy
