@@ -16,4 +16,8 @@ RUN_TESTS="python -b -m pytest -vs $TESTS"
 # serial
 $RUN_TESTS
 # parallel
-mpiexec -n 3 $RUN_TESTS
+
+if [[ "$(uname)" == "Darwin" ]]; then
+  # FIXME: skip mpi tests on Linux pending conda-smithy fix #337
+  mpiexec -n 3 $RUN_TESTS
+fi
