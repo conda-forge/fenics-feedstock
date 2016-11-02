@@ -3,6 +3,9 @@
 if [[ "$(uname)" == "Darwin" ]]; then
   export MACOSX_DEPLOYMENT_TARGET=10.9
   export CXXFLAGS="-std=c++11 -stdlib=libc++ $CXXFLAGS -Wl,-rpath,$PREFIX/lib"
+  SO="dylib"
+else
+  SO="so"
 fi
 
 # Components (ffc, etc.)
@@ -22,7 +25,6 @@ export LIBRARY_PATH=$PREFIX/lib
 export INCLUDE_PATH=$PREFIX/include
 
 export PETSC_DIR=$PREFIX
-export BLAS_DIR=$LIBRARY_PATH
 
 cmake .. \
   -DDOLFIN_ENABLE_OPENMP=off \
@@ -32,8 +34,8 @@ cmake .. \
   -DDOLFIN_ENABLE_SCOTCH=on \
   -DDOLFIN_ENABLE_HDF5=off \
   -DDOLFIN_ENABLE_VTK=off \
-  -DBLAS_LIBRARIES=openblas \
-  -DLAPACK_LIBRARIES=openblas \
+  -DBLAS_LIBRARIES=$LIBRARY_PATH/libopenblas.$SO \
+  -DLAPACK_LIBRARIES=$LIBRARY_PATH/libopenblas.$SO \
   -DUMFPACK_DIR=$PREFIX \
   -DCHOLMOD_DIR=$PREFIX \
   -DCMAKE_INSTALL_PREFIX=$PREFIX \
