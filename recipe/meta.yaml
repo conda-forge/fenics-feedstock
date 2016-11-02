@@ -14,14 +14,17 @@ source:
     - clang6-explicit-in-copy.patch  # [osx]
 
 build:
-  number: 3
+  number: 4
   skip: true  # [win]
+  track_features:
+    - blas_openblas
 
 requirements:
   build:
     - python
     - pip
     - gcc  # [linux]
+    - blas 1.*
     - boost 1.61.*
     - cmake
     - eigen
@@ -40,6 +43,7 @@ requirements:
 
   run:
     - python
+    - blas 1.*
     - boost 1.61.*
     - cmake
     - eigen
