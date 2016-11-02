@@ -35,6 +35,7 @@ requirements:
     - mpich
     - petsc {{petsc_version}}
     - petsc4py {{petsc4py_version}}
+    - suitesparse
     - swig >=3
     - numpy
     - ply
@@ -53,6 +54,7 @@ requirements:
     - petsc4py {{petsc4py_version}}
     - pkg-config
     - ptscotch
+    - suitesparse
     - zlib 1.2.*
     - ply
     - swig >=3
