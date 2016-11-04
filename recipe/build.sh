@@ -39,3 +39,15 @@ cmake .. \
 
 make VERBOSE=1 -j${CPU_COUNT}
 make install
+
+# remove paths for unused deps in cmake files
+# these paths may not exist on targets and aren't needed,
+# but cmake will die with 'no rule to make /Applications/...libclang_rt.osx.a'
+
+if [[ "$(uname)" == "Darwin" ]]; then
+    find $PREFIX/share/dolfin -name '*.cmake' -print -exec sh -c "sed -E -i ''  's@/Applications/Xcode.app[^;]*(.dylib|.framework|.a);@@g' {}" \;
+else
+    find $PREFIX/share/dolfin -name '*.cmake' -print -exec sh -c "sed -E -i''  's@/usr/lib(64)?/[^;]*(.so|.a);@@g' {}" \;
+fi
+
+
