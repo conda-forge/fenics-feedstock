@@ -1,6 +1,5 @@
 {% set version = "2016.1.0" %}
 {% set petsc_version = '3.7.*' %}
-{% set petsc4py_version = '3.7.*' %}
 
 package:
   name: fenics
@@ -14,7 +13,7 @@ source:
     - clang6-explicit-in-copy.patch  # [osx]
 
 build:
-  number: 4
+  number: 5
   skip: true  # [win]
 
 requirements:
@@ -31,7 +30,9 @@ requirements:
     - zlib 1.2.*
     - mpich
     - petsc {{petsc_version}}
-    - petsc4py {{petsc4py_version}}
+    - petsc4py {{petsc_version}}
+    - slepc {{petsc_version}}
+    - slepc4py {{petsc_version}}
     - swig >=3
     - numpy
     - ply
@@ -46,7 +47,9 @@ requirements:
     - gcc  # [linux]
     - mpich
     - petsc {{petsc_version}}
-    - petsc4py {{petsc4py_version}}
+    - petsc4py {{petsc_version}}
+    - slepc {{petsc_version}}
+    - slepc4py {{petsc_version}}
     - pkg-config
     - ptscotch
     - zlib 1.2.*
