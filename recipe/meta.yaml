@@ -11,7 +11,7 @@ source:
   git_tag: master
 
 build:
-  number: 3
+  number: 4
   skip: true  # [win]
 
 requirements:
@@ -19,7 +19,7 @@ requirements:
     - python
     - pip
     - gcc  # [linux]
-    - boost 1.61.*
+    - boost 1.62.*
     - cmake
     - eigen
     - pkg-config
@@ -38,7 +38,7 @@ requirements:
 
   run:
     - python
-    - boost 1.61.*
+    - boost 1.62.*
     - cmake
     - eigen
     - gcc  # [linux]
