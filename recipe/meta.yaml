@@ -1,4 +1,4 @@
-{% set version = "2016.1.0" %}
+{% set version = "2016.2.0" %}
 {% set petsc_version = '3.7.*' %}
 
 package:
@@ -7,13 +7,10 @@ package:
 
 source:
   url: https://bitbucket.org/fenics-project/dolfin/downloads/dolfin-{{version}}.tar.gz
-  sha256: 6228b4d641829a4cd32141bfcd217a1596a27d5969aa00ee64ebba2b1c0fb148
-  patches:
-    - swig-py3.patch
-    - clang6-explicit-in-copy.patch  # [osx]
+  sha256: bb2731d58ec6f56db2f354141f4a2bb6c20b67ae99407a1854f09fd919b9e1d2
 
 build:
-  number: 5
+  number: 0
   skip: true  # [win]
 
 requirements:
@@ -37,6 +34,7 @@ requirements:
     - numpy
     - ply
     - six
+    - subprocess32  # [py2k]
     - sympy
 
   run:
@@ -57,6 +55,7 @@ requirements:
     - swig >=3
     - numpy
     - six
+    - subprocess32  # [py2k]
     - sympy
 
 test:
@@ -83,7 +82,6 @@ test:
     - ffc.errorcontrol
     - ffc.quadrature
     - ffc.tensor
-    - ufc
     - dolfin
 
   commands:
