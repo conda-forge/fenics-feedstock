@@ -9,7 +9,23 @@ Feedstock license: BSD 3-Clause
 
 Summary: FEniCS is a collection of free software for automated, efficient solution of differential equations
 
+FEniCS is a collection of free software for automated, efficient solution of differential equations
+(<http://fenicsproject.org>). It provides C++ and Python interfaces, and creates effecient solvers via
+expression of finite variational statements in a domain-specific language that are transformed and
+just-in-time compiled into efficient implementations.
 
+
+Current build status
+====================
+
+Linux: [![Circle CI](https://circleci.com/gh/conda-forge/fenics-feedstock.svg?style=shield)](https://circleci.com/gh/conda-forge/fenics-feedstock)
+OSX: [![TravisCI](https://travis-ci.org/conda-forge/fenics-feedstock.svg?branch=master)](https://travis-ci.org/conda-forge/fenics-feedstock)
+Windows: ![](https://cdn.rawgit.com/conda-forge/conda-smithy/90845bba35bec53edac7a16638aa4d77217a3713/conda_smithy/static/disabled.svg)
+
+Current release info
+====================
+Version: [![Anaconda-Server Badge](https://anaconda.org/conda-forge/fenics/badges/version.svg)](https://anaconda.org/conda-forge/fenics)
+Downloads: [![Anaconda-Server Badge](https://anaconda.org/conda-forge/fenics/badges/downloads.svg)](https://anaconda.org/conda-forge/fenics)
 
 Installing fenics
 =================
@@ -31,7 +47,6 @@ It is possible to list all of the versions of `fenics` available on your platfor
 ```
 conda search fenics --channel conda-forge
 ```
-
 
 
 About conda-forge
@@ -67,18 +82,6 @@ Terminology
 
 **conda-forge** - the place where the feedstock and smithy live and work to
                   produce the finished article (built conda distributions)
-
-Current build status
-====================
-
-Linux: [![Circle CI](https://circleci.com/gh/conda-forge/fenics-feedstock.svg?style=shield)](https://circleci.com/gh/conda-forge/fenics-feedstock)
-OSX: [![TravisCI](https://travis-ci.org/conda-forge/fenics-feedstock.svg?branch=master)](https://travis-ci.org/conda-forge/fenics-feedstock)
-Windows: ![](https://cdn.rawgit.com/conda-forge/conda-smithy/90845bba35bec53edac7a16638aa4d77217a3713/conda_smithy/static/disabled.svg)
-
-Current release info
-====================
-Version: [![Anaconda-Server Badge](https://anaconda.org/conda-forge/fenics/badges/version.svg)](https://anaconda.org/conda-forge/fenics)
-Downloads: [![Anaconda-Server Badge](https://anaconda.org/conda-forge/fenics/badges/downloads.svg)](https://anaconda.org/conda-forge/fenics)
 
 
 Updating fenics-feedstock
