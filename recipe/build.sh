@@ -2,7 +2,8 @@
 
 if [[ "$(uname)" == "Darwin" ]]; then
   export MACOSX_DEPLOYMENT_TARGET=10.9
-  export CXXFLAGS="-std=c++11 -stdlib=libc++ $CXXFLAGS -Wl,-rpath,$PREFIX/lib"
+  export CXXFLAGS="-std=c++11 -stdlib=libc++ $CXXFLAGS"
+  export LDFLAGS="-Wl,-rpath,$PREFIX/lib $LDFLAGS"
 fi
 
 # Components (ffc, etc.)
