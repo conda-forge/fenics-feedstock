@@ -18,7 +18,7 @@ requirements:
     - python
     - pip
     - gcc  # [linux]
-    - boost 1.61.*
+    - boost 1.62.*
     - cmake
     - eigen
     - pkg-config
@@ -39,7 +39,7 @@ requirements:
 
   run:
     - python
-    - boost 1.61.*
+    - boost 1.62.*
     - cmake
     - eigen
     - gcc  # [linux]
