@@ -45,6 +45,9 @@ cmake .. \
 make VERBOSE=1 -j${CPU_COUNT}
 make install
 
+# Don't include demos in installed package
+rm -rf $PREFIX/share/dolfin/demo
+
 # remove paths for unused deps in cmake files
 # these paths may not exist on targets and aren't needed,
 # but cmake will die with 'no rule to make /Applications/...libclang_rt.osx.a'
