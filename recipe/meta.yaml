@@ -11,7 +11,7 @@ source:
   sha256: bb2731d58ec6f56db2f354141f4a2bb6c20b67ae99407a1854f09fd919b9e1d2
 
 build:
-  number: 3
+  number: 4
   skip: true  # [win]
 
 requirements:
@@ -19,7 +19,7 @@ requirements:
     - python
     - pip
     - gcc  # [linux]
-    - boost 1.62.*
+    - boost 1.63.*
     - cmake
     - eigen
     - pkg-config
@@ -40,7 +40,7 @@ requirements:
 
   run:
     - python
-    - boost 1.62.*
+    - boost 1.63.*
     - cmake
     - eigen
     - gcc  # [linux]
