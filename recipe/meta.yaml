@@ -113,5 +113,6 @@ about:
 extra:
   recipe-maintainers:
     - garth-wells
+    - johannesring
     - mikaem
     - minrk
