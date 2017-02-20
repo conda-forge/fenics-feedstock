@@ -3,4 +3,4 @@ https://bitbucket.org/fenics-project/dijitso/downloads/dijitso-2016.2.0.tar.gz -
 https://bitbucket.org/fenics-project/ufl/downloads/ufl-2016.2.0.tar.gz --hash=sha256:be2e165fc13d079c5d98c8864e8c774b68a336fa5a97433993575866c715fa1e
 https://bitbucket.org/fenics-project/instant/downloads/instant-2016.2.0.tar.gz --hash=sha256:df5e8ca306546fd1ee1a28e36b61c5d46456dc8b07e3293d674ddff62cf8d953
 https://bitbucket.org/fenics-project/fiat/downloads/fiat-2016.2.0.tar.gz --hash=sha256:812ecf100211bc680e74b9b6546a356efd8be26a492f500cab975e5fa8d64d5d
-https://bitbucket.org/fenics-project/ffc/downloads/ffc-2016.2.0.tar.gz --hash=sha256:097c284780447ea7bb47d4d51956648a1efb2cb9047eb1382944421dde351ecb
+https://bitbucket.org/fenics-project/ffc/get/697a4977aff4.tar.gz --hash=sha256:0c4237c834d4b253ac542658273137d99589953b3270b6f10e7a7848f8493305
