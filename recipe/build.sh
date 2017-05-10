@@ -11,10 +11,6 @@ pip install --no-deps --no-binary :all: -r "${RECIPE_DIR}/component-requirements
 
 # DOLFIN
 
-# tarball includes cached swig output built with Python 2.
-# Remove it because it breaks building on Python 3.
-rm -rf dolfin/swig/modules
-
 # use conda cmake version for 1.63 detection
 rm cmake/modules/FindBoost.cmake
 
