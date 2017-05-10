@@ -1,4 +1,4 @@
-{% set version = "2016.2.0" %}
+{% set version = "2017.1.0" %}
 {% set petsc_version = '3.7.*' %}
 {% set swig_version = '3.0.11' %}
 
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://bitbucket.org/fenics-project/dolfin/downloads/dolfin-{{version}}.tar.gz
-  sha256: bb2731d58ec6f56db2f354141f4a2bb6c20b67ae99407a1854f09fd919b9e1d2
+  sha256: ba793a2d41995d65ce4ee9e955e06342a6357174420b727cfde9fc6c70590e92
 
 build:
   number: 6

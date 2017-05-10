@@ -1,6 +1,6 @@
 # fenics-components requirements.txt
-https://bitbucket.org/fenics-project/dijitso/downloads/dijitso-2016.2.0.tar.gz --hash=sha256:1bfa0ac0d47dae75bbde8fabb1145d3caa2e6c28a1e4097ad5550a91a8a205e4
-https://bitbucket.org/fenics-project/ufl/downloads/ufl-2016.2.0.tar.gz --hash=sha256:be2e165fc13d079c5d98c8864e8c774b68a336fa5a97433993575866c715fa1e
-https://bitbucket.org/fenics-project/instant/downloads/instant-2016.2.0.tar.gz --hash=sha256:df5e8ca306546fd1ee1a28e36b61c5d46456dc8b07e3293d674ddff62cf8d953
-https://bitbucket.org/fenics-project/fiat/downloads/fiat-2016.2.0.tar.gz --hash=sha256:812ecf100211bc680e74b9b6546a356efd8be26a492f500cab975e5fa8d64d5d
-https://bitbucket.org/fenics-project/ffc/get/697a4977aff4.tar.gz --hash=sha256:0c4237c834d4b253ac542658273137d99589953b3270b6f10e7a7848f8493305
+https://bitbucket.org/fenics-project/dijitso/downloads/dijitso-2017.1.0.tar.gz --hash=sha256:ef23952539d349fbd384d41302abc94413d485ca7e8c29e8a0debc2aadaf8657
+https://bitbucket.org/fenics-project/ufl/downloads/ufl-2017.1.0.tar.gz --hash=sha256:af87fa10f492660e8dd9f5c820c03529e017b80bf2002da54b8234c56b8dda8f
+https://bitbucket.org/fenics-project/instant/downloads/instant-2017.1.0.tar.gz --hash=sha256:38f56bd9a583518fb023a90be6d09a114d74a36cacb91cbf50167002ac815ee7
+https://bitbucket.org/fenics-project/fiat/downloads/fiat-2017.1.0.tar.gz --hash=sha256:d4288401ad16c4598720f9db0810a522f7f0eadad35d8211bac7120bce5fde94
+https://bitbucket.org/fenics-project/ffc/downloads/ffc-2017.1.0.tar.gz --hash=sha256:2073c4d8f998798a3b0a8a371e74d9848f0e52933cf5f35cee21e82ab3fe87b3
