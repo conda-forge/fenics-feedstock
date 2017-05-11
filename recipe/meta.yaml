@@ -67,6 +67,7 @@ test:
     - nose
     - pytest
     - git
+    - decorator
 
   imports:
     - dijitso
