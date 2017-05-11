@@ -11,12 +11,9 @@ pip install --no-deps --no-binary :all: -r "${RECIPE_DIR}/component-requirements
 
 # DOLFIN
 
-# tarball includes cached swig output built with Python 2.
-# Remove it because it breaks building on Python 3.
-rm -rf dolfin/swig/modules
-
-# use conda cmake version for 1.63 detection
-rm cmake/modules/FindBoost.cmake
+# Tarball includes cached swig output built with Python 3.
+# Re-generate it with correct Python.
+$PYTHON cmake/scripts/generate-swig-interface.py
 
 rm -rf build
 mkdir build
@@ -29,6 +26,12 @@ export PETSC_DIR=$PREFIX
 export SLEPC_DIR=$PREFIX
 export BLAS_DIR=$LIBRARY_PATH
 
+if [ "$PY3K" = "1" ]; then
+    export USE_PYTHON3=on
+else
+    export USE_PYTHON3=off
+fi
+
 cmake .. \
   -DDOLFIN_ENABLE_OPENMP=off \
   -DDOLFIN_ENABLE_MPI=on \
@@ -37,6 +40,7 @@ cmake .. \
   -DDOLFIN_ENABLE_SCOTCH=on \
   -DDOLFIN_ENABLE_HDF5=off \
   -DDOLFIN_ENABLE_VTK=off \
+  -DDOLFIN_USE_PYTHON3=$USE_PYTHON3 \
   -DCMAKE_INSTALL_PREFIX=$PREFIX \
   -DCMAKE_INCLUDE_PATH=$INCLUDE_PATH \
   -DCMAKE_LIBRARY_PATH=$LIBRARY_PATH \
