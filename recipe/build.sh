@@ -11,6 +11,10 @@ pip install --no-deps --no-binary :all: -r "${RECIPE_DIR}/component-requirements
 
 # DOLFIN
 
+# Tarball includes cached swig output built with Python 3.
+# Re-generate it with correct Python.
+$PYTHON cmake/scripts/generate-swig-interface.py
+
 rm -rf build
 mkdir build
 cd build
