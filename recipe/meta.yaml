@@ -11,7 +11,7 @@ source:
   sha256: ba793a2d41995d65ce4ee9e955e06342a6357174420b727cfde9fc6c70590e92
 
 build:
-  number: 0
+  number: 1
   skip: true  # [win]
 
 requirements:
@@ -40,6 +40,7 @@ requirements:
 
   run:
     - python
+    - setuptools
     - boost 1.63.*
     - cmake
     - eigen
