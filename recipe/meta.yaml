@@ -2,6 +2,7 @@
 {% set petsc_version = '3.7.*' %}
 {% set swig_version = '3.0.12' %}
 
+
 package:
   name: fenics
   version: {{version}}
