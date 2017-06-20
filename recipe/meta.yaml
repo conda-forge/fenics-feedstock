@@ -11,7 +11,7 @@ source:
   sha256: ba793a2d41995d65ce4ee9e955e06342a6357174420b727cfde9fc6c70590e92
 
 build:
-  number: 2
+  number: 3
   skip: true  # [win]
 
 requirements:
@@ -37,7 +37,7 @@ requirements:
     - six
     - subprocess32  # [py2k]
     - sympy
-    - hdf5
+    - hdf5 1.10.*
 
   run:
     - python
@@ -60,7 +60,7 @@ requirements:
     - six
     - subprocess32  # [py2k]
     - sympy
-    - hdf5
+    - hdf5 1.10.*
 
 test:
   source_files:
