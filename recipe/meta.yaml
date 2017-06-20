@@ -37,7 +37,7 @@ requirements:
     - six
     - subprocess32  # [py2k]
     - sympy
-    - hdf5 1.10.*
+    - hdf5 1.8.18
 
   run:
     - python
@@ -60,7 +60,7 @@ requirements:
     - six
     - subprocess32  # [py2k]
     - sympy
-    - hdf5 1.10.*
+    - hdf5 1.8.18
 
 test:
   source_files:
