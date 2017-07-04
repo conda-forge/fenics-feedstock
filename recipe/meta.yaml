@@ -18,6 +18,8 @@ requirements:
   build:
     - python
     - pip
+    # Make sure libgcc 5.* is not used at build time
+    - libgcc 4.8.*  # [linux]
     - gcc  # [linux]
     - boost 1.63.*
     - cmake
