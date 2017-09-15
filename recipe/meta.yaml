@@ -11,7 +11,7 @@ source:
   sha256: ba793a2d41995d65ce4ee9e955e06342a6357174420b727cfde9fc6c70590e92
 
 build:
-  number: 5
+  number: 6
   skip: true  # [win]
 
 requirements:
@@ -34,7 +34,7 @@ requirements:
     - slepc {{petsc_version}}
     - slepc4py {{petsc_version}}
     - swig {{swig_version}}
-    - numpy
+    - numpy 1.13.*
     - ply
     - six
     - subprocess32  # [py2k]
@@ -58,7 +58,7 @@ requirements:
     - zlib 1.2.*
     - ply
     - swig {{swig_version}}
-    - numpy
+    - numpy 1.13.*
     - six
     - subprocess32  # [py2k]
     - sympy
