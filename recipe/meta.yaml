@@ -62,6 +62,7 @@ requirements:
     - six
     - subprocess32  # [py2k]
     - sympy
+    - mpmath
     - hdf5 1.8.18
 
 test:
