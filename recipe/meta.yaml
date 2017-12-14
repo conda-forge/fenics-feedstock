@@ -24,7 +24,7 @@ requirements:
     - libgcc 4.8.*  # [linux]
     - gcc 4.8.*  # [linux]
     - boost 1.65.1
-    - cmake
+    - cmake >=3.9
     - eigen 3.3.*
     - pkg-config
     - ptscotch 6.0.4
@@ -47,7 +47,7 @@ requirements:
     - python
     - setuptools
     - boost 1.65.1
-    - cmake
+    - cmake >=3.9
     - eigen 3.3.*
     - gcc 4.8.*  # [linux]
     - {{mpi}} {{mpi_version}}
