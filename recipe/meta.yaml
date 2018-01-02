@@ -9,8 +9,8 @@ package:
   version: {{version}}
 
 source:
-  url: https://bitbucket.org/fenics-project/dolfin/downloads/dolfin-{{version}}.tar.gz
-  sha256: 88e834b27cb9c50fa09ce70cbb41d1c96586882e28c921d644287be73ae9c4a5
+  url: https://bitbucket.org/fenics-project/dolfin/downloads/dolfin-{{version}}.post0.tar.gz
+  sha256: d3c40cd8c1c882f517999c25ea4220adcd01dbb1d829406fce99b1fc40184c82
 
 build:
   number: 0
