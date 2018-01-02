@@ -36,7 +36,7 @@ requirements:
     - slepc {{petsc_version}}
     - slepc4py {{petsc_version}}
     - swig {{swig_version}}
-    - numpy 1.13.*
+    - numpy 1.13.* *openblas*
     - ply
     - six
     - subprocess32  # [py2k]
@@ -60,7 +60,7 @@ requirements:
     - zlib 1.2.*
     - ply
     - swig {{swig_version}}
-    - numpy 1.13.*
+    - numpy 1.13.* *openblas*
     - six
     - subprocess32  # [py2k]
     - sympy
