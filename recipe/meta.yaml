@@ -13,7 +13,7 @@ source:
   sha256: d3c40cd8c1c882f517999c25ea4220adcd01dbb1d829406fce99b1fc40184c82
 
 build:
-  number: 0
+  number: 1
   skip: true  # [win]
 
 requirements:
@@ -31,6 +31,7 @@ requirements:
     - toolchain
     - zlib 1.2.*
     - {{mpi}} {{mpi_version}}
+    - openblas 0.2.20|0.2.20.*
     - petsc {{petsc_version}}
     - petsc4py {{petsc_version}}
     - slepc {{petsc_version}}
@@ -51,6 +52,7 @@ requirements:
     - eigen 3.3.*
     - gcc 4.8.*  # [linux]
     - {{mpi}} {{mpi_version}}
+    - openblas 0.2.20|0.2.20.*
     - petsc {{petsc_version}}
     - petsc4py {{petsc_version}}
     - slepc {{petsc_version}}
