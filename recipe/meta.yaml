@@ -1,5 +1,5 @@
 {% set version = "2017.2.0" %}
-{% set petsc_version = '3.8.*' %}
+{% set petsc_version = '3.9.*' %}
 {% set swig_version = '3.0.12' %}
 {% set mpi = "mpich" %}
 {% set mpi_version = '3.2.*' %}
@@ -37,7 +37,7 @@ requirements:
     - slepc {{petsc_version}}
     - slepc4py {{petsc_version}}
     - swig {{swig_version}}
-    - numpy 1.13.* *openblas*
+    - numpy 1.14.* *openblas*
     - ply
     - six
     - subprocess32  # [py2k]
@@ -62,7 +62,7 @@ requirements:
     - zlib 1.2.*
     - ply
     - swig {{swig_version}}
-    - numpy 1.13.* *openblas*
+    - numpy 1.14.* *openblas*
     - six
     - subprocess32  # [py2k]
     - sympy
