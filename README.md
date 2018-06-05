@@ -18,14 +18,16 @@ just-in-time compiled into efficient implementations.
 Current build status
 ====================
 
-Linux: [![Circle CI](https://circleci.com/gh/conda-forge/fenics-feedstock.svg?style=shield)](https://circleci.com/gh/conda-forge/fenics-feedstock)
-OSX: [![TravisCI](https://travis-ci.org/conda-forge/fenics-feedstock.svg?branch=master)](https://travis-ci.org/conda-forge/fenics-feedstock)
-Windows: ![](https://cdn.rawgit.com/conda-forge/conda-smithy/90845bba35bec53edac7a16638aa4d77217a3713/conda_smithy/static/disabled.svg)
+[![Linux](https://img.shields.io/circleci/project/github/conda-forge/fenics-feedstock/master.svg?label=Linux)](https://circleci.com/gh/conda-forge/fenics-feedstock)
+[![OSX](https://img.shields.io/travis/conda-forge/fenics-feedstock/master.svg?label=macOS)](https://travis-ci.org/conda-forge/fenics-feedstock)
+![Windows disabled](https://img.shields.io/badge/Windows-disabled-lightgrey.svg)
 
 Current release info
 ====================
-Version: [![Anaconda-Server Badge](https://anaconda.org/conda-forge/fenics/badges/version.svg)](https://anaconda.org/conda-forge/fenics)
-Downloads: [![Anaconda-Server Badge](https://anaconda.org/conda-forge/fenics/badges/downloads.svg)](https://anaconda.org/conda-forge/fenics)
+
+| Name | Downloads | Version | Platforms |
+| --- | --- | --- | --- |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-fenics-green.svg)](https://anaconda.org/conda-forge/fenics) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/fenics.svg)](https://anaconda.org/conda-forge/fenics) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/fenics.svg)](https://anaconda.org/conda-forge/fenics) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/fenics.svg)](https://anaconda.org/conda-forge/fenics) |
 
 Installing fenics
 =================
