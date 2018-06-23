@@ -18,55 +18,54 @@ build:
 
 requirements:
   build:
+    - cmake >=3.9
+    - pkg-config
+    - cmake >=3.9
+    - pkg-config
+    - {{ compiler('c') }}
+    - {{ compiler('cxx') }}
+  host:
     - python
     - pip
     # Make sure libgcc 5.* is not used at build time
-    - libgcc 4.8.*  # [linux]
-    - gcc 4.8.*  # [linux]
-    - boost 1.66.0
-    - cmake >=3.9
+    - boost
     - eigen 3.3.*
-    - pkg-config
     - ptscotch 6.0.4
-    - toolchain
-    - zlib 1.2.*
+    - zlib
     - {{mpi}} {{mpi_version}}
-    - openblas 0.2.20|0.2.20.*
+    - openblas
     - petsc {{petsc_version}}
     - petsc4py {{petsc_version}}
     - slepc {{petsc_version}}
     - slepc4py {{petsc_version}}
     - swig {{swig_version}}
-    - numpy 1.13.* *openblas*
+    - numpy        *openblas*
     - ply
     - six
     - subprocess32  # [py2k]
     - sympy
-    - hdf5 1.10.1
+    - hdf5
 
   run:
     - python
     - setuptools
-    - boost 1.66.0
-    - cmake >=3.9
+    - boost
     - eigen 3.3.*
-    - gcc 4.8.*  # [linux]
     - {{mpi}} {{mpi_version}}
-    - openblas 0.2.20|0.2.20.*
+    - openblas
     - petsc {{petsc_version}}
     - petsc4py {{petsc_version}}
     - slepc {{petsc_version}}
     - slepc4py {{petsc_version}}
-    - pkg-config
     - ptscotch 6.0.4
-    - zlib 1.2.*
+    - zlib
     - ply
     - swig {{swig_version}}
-    - numpy 1.13.* *openblas*
+    - {{ pin_compatible('numpy') }}  *openblas*
     - six
     - subprocess32  # [py2k]
     - sympy
-    - hdf5 1.10.1
+    - hdf5
 
 test:
   source_files:
