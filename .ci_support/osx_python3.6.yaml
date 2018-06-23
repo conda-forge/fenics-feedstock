@@ -1,0 +1,32 @@
+MACOSX_DEPLOYMENT_TARGET:
+- '10.9'
+boost:
+- 1.66.0
+c_compiler:
+- toolchain_c
+cxx_compiler:
+- toolchain_cxx
+hdf5:
+- 1.10.2
+macos_machine:
+- x86_64-apple-darwin13.4.0
+macos_min_version:
+- '10.9'
+openblas:
+- 0.2.20
+pin_run_as_build:
+  boost:
+    max_pin: x.x.x
+  hdf5:
+    max_pin: x.x.x
+  openblas:
+    max_pin: x.x.x
+  python:
+    min_pin: x.x
+    max_pin: x.x
+  zlib:
+    max_pin: x.x
+python:
+- '3.6'
+zlib:
+- '1.2'
