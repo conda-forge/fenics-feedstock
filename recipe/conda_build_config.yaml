@@ -15,5 +15,3 @@ pin_run_as_build:
     max_pin: x.x
   slepc4py:
     max_pin: x.x
-  swig:
-    max_pin: x.x.x
