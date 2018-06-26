@@ -48,4 +48,6 @@ else
     find $PREFIX/share/dolfin -name '*.cmake' -print -exec sh -c "sed -E -i''  's@/usr/lib(64)?/[^;]*(.so|.a);@@g' {}" \;
 fi
 
-
+# install Python bindings
+cd ../python
+$PYTHON -m pip install -v --no-deps .
