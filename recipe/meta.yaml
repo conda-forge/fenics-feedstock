@@ -75,7 +75,6 @@ test:
 
   imports:
     - dijitso
-    - instant
     - ufl
     - ufl.utils
     - ufl.finiteelement
