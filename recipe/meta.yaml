@@ -16,6 +16,7 @@ requirements:
   build:
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
+    - gcc >=4.8.3  # [linux]
   host:
     - python
     - pip
@@ -40,7 +41,7 @@ requirements:
     - hdf5
 
   run:
-    - gcc >=4.8  # [linux]
+    - gcc >=4.8.3  # [linux]
     - python
     - setuptools
     - boost
