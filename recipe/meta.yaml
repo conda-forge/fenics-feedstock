@@ -1,4 +1,4 @@
-{% set version = "2017.2.0" %}
+{% set version = "2018.1.0" %}
 {% set petsc_version = '3.9.*' %}
 {% set swig_version = '3.0.12' %}
 {% set mpi = "mpich" %}
@@ -10,11 +10,11 @@ package:
 
 source:
   url: https://bitbucket.org/fenics-project/dolfin/downloads/dolfin-{{version}}.post0.tar.gz
-  sha256: d3c40cd8c1c882f517999c25ea4220adcd01dbb1d829406fce99b1fc40184c82
+  sha256: 4644b0f2a64aafa59f8705c7fa0a1825abc05fa59afa504d99d78ab1bb2c127d
 
 build:
-  number: 3
-  skip: true  # [win]
+  number: 0
+  skip: true  # [win or py2k]
 
 requirements:
   build:
