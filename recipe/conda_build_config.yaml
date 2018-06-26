@@ -1,0 +1,19 @@
+mpi:
+  - 'mpich'
+petsc:
+  - '3.9.*'
+pin_run_as_build:
+  eigen:
+    max_pin: x.x
+  petsc:
+    max_pin: x.x
+  petsc4py:
+    max_pin: x.x
+  ptscotch:
+    max_pin: x.x.x
+  slepc:
+    max_pin: x.x
+  slepc4py:
+    max_pin: x.x
+  swig:
+    max_pin: x.x.x
