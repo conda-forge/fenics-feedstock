@@ -40,9 +40,7 @@ requirements:
     - hdf5
 
   run:
-    - {{ compiler('c') }}
-    - {{ compiler('cxx') }}
-    - {{ mpi }}
+    - gcc >=4.8  # [linux]
     - python
     - setuptools
     - boost
