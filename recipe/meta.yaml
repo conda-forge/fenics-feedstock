@@ -16,7 +16,7 @@ requirements:
   build:
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
-    - gcc >=4.8.3  # [linux]
+    - gcc >=4.8.3  # [linux and c_compiler == 'toolchain_c']
   host:
     - python
     - pip
@@ -34,9 +34,7 @@ requirements:
     - slepc4py {{ petsc }}
     - numpy
     - pybind11
-    - ply
     - six
-    - subprocess32  # [py2k]
     - sympy
     - hdf5
 
@@ -56,10 +54,8 @@ requirements:
     - ptscotch
     - pybind11
     - zlib
-    - ply
     - numpy
     - six
-    - subprocess32  # [py2k]
     - sympy
     - hdf5
 
