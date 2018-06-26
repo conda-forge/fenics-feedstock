@@ -29,6 +29,7 @@ requirements:
     - ptscotch
     - zlib
     - {{ mpi }}
+    - mpi4py
     - openblas
     - petsc {{ petsc }}
     - petsc4py {{ petsc }}
@@ -47,12 +48,14 @@ requirements:
     - boost
     - cmake >=3.9
     - eigen
+    - mpi4py
     - openblas
     - petsc
     - petsc4py
     - slepc
     - slepc4py
     - pkg-config
+    - pkgconfig  # Python pkgconfig package
     - ptscotch
     - pybind11
     - zlib
