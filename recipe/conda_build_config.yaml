@@ -2,8 +2,12 @@ mpi:
   - 'mpich'
 petsc:
   - '3.9.*'
+numpy:
+  - '1.14.*'
 pin_run_as_build:
   eigen:
+    max_pin: x.x
+  numpy:
     max_pin: x.x
   petsc:
     max_pin: x.x
