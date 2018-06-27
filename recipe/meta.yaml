@@ -92,9 +92,6 @@ test:
     - dolfin
 
   commands:
-    - instant-clean
-    - instant-showcache
-
     - ufl-version
     - ufl2py --help
 
