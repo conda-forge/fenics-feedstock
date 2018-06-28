@@ -52,3 +52,5 @@ fi
 # install Python bindings
 cd ../python
 $PYTHON -m pip install -v --no-deps .
+cd test
+$PYTHON -c 'from dolfin import *; info(parameters["form_compiler"], True)'

@@ -8,6 +8,8 @@ fi
 
 export DIJITSO_CACHE_DIR=${PWD}/instant
 
+python -c 'from dolfin import *; info(parameters["form_compiler"], True)'
+
 pushd "python/test/unit"
 TESTS="jit fem/test_form.py::test_assemble_linear"
 
