@@ -48,6 +48,7 @@ requirements:
     - boost
     - cmake >=3.9
     - eigen
+    - {{ mpi }}
     - mpi4py
     - openblas
     - petsc
@@ -59,7 +60,7 @@ requirements:
     - ptscotch
     - pybind11
     - zlib
-    - numpy
+    - {{ pin_compatible('numpy', max_pin=None) }}
     - six
     - sympy
     - hdf5
