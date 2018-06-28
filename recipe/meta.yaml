@@ -28,6 +28,7 @@ requirements:
     - cmake >=3.9
     - eigen
     - pkg-config
+    - pkgconfig
     - ptscotch
     - zlib
     - {{ mpi }}
