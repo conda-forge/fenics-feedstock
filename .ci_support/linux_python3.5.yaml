@@ -1,5 +1,5 @@
 boost:
-- 1.66.0
+- 1.67.0
 c_compiler:
 - toolchain_c
 cxx_compiler:
