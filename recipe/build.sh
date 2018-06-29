@@ -4,6 +4,10 @@ if [[ "$(uname)" == "Darwin" ]]; then
   export MACOSX_DEPLOYMENT_TARGET=10.9
   export CXXFLAGS="-std=c++11 -stdlib=libc++ $CXXFLAGS"
   export LDFLAGS="-Wl,-rpath,$PREFIX/lib $LDFLAGS"
+  # scrub problematic -fdebug-prefix-map from C[XX]FLAGS
+  # these are loaded in the clang[++] activate scripts
+  export CFLAGS=$(echo $CFLAGS | sed -E 's@\-fdebug\-prefix\-map[^ ]*@@g')
+  export CXXFLAGS=$(echo $CXXFLAGS | sed -E 's@\-fdebug\-prefix\-map[^ ]*@@g')
 fi
 
 # Components (ffc, etc.)
