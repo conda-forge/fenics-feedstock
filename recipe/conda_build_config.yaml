@@ -1,3 +1,9 @@
+c_compiler:
+  - clang  # [osx]
+cxx_compiler:
+  - clangxx  # [osx]
+fortran_compiler:
+  - gfortran  # [osx]
 mpi:
   - 'mpich'
 petsc:
