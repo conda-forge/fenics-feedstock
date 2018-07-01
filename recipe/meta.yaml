@@ -1,8 +1,4 @@
-{% set version = "2017.2.0" %}
-{% set petsc_version = '3.8.*' %}
-{% set swig_version = '3.0.12' %}
-{% set mpi = "mpich" %}
-{% set mpi_version = '3.2.*' %}
+{% set version = "2018.1.0" %}
 
 package:
   name: fenics
@@ -10,67 +6,72 @@ package:
 
 source:
   url: https://bitbucket.org/fenics-project/dolfin/downloads/dolfin-{{version}}.post0.tar.gz
-  sha256: d3c40cd8c1c882f517999c25ea4220adcd01dbb1d829406fce99b1fc40184c82
+  sha256: 4644b0f2a64aafa59f8705c7fa0a1825abc05fa59afa504d99d78ab1bb2c127d
+  patches:
+    - public-eigenlubase.patch  # [osx]
 
 build:
-  number: 3
-  skip: true  # [win]
+  number: 0
+  skip: true  # [win or py2k]
+  run_exports:
+    - {{ pin_subpackage('fenics', 'max_pin=x.x.x') }}
 
 requirements:
   build:
+    - toolchain  # [osx]
+    - {{ compiler('c') }}
+    - {{ compiler('cxx') }}
+    - gcc >=4.8.3  # [linux and c_compiler == 'toolchain_c']
+  host:
     - python
     - pip
-    # Make sure libgcc 5.* is not used at build time
-    - libgcc 4.8.*  # [linux]
-    - gcc 4.8.*  # [linux]
-    - boost 1.66.0
+    - boost
     - cmake >=3.9
-    - eigen 3.3.*
+    - eigen
     - pkg-config
-    - ptscotch 6.0.4
-    - toolchain
-    - zlib 1.2.*
-    - {{mpi}} {{mpi_version}}
-    - openblas 0.2.20|0.2.20.*
-    - petsc {{petsc_version}}
-    - petsc4py {{petsc_version}}
-    - slepc {{petsc_version}}
-    - slepc4py {{petsc_version}}
-    - swig {{swig_version}}
-    - numpy 1.13.* *openblas*
-    - ply
+    - pkgconfig
+    - ptscotch
+    - zlib
+    - {{ mpi }}
+    - mpi4py
+    - openblas
+    - petsc {{ petsc }}
+    - petsc4py {{ petsc }}
+    - slepc {{ petsc }}
+    - slepc4py {{ petsc }}
+    - numpy
+    - pybind11
     - six
-    - subprocess32  # [py2k]
     - sympy
-    - hdf5 1.10.1
+    - hdf5
 
   run:
+    - gcc >=4.8.3  # [linux]
     - python
     - setuptools
-    - boost 1.66.0
+    - boost
     - cmake >=3.9
-    - eigen 3.3.*
-    - gcc 4.8.*  # [linux]
-    - {{mpi}} {{mpi_version}}
-    - openblas 0.2.20|0.2.20.*
-    - petsc {{petsc_version}}
-    - petsc4py {{petsc_version}}
-    - slepc {{petsc_version}}
-    - slepc4py {{petsc_version}}
+    - eigen
+    - {{ mpi }}
+    - mpi4py
+    - openblas
+    - petsc
+    - petsc4py
+    - slepc
+    - slepc4py
     - pkg-config
-    - ptscotch 6.0.4
-    - zlib 1.2.*
-    - ply
-    - swig {{swig_version}}
-    - numpy 1.13.* *openblas*
+    - pkgconfig  # Python pkgconfig package
+    - ptscotch
+    - pybind11
+    - zlib
+    - {{ pin_compatible('numpy', max_pin=None) }}
     - six
-    - subprocess32  # [py2k]
     - sympy
-    - hdf5 1.10.1
+    - hdf5
 
 test:
   source_files:
-    - test
+    - python/test
 
   requires:
     - nose
@@ -80,7 +81,6 @@ test:
 
   imports:
     - dijitso
-    - instant
     - ufl
     - ufl.utils
     - ufl.finiteelement
@@ -97,9 +97,6 @@ test:
     - dolfin
 
   commands:
-    - instant-clean
-    - instant-showcache
-
     - ufl-version
     - ufl2py --help
 

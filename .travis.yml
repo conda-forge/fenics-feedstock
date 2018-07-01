@@ -8,10 +8,9 @@ osx_image: xcode6.4
 
 env:
   matrix:
-    
-    - CONDA_PY=27
-    - CONDA_PY=35
-    - CONDA_PY=36
+    - CONFIG=osx_python3.5
+    - CONFIG=osx_python3.6
+
   global:
     # The BINSTAR_TOKEN secure variable. This is defined canonically in conda-forge.yml.
     - secure: "ew7zophridgjakQQypExDggv4U7YuXaT0DcIaSfFnlEUNq3g7DSbM31RrofM5iljHSZGiJ5s9n6r8PdqP7uHNqBYIs5L47KhJjoocHJgXgKgk0ybqhe0Yd5+UjmraHal1lJ9/t1V0oZbr44HIrSYzxbF+80gqGQRsBr2h63zXgoeAseBFVsU+VOtRa7XV0r+T+jy18UYmYF6GVmz/Ll00SGF41EkmdLXFOfraRnzza0CbL9EZzCdA1NtC3s+e7DYZgu1JuCwZiIMSu2d0C8Q6JW1XLuV+2SO4PiCR/2UNF25tgTNK/Cmbr2Bxxxl0Tye8zSK0Ru1AZTz26sJxeQtdAx6EFnyxU3tdVYcNUXGq81CStxO4YQlVjlpPe97LOl94oAqW37UF3EH/0lEUAiiZ52hlocNcd/qeUGqhCxLszY5Y8Bqeytbf7zM/eJ69hlFMMqXXX7Hzw37x+00zq7qPtR4+RlFtZSsMcwHjcjWa3e/Wt60pEitrcbGbXp3FcvfMGUe5YPOxzVEhE+nlE3R0NuK/IKYm7P7Jl9D15zSzgmQPmbPwU+FFFuarZ0rugZwihpeIjaGaMLpGf8LvQZf/jPUAuR6mlWcnC7Lu6yg6zUoZ9Zs+PnjQEJ6V6UuIgNRAcNlF67iV/kdEiQz7hMEpro8VpWTBegyPhVaDeYN2+M="
@@ -20,7 +19,7 @@ env:
 before_install:
     # Fast finish the PR.
     - |
-      (curl https://raw.githubusercontent.com/conda-forge/conda-forge-build-setup-feedstock/master/recipe/ff_ci_pr_build.py | \
+      (curl https://raw.githubusercontent.com/conda-forge/conda-forge-ci-setup-feedstock/master/recipe/ff_ci_pr_build.py | \
           python - -v --ci "travis" "${TRAVIS_REPO_SLUG}" "${TRAVIS_BUILD_NUMBER}" "${TRAVIS_PULL_REQUEST}") || exit 1
 
     # Remove homebrew.
@@ -52,10 +51,10 @@ install:
       conda config --add channels defaults
       conda config --add channels conda-forge
       conda config --set show_channel_urls true
-      conda install --yes --quiet conda-forge-build-setup
+      conda install --yes --quiet conda-forge-ci-setup=1
       source run_conda_forge_build_setup
 
 script:
-  - conda build ./recipe
+  - conda build ./recipe -m ./.ci_support/${CONFIG}.yaml
 
-  - upload_or_check_non_existence ./recipe conda-forge --channel=main
+  - upload_or_check_non_existence ./recipe conda-forge --channel=main -m ./.ci_support/${CONFIG}.yaml
