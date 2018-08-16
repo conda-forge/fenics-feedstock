@@ -18,7 +18,6 @@ build:
 
 requirements:
   build:
-    - toolchain  # [osx]
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
     - gcc >=4.8.3  # [linux and c_compiler == 'toolchain_c']
