@@ -11,14 +11,13 @@ source:
     - public-eigenlubase.patch  # [osx]
 
 build:
-  number: 0
+  number: 1
   skip: true  # [win or py2k]
   run_exports:
     - {{ pin_subpackage('fenics', 'max_pin=x.x.x') }}
 
 requirements:
   build:
-    - toolchain  # [osx]
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
     - gcc >=4.8.3  # [linux and c_compiler == 'toolchain_c']
@@ -42,7 +41,7 @@ requirements:
     - numpy
     - pybind11
     - six
-    - sympy
+    - sympy >=1,<1.2
     - hdf5
 
   run:
@@ -66,7 +65,7 @@ requirements:
     - zlib
     - {{ pin_compatible('numpy', max_pin=None) }}
     - six
-    - sympy
+    - sympy >=1,<1.2
     - hdf5
 
 test:
