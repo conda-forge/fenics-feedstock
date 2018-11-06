@@ -7,7 +7,7 @@ fortran_compiler:
 mpi:
   - 'mpich'
 petsc:
-  - '3.9.*'
+  - '3.10.*'
 numpy:
   - '1.14.*'
 pin_run_as_build:
