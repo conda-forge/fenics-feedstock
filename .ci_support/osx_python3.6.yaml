@@ -1,13 +1,17 @@
 MACOSX_DEPLOYMENT_TARGET:
 - '10.9'
 boost:
-- 1.67.0
+- 1.68.0
 c_compiler:
 - clang
+channel_sources:
+- conda-forge,defaults
+channel_targets:
+- conda-forge main
 cxx_compiler:
 - clangxx
 hdf5:
-- 1.10.2
+- 1.10.3
 macos_machine:
 - x86_64-apple-darwin13.4.0
 macos_min_version:
@@ -19,7 +23,7 @@ numpy:
 openblas:
 - 0.2.20
 petsc:
-- 3.9.*
+- 3.10.*
 pin_run_as_build:
   boost:
     max_pin: x.x.x
