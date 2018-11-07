@@ -17,7 +17,7 @@ mpi:
 numpy:
 - 1.14.*
 openblas:
-- 0.3.3
+- 0.2.20
 petsc:
 - 3.10.*
 pin_run_as_build:
