@@ -25,6 +25,10 @@ pin_run_as_build:
     max_pin: x.x
   ptscotch:
     max_pin: x.x.x
+  # pybind11 generation breaks on patch releases
+  # at least between 2.2.3 and 2.2.4
+  pybind11:
+    max_pin: x.x.x
   slepc:
     max_pin: x.x
   slepc4py:
