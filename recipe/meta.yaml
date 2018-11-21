@@ -57,7 +57,7 @@ requirements:
     - pybind11
     - six
     - sympy >=1
-    - hdf5
+    - hdf5 1.10.4 mpi_{{ mpi }}_*
 
   run:
     - gcc >=4.8.3  # [linux and c_compiler == 'toolchain_c']
