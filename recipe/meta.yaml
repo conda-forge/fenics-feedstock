@@ -11,7 +11,7 @@ source:
     - public-eigenlubase.patch  # [osx]
 
 build:
-  number: 3
+  number: 4
   skip: true  # [win or py2k]
   run_exports:
     - {{ pin_subpackage('fenics', 'max_pin=x.x.x') }}
