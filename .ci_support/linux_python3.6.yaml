@@ -11,19 +11,17 @@ cxx_compiler:
 docker_image:
 - condaforge/linux-anvil
 hdf5:
-- 1.10.3
+- 1.10.4
 mpi:
 - mpich
 numpy:
 - 1.14.*
 openblas:
-- 0.2.20
+- 0.3.3
 petsc:
 - 3.10.*
 pin_run_as_build:
   boost:
-    max_pin: x.x.x
-  hdf5:
     max_pin: x.x.x
   numpy:
     max_pin: x.x
