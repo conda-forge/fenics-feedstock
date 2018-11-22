@@ -10,8 +10,6 @@ petsc:
   - '3.10.*'
 numpy:
   - '1.14.*'
-openblas:
-  - '0.2.20'
 pin_run_as_build:
   eigen:
     max_pin: x.x
