@@ -15,7 +15,7 @@ hdf5:
 mpi:
 - mpich
 numpy:
-- 1.14.*
+- 1.15.*
 openblas:
 - 0.3.3
 petsc:
