@@ -11,7 +11,7 @@ source:
     - public-eigenlubase.patch  # [osx]
 
 build:
-  number: 1004
+  number: 1005
   skip: true  # [win or py2k]
   run_exports:
     - {{ pin_subpackage('fenics', 'max_pin=x.x.x') }}
@@ -20,7 +20,14 @@ requirements:
   build:
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
-    - gcc >=4.8.3  # [linux and c_compiler == 'toolchain_c']
+    # toolchain compilers are too old,
+    # use conda-compilers even for 'toolchain' builds
+    {% if c_compiler == 'toolchain_c' %}
+    - clang_{{ target_platform }}  # [osx]
+    - clangxx_{{ target_platform }}  # [osx]
+    - gcc_{{ target_platform }}  # [linux]
+    - gxx_{{ target_platform }}  # [linux]
+    {% endif %}
   host:
     - python
     - pip
@@ -45,7 +52,8 @@ requirements:
     - hdf5
 
   run:
-    - gcc >=4.8.3  # [linux]
+    - gcc_impl_{{ target_platform }}  # [linux]
+    - gxx_impl_{{ target_platform }}  # [linux]
     - python
     - setuptools
     - boost
