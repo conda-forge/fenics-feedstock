@@ -52,8 +52,7 @@ requirements:
     - hdf5
 
   run:
-    - gcc_impl_{{ target_platform }}  # [linux]
-    - gxx_impl_{{ target_platform }}  # [linux]
+    - gxx_{{ target_platform }}  # [linux]
     - python
     - setuptools
     - boost
