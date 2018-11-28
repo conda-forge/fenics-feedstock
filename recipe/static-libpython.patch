@@ -1,21 +1,29 @@
-From 2f80bb3234cd22f3167bed24cf90f128bf0b0f8b Mon Sep 17 00:00:00 2001
+From 0bd0554d9aa804f7723637cc971a99887a813281 Mon Sep 17 00:00:00 2001
 From: Min RK <benjaminrk@gmail.com>
 Date: Wed, 28 Nov 2018 14:40:58 +0100
-Subject: [PATCH] support statically linked libpython
+Subject: [PATCH] support statically linked libpython on darwin
 
 Python may itself statically link libpython, in which case adding `-lpython3.6m` will result in a broken library
 
 I suspect that in general, adding `-lpython` is never needed,
 and `-undefined dynamic_lookup` is the only thing needed here.
 ---
- python/dolfin/jit/pybind11jit.py | 10 ++++++++--
- 1 file changed, 8 insertions(+), 2 deletions(-)
+ python/dolfin/jit/pybind11jit.py | 11 ++++++++++-
+ 1 file changed, 10 insertions(+), 1 deletion(-)
 
 diff --git a/python/dolfin/jit/pybind11jit.py b/python/dolfin/jit/pybind11jit.py
-index d59d38da3..7f810aa88 100644
+index d59d38da3..8dd6dd529 100644
 --- a/python/dolfin/jit/pybind11jit.py
 +++ b/python/dolfin/jit/pybind11jit.py
-@@ -44,6 +44,12 @@ def compile_cpp_code(cpp_code, **kwargs):
+@@ -3,6 +3,7 @@
+ import hashlib
+ import dijitso
+ import re
++import sys
+ 
+ from dolfin.cpp.log import log, LogLevel
+ from . import get_pybind_include
+@@ -44,6 +45,12 @@ def compile_cpp_code(cpp_code, **kwargs):
      from distutils import sysconfig
      params = dijitso.params.default_params()
      pyversion = "python" + sysconfig.get_config_var("LDVERSION")
@@ -28,7 +36,7 @@ index d59d38da3..7f810aa88 100644
      params['cache']['lib_prefix'] = ""
      params['cache']['lib_basename'] = ""
      params['cache']['lib_loader'] = "import"
-@@ -55,10 +61,10 @@ def compile_cpp_code(cpp_code, **kwargs):
+@@ -55,10 +62,12 @@ def compile_cpp_code(cpp_code, **kwargs):
  
      # Include path and library info from DOLFIN (dolfin.pc)
      params['build']['include_dirs'] = dolfin_pc["include_dirs"] + extra_include_dirs + get_pybind_include() + [sysconfig.get_config_var("INCLUDEDIR") + "/" + pyversion]
@@ -36,8 +44,9 @@ index d59d38da3..7f810aa88 100644
 +    params['build']['libs'] = dolfin_pc["libraries"] + extra_libraries + libpython
      params['build']['lib_dirs'] = dolfin_pc["library_dirs"] + extra_library_dirs + [sysconfig.get_config_var("LIBDIR")]
  
--    params['build']['cxxflags'] += ('-fno-lto',)
-+    params['build']['cxxflags'] += ('-fno-lto', '-undefined', 'dynamic_lookup')
+     params['build']['cxxflags'] += ('-fno-lto',)
++    if sys.platform == 'darwin':
++        params['build']['cxxflags'] += ('-undefined', 'dynamic_lookup')
  
      for flag in cppargs:
          params['build']['cxxflags'] += (flag,)
