@@ -24,9 +24,13 @@ requirements:
     {% if c_compiler == 'toolchain_c' %}
     - clang_{{ target_platform }}  # [osx]
     - clangxx_{{ target_platform }}  # [osx]
-    - gcc_{{ target_platform }}  # [linux]
-    - gxx_{{ target_platform }}  # [linux]
+    # can't use 'true' conda compilers on linux on the main channel,
+    # stick with old and troublesome gcc package
+    - gcc >=4.8.3 # [linux]
+    - {{ compiler('c') }} # [linux]
+    - {{ compiler('cxx') }} # [linux]
     {% else %}
+    # the future
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
     {% endif %}
@@ -54,7 +58,8 @@ requirements:
     - hdf5
 
   run:
-    - gxx_{{ target_platform }}  # [linux]
+    - gcc >=4.8.3  # [linux and c_compiler == 'toolchain_c']
+    - gxx_{{ target_platform }}  # [linux and c_compiler != 'toolchain_c']
     - python
     - setuptools
     - boost
