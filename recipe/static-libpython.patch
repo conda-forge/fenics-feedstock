@@ -1,0 +1,46 @@
+From 2f80bb3234cd22f3167bed24cf90f128bf0b0f8b Mon Sep 17 00:00:00 2001
+From: Min RK <benjaminrk@gmail.com>
+Date: Wed, 28 Nov 2018 14:40:58 +0100
+Subject: [PATCH] support statically linked libpython
+
+Python may itself statically link libpython, in which case adding `-lpython3.6m` will result in a broken library
+
+I suspect that in general, adding `-lpython` is never needed,
+and `-undefined dynamic_lookup` is the only thing needed here.
+---
+ python/dolfin/jit/pybind11jit.py | 10 ++++++++--
+ 1 file changed, 8 insertions(+), 2 deletions(-)
+
+diff --git a/python/dolfin/jit/pybind11jit.py b/python/dolfin/jit/pybind11jit.py
+index d59d38da3..7f810aa88 100644
+--- a/python/dolfin/jit/pybind11jit.py
++++ b/python/dolfin/jit/pybind11jit.py
+@@ -44,6 +44,12 @@ def compile_cpp_code(cpp_code, **kwargs):
+     from distutils import sysconfig
+     params = dijitso.params.default_params()
+     pyversion = "python" + sysconfig.get_config_var("LDVERSION")
++    libpython = []
++    if sysconfig.get_config_var("Py_ENABLE_SHARED"):
++        # only link libpython if Python itself is dynamically linked.
++        # linking libpython when python itself statically links libpython
++        # can fail with e.g. Fatal Python error: PyThreadState_Get: no current thread
++        libpython = [pyversion]
+     params['cache']['lib_prefix'] = ""
+     params['cache']['lib_basename'] = ""
+     params['cache']['lib_loader'] = "import"
+@@ -55,10 +61,10 @@ def compile_cpp_code(cpp_code, **kwargs):
+ 
+     # Include path and library info from DOLFIN (dolfin.pc)
+     params['build']['include_dirs'] = dolfin_pc["include_dirs"] + extra_include_dirs + get_pybind_include() + [sysconfig.get_config_var("INCLUDEDIR") + "/" + pyversion]
+-    params['build']['libs'] = dolfin_pc["libraries"] + extra_libraries + [pyversion]
++    params['build']['libs'] = dolfin_pc["libraries"] + extra_libraries + libpython
+     params['build']['lib_dirs'] = dolfin_pc["library_dirs"] + extra_library_dirs + [sysconfig.get_config_var("LIBDIR")]
+ 
+-    params['build']['cxxflags'] += ('-fno-lto',)
++    params['build']['cxxflags'] += ('-fno-lto', '-undefined', 'dynamic_lookup')
+ 
+     for flag in cppargs:
+         params['build']['cxxflags'] += (flag,)
+-- 
+2.19.2
+
