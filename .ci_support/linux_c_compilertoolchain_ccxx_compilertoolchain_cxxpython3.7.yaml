@@ -1,4 +1,4 @@
-boost:
+boost_cpp:
 - 1.68.0
 build_number_decrement:
 - '1000'
@@ -23,7 +23,7 @@ openblas:
 petsc:
 - 3.10.*
 pin_run_as_build:
-  boost:
+  boost-cpp:
     max_pin: x.x.x
   numpy:
     max_pin: x.x
@@ -38,8 +38,6 @@ pin_run_as_build:
     max_pin: x.x
 python:
 - '3.7'
-target_platform:
-- linux-64
 zip_keys:
 - - c_compiler
   - cxx_compiler
