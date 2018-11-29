@@ -9,22 +9,37 @@ source:
   sha256: 4644b0f2a64aafa59f8705c7fa0a1825abc05fa59afa504d99d78ab1bb2c127d
   patches:
     - public-eigenlubase.patch  # [osx]
+    - static-libpython.patch
 
 build:
-  number: 4
-  skip: true  # [win or py2k]
+  number: 1005
+  # can't build linux+py37 on toolchain since we are stuck with the old gcc package
+  skip: true  # [win or py2k or (linux and py==37 and c_compiler == 'toolchain_c')]
   run_exports:
     - {{ pin_subpackage('fenics', 'max_pin=x.x.x') }}
 
 requirements:
   build:
+    # toolchain compilers are too old,
+    # use conda-compilers even for 'toolchain' builds
+    {% if c_compiler == 'toolchain_c' %}
+    - clang_{{ target_platform }}  # [osx]
+    - clangxx_{{ target_platform }}  # [osx]
+    # can't use 'true' conda compilers on linux on the main channel,
+    # stick with old and troublesome gcc package
+    - gcc >=4.8.3  # [linux]
+    - {{ compiler('c') }}  # [linux]
+    - {{ compiler('cxx') }}  # [linux]
+    {% else %}
+    # the future
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
-    - gcc >=4.8.3  # [linux and c_compiler == 'toolchain_c']
+    {% endif %}
+    - patch  # for applying fiat patch
   host:
     - python
     - pip
-    - boost
+    - boost-cpp
     - cmake >=3.9
     - eigen
     - pkg-config
@@ -41,14 +56,15 @@ requirements:
     - numpy
     - pybind11
     - six
-    - sympy >=1,<1.2
+    - sympy >=1
     - hdf5
 
   run:
-    - gcc >=4.8.3  # [linux]
+    - gcc >=4.8.3  # [linux and c_compiler == 'toolchain_c']
+    - gxx_{{ target_platform }}  # [linux and c_compiler != 'toolchain_c']
     - python
     - setuptools
-    - boost
+    - boost-cpp
     - cmake >=3.9
     - eigen
     - {{ mpi }}
@@ -65,7 +81,7 @@ requirements:
     - zlib
     - {{ pin_compatible('numpy', max_pin=None) }}
     - six
-    - sympy >=1,<1.2
+    - sympy >=1
     - hdf5
 
 test:

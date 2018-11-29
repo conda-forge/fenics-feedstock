@@ -4,15 +4,26 @@ if [[ "$(uname)" == "Darwin" ]]; then
   export MACOSX_DEPLOYMENT_TARGET=10.9
   export CXXFLAGS="-std=c++11 -stdlib=libc++ $CXXFLAGS"
   export LDFLAGS="-Wl,-rpath,$PREFIX/lib $LDFLAGS"
-  # scrub problematic -fdebug-prefix-map from C[XX]FLAGS
-  # these are loaded in the clang[++] activate scripts
-  export CFLAGS=$(echo $CFLAGS | sed -E 's@\-fdebug\-prefix\-map[^ ]*@@g')
-  export CXXFLAGS=$(echo $CXXFLAGS | sed -E 's@\-fdebug\-prefix\-map[^ ]*@@g')
 fi
+
+if [[ "$c_compiler" == "toolchain_c" ]]; then
+  # unset sysconfig patch set by other compiler package
+  # which is wrong with toolchain_c registered
+  unset _CONDA_PYTHON_SYSCONFIGDATA_NAME
+fi
+
+# scrub problematic -fdebug-prefix-map from C[XX]FLAGS
+# these are loaded in the clang[++] activate scripts
+export CFLAGS=$(echo $CFLAGS | sed -E 's@\-fdebug\-prefix\-map[^ ]*@@g')
+export CXXFLAGS=$(echo $CXXFLAGS | sed -E 's@\-fdebug\-prefix\-map[^ ]*@@g')
 
 # Components (ffc, etc.)
 pip install --no-deps --no-binary :all: -r "${RECIPE_DIR}/component-requirements.txt"
 
+# apply sympy 1.2 compatibility patch to fiat
+pushd "$SP_DIR"
+cat "$RECIPE_DIR/fiat-sympy-1.2.patch" | patch -p1
+popd
 # DOLFIN
 
 rm -rf build

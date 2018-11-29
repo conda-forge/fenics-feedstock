@@ -1,5 +1,7 @@
-boost:
+boost_cpp:
 - 1.68.0
+build_number_decrement:
+- '1000'
 c_compiler:
 - toolchain_c
 channel_sources:
@@ -21,7 +23,7 @@ openblas:
 petsc:
 - 3.10.*
 pin_run_as_build:
-  boost:
+  boost-cpp:
     max_pin: x.x.x
   numpy:
     max_pin: x.x
@@ -36,5 +38,14 @@ pin_run_as_build:
     max_pin: x.x
 python:
 - '3.6'
+target_platform:
+- linux-64
+zip_keys:
+- - c_compiler
+  - cxx_compiler
+  - channel_sources
+  - channel_targets
+  - docker_image
+  - build_number_decrement
 zlib:
 - '1.2'
