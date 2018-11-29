@@ -38,7 +38,7 @@ requirements:
   host:
     - python
     - pip
-    - boost
+    - boost-cpp
     - cmake >=3.9
     - eigen
     - pkg-config
@@ -63,7 +63,7 @@ requirements:
     - gxx_{{ target_platform }}  # [linux and c_compiler != 'toolchain_c']
     - python
     - setuptools
-    - boost
+    - boost-cpp
     - cmake >=3.9
     - eigen
     - {{ mpi }}
