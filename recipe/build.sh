@@ -20,6 +20,10 @@ export CXXFLAGS=$(echo $CXXFLAGS | sed -E 's@\-fdebug\-prefix\-map[^ ]*@@g')
 # Components (ffc, etc.)
 pip install --no-deps --no-binary :all: -r "${RECIPE_DIR}/component-requirements.txt"
 
+# apply sympy 1.2 compatibility patch to fiat
+pushd "$SP_DIR"
+cat "$RECIPE_DIR/fiat-sympy-1.2.patch" | patch -p1
+popd
 # DOLFIN
 
 rm -rf build

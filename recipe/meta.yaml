@@ -26,14 +26,15 @@ requirements:
     - clangxx_{{ target_platform }}  # [osx]
     # can't use 'true' conda compilers on linux on the main channel,
     # stick with old and troublesome gcc package
-    - gcc >=4.8.3 # [linux]
-    - {{ compiler('c') }} # [linux]
-    - {{ compiler('cxx') }} # [linux]
+    - gcc >=4.8.3  # [linux]
+    - {{ compiler('c') }}  # [linux]
+    - {{ compiler('cxx') }}  # [linux]
     {% else %}
     # the future
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
     {% endif %}
+    - patch  # for applying fiat patch
   host:
     - python
     - pip
@@ -54,7 +55,7 @@ requirements:
     - numpy
     - pybind11
     - six
-    - sympy >=1,<1.2
+    - sympy >=1
     - hdf5
 
   run:
@@ -79,7 +80,7 @@ requirements:
     - zlib
     - {{ pin_compatible('numpy', max_pin=None) }}
     - six
-    - sympy >=1,<1.2
+    - sympy >=1
     - hdf5
 
 test:
