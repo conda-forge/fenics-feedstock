@@ -13,7 +13,8 @@ source:
 
 build:
   number: 1005
-  skip: true  # [win or py2k]
+  # can't build linux+py37 on toolchain since we are stuck with the old gcc package
+  skip: true  # [win or py2k or (linux and py==37 and c_compiler == 'toolchain_c')]
   run_exports:
     - {{ pin_subpackage('fenics', 'max_pin=x.x.x') }}
 
