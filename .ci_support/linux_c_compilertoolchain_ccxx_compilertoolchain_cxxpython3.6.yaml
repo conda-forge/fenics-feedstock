@@ -38,6 +38,8 @@ pin_run_as_build:
     max_pin: x.x
 python:
 - '3.6'
+target_platform:
+- linux-64
 zip_keys:
 - - c_compiler
   - cxx_compiler
