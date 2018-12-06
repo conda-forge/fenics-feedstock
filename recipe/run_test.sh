@@ -13,6 +13,7 @@ python <<EOF
 import dolfin
 dolfin.info(dolfin.parameters["form_compiler"], True)
 assert dolfin.has_hdf5(), 'hdf5'
+assert dolfin.has_hdf5_parallel(), 'parallel hdf5'
 assert dolfin.has_petsc(), 'petsc'
 assert dolfin.has_petsc4py(), 'petsc4py'
 assert dolfin.has_slepc(), 'slepc'

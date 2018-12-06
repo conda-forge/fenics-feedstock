@@ -12,7 +12,7 @@ source:
     - static-libpython.patch
 
 build:
-  number: 1005
+  number: 1006
   # can't build linux+py37 on toolchain since we are stuck with the old gcc package
   skip: true  # [win or py2k or (linux and py==37 and c_compiler == 'toolchain_c')]
   run_exports:
@@ -57,7 +57,7 @@ requirements:
     - pybind11
     - six
     - sympy >=1
-    - hdf5
+    - hdf5 1.10.4 mpi_{{ mpi }}_*
 
   run:
     - gcc >=4.8.3  # [linux and c_compiler == 'toolchain_c']
