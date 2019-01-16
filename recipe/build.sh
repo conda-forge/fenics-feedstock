@@ -6,12 +6,6 @@ if [[ "$(uname)" == "Darwin" ]]; then
   export LDFLAGS="-Wl,-rpath,$PREFIX/lib $LDFLAGS"
 fi
 
-if [[ "$c_compiler" == "toolchain_c" ]]; then
-  # unset sysconfig patch set by other compiler package
-  # which is wrong with toolchain_c registered
-  unset _CONDA_PYTHON_SYSCONFIGDATA_NAME
-fi
-
 # scrub problematic -fdebug-prefix-map from C[XX]FLAGS
 # these are loaded in the clang[++] activate scripts
 export CFLAGS=$(echo $CFLAGS | sed -E 's@\-fdebug\-prefix\-map[^ ]*@@g')

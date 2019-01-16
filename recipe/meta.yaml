@@ -13,28 +13,14 @@ source:
 
 build:
   number: 1006
-  # can't build linux+py37 on toolchain since we are stuck with the old gcc package
-  skip: true  # [win or py2k or (linux and py==37 and c_compiler == 'toolchain_c')]
+  skip: true  # [win or py2k]
   run_exports:
     - {{ pin_subpackage('fenics', 'max_pin=x.x.x') }}
 
 requirements:
   build:
-    # toolchain compilers are too old,
-    # use conda-compilers even for 'toolchain' builds
-    {% if c_compiler == 'toolchain_c' %}
-    - clang_{{ target_platform }}  # [osx]
-    - clangxx_{{ target_platform }}  # [osx]
-    # can't use 'true' conda compilers on linux on the main channel,
-    # stick with old and troublesome gcc package
-    - gcc >=4.8.3  # [linux]
-    - {{ compiler('c') }}  # [linux]
-    - {{ compiler('cxx') }}  # [linux]
-    {% else %}
-    # the future
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
-    {% endif %}
     - patch  # for applying fiat patch
   host:
     - python
@@ -60,8 +46,7 @@ requirements:
     - hdf5 1.10.4 mpi_{{ mpi }}_*
 
   run:
-    - gcc >=4.8.3  # [linux and c_compiler == 'toolchain_c']
-    - gxx_{{ target_platform }}  # [linux and c_compiler != 'toolchain_c']
+    - {{ compiler('cxx') }}  # [linux]
     - python
     - setuptools
     - boost-cpp
