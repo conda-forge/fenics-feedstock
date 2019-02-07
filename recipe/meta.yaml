@@ -9,6 +9,7 @@ source:
   sha256: 4644b0f2a64aafa59f8705c7fa0a1825abc05fa59afa504d99d78ab1bb2c127d
   patches:
     - public-eigenlubase.patch  # [osx]
+    - snestest-is-removed.patch
     - static-libpython.patch
 
 build:
