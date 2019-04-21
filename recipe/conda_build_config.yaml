@@ -4,6 +4,8 @@ petsc:
   - '3.10.*'
 numpy:
   - '1.15.*'
+mpi4py:
+  - '3.0.0'
 pin_run_as_build:
   eigen:
     max_pin: x.x
