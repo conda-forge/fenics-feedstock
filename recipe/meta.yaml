@@ -150,6 +150,11 @@ outputs:
         - zlib
       run_constrained:
         - fenics =={{ version }}
+    test:
+      commands:
+        - test -f ${PREFIX}/lib/libdolfin${SHLIB_EXT}
+        - test -f ${PREFIX}/lib/libdolfin.{{ version }}${SHLIB_EXT}  # [osx]
+        - test -f ${PREFIX}/lib/libdolfin${SHLIB_EXT}.{{ version }}  # [linux]
 
   - name: fenics-dolfin
     build:
@@ -219,13 +224,17 @@ outputs:
       skip: true  # [win or py2k]
       script: "echo 1"
     requirements:
-      host: []
+      host:
+        - python
       run:
         - fenics-dijitso =={{ version }}
         - fenics-fiat =={{ version }}
         - fenics-ufl =={{ version }}
         - fenics-ffc =={{ version }}
         - pin_subpackage('fenics-dolfin', exact=True)
+    test:
+      imports:
+        - dolfin
 
 about:
   home: http://www.fenicsproject.org
