@@ -1,19 +1,15 @@
-{% set version = "2018.1.0" %}
+{% set version = "2019.1.0" %}
 
 package:
   name: fenics
   version: {{version}}
 
 source:
-  url: https://bitbucket.org/fenics-project/dolfin/downloads/dolfin-{{version}}.post0.tar.gz
-  sha256: 4644b0f2a64aafa59f8705c7fa0a1825abc05fa59afa504d99d78ab1bb2c127d
-  patches:
-    - public-eigenlubase.patch  # [osx]
-    - snestest-is-removed.patch
-    - static-libpython.patch
+  url: https://bitbucket.org/fenics-project/dolfin/downloads/dolfin-{{version}}.tar.gz
+  sha256: 63f8b9475224363faeb3a1e22c12143c20c800e41a40a6d5fd441a573a897e4d
 
 build:
-  number: 1007
+  number: 0
   skip: true  # [win or py2k]
   run_exports:
     - {{ pin_subpackage('fenics', 'max_pin=x.x.x') }}
