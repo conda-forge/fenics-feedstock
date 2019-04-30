@@ -1,5 +1,5 @@
-About fenics
-============
+About fenics-pkgs
+=================
 
 Home: http://www.fenicsproject.org
 
@@ -33,6 +33,13 @@ Current build status
         <table>
           <thead><tr><th>Variant</th><th>Status</th></tr></thead>
           <tbody><tr>
+              <td>linux_python2.7</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=5898&branchName=master">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/fenics-feedstock?branchName=master&jobName=linux&configuration=linux_python2.7" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
               <td>linux_python3.6</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=5898&branchName=master">
@@ -44,6 +51,13 @@ Current build status
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=5898&branchName=master">
                   <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/fenics-feedstock?branchName=master&jobName=linux&configuration=linux_python3.7" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>osx_python2.7</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=5898&branchName=master">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/fenics-feedstock?branchName=master&jobName=osx&configuration=osx_python2.7" alt="variant">
                 </a>
               </td>
             </tr><tr>
@@ -81,20 +95,26 @@ Current release info
 | Name | Downloads | Version | Platforms |
 | --- | --- | --- | --- |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-fenics-green.svg)](https://anaconda.org/conda-forge/fenics) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/fenics.svg)](https://anaconda.org/conda-forge/fenics) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/fenics.svg)](https://anaconda.org/conda-forge/fenics) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/fenics.svg)](https://anaconda.org/conda-forge/fenics) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-fenics--dijitso-green.svg)](https://anaconda.org/conda-forge/fenics-dijitso) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/fenics-dijitso.svg)](https://anaconda.org/conda-forge/fenics-dijitso) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/fenics-dijitso.svg)](https://anaconda.org/conda-forge/fenics-dijitso) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/fenics-dijitso.svg)](https://anaconda.org/conda-forge/fenics-dijitso) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-fenics--dolfin-green.svg)](https://anaconda.org/conda-forge/fenics-dolfin) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/fenics-dolfin.svg)](https://anaconda.org/conda-forge/fenics-dolfin) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/fenics-dolfin.svg)](https://anaconda.org/conda-forge/fenics-dolfin) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/fenics-dolfin.svg)](https://anaconda.org/conda-forge/fenics-dolfin) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-fenics--ffc-green.svg)](https://anaconda.org/conda-forge/fenics-ffc) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/fenics-ffc.svg)](https://anaconda.org/conda-forge/fenics-ffc) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/fenics-ffc.svg)](https://anaconda.org/conda-forge/fenics-ffc) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/fenics-ffc.svg)](https://anaconda.org/conda-forge/fenics-ffc) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-fenics--fiat-green.svg)](https://anaconda.org/conda-forge/fenics-fiat) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/fenics-fiat.svg)](https://anaconda.org/conda-forge/fenics-fiat) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/fenics-fiat.svg)](https://anaconda.org/conda-forge/fenics-fiat) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/fenics-fiat.svg)](https://anaconda.org/conda-forge/fenics-fiat) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-fenics--libdolfin-green.svg)](https://anaconda.org/conda-forge/fenics-libdolfin) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/fenics-libdolfin.svg)](https://anaconda.org/conda-forge/fenics-libdolfin) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/fenics-libdolfin.svg)](https://anaconda.org/conda-forge/fenics-libdolfin) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/fenics-libdolfin.svg)](https://anaconda.org/conda-forge/fenics-libdolfin) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-fenics--ufl-green.svg)](https://anaconda.org/conda-forge/fenics-ufl) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/fenics-ufl.svg)](https://anaconda.org/conda-forge/fenics-ufl) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/fenics-ufl.svg)](https://anaconda.org/conda-forge/fenics-ufl) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/fenics-ufl.svg)](https://anaconda.org/conda-forge/fenics-ufl) |
 
-Installing fenics
-=================
+Installing fenics-pkgs
+======================
 
-Installing `fenics` from the `conda-forge` channel can be achieved by adding `conda-forge` to your channels with:
+Installing `fenics-pkgs` from the `conda-forge` channel can be achieved by adding `conda-forge` to your channels with:
 
 ```
 conda config --add channels conda-forge
 ```
 
-Once the `conda-forge` channel has been enabled, `fenics` can be installed with:
+Once the `conda-forge` channel has been enabled, `fenics, fenics-dijitso, fenics-dolfin, fenics-ffc, fenics-fiat, fenics-libdolfin, fenics-ufl` can be installed with:
 
 ```
-conda install fenics
+conda install fenics fenics-dijitso fenics-dolfin fenics-ffc fenics-fiat fenics-libdolfin fenics-ufl
 ```
 
 It is possible to list all of the versions of `fenics` available on your platform with:
@@ -142,17 +162,17 @@ Terminology
                   produce the finished article (built conda distributions)
 
 
-Updating fenics-feedstock
-=========================
+Updating fenics-pkgs-feedstock
+==============================
 
-If you would like to improve the fenics recipe or build a new
+If you would like to improve the fenics-pkgs recipe or build a new
 package version, please fork this repository and submit a PR. Upon submission,
 your changes will be run on the appropriate platforms to give the reviewer an
 opportunity to confirm that the changes result in a successful build. Once
 merged, the recipe will be re-built and uploaded automatically to the
 `conda-forge` channel, whereupon the built conda packages will be available for
 everybody to install and use from the `conda-forge` channel.
-Note that all branches in the conda-forge/fenics-feedstock are
+Note that all branches in the conda-forge/fenics-pkgs-feedstock are
 immediately built and any created packages are uploaded, so PRs should be based
 on branches in forks and branches in the main repository should only be used to
 build distinct package versions.
