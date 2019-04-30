@@ -1,4 +1,7 @@
 #!/bin/bash
+set -eux
+
+cd dolfin
 
 if [[ "$(uname)" == "Darwin" ]]; then
   export MACOSX_DEPLOYMENT_TARGET=10.9
@@ -10,9 +13,6 @@ fi
 # these are loaded in the clang[++] activate scripts
 export CFLAGS=$(echo $CFLAGS | sed -E 's@\-fdebug\-prefix\-map[^ ]*@@g')
 export CXXFLAGS=$(echo $CXXFLAGS | sed -E 's@\-fdebug\-prefix\-map[^ ]*@@g')
-
-# Components (ffc, etc.)
-pip install --no-deps --no-binary :all: -r "${RECIPE_DIR}/component-requirements.txt"
 
 # DOLFIN
 
@@ -36,7 +36,7 @@ cmake .. \
   -DCMAKE_INSTALL_LIBDIR=$PREFIX/lib \
   -DCMAKE_INCLUDE_PATH=$INCLUDE_PATH \
   -DCMAKE_LIBRARY_PATH=$LIBRARY_PATH \
-  -DPYTHON_EXECUTABLE=$PYTHON || (cat CMakeFiles/CMakeError.log && exit 1)
+  -DPYTHON_EXECUTABLE=$PREFIX/bin/python || (cat CMakeFiles/CMakeError.log && exit 1)
 
 make VERBOSE=1 -j${CPU_COUNT}
 make install
@@ -53,9 +53,3 @@ if [[ "$(uname)" == "Darwin" ]]; then
 else
     find $PREFIX/share/dolfin -name '*.cmake' -print -exec sh -c "sed -E -i''  's@/usr/lib(64)?/[^;]*(.so|.a);@@g' {}" \;
 fi
-
-# install Python bindings
-cd ../python
-$PYTHON -m pip install -v --no-deps .
-cd test
-$PYTHON -c 'from dolfin import *; info(parameters["form_compiler"], True)'

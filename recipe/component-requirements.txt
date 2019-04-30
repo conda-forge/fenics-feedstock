@@ -1,5 +1,0 @@
-# fenics-components requirements.txt
-https://bitbucket.org/fenics-project/dijitso/downloads/dijitso-2019.1.0.tar.gz --hash=sha256:eaa45eec4457f3f865d72a926b7cba86df089410e78de04cd89b15bb405e8fd9
-https://bitbucket.org/fenics-project/ffc/downloads/ffc-2019.1.0.tar.gz --hash=sha256:4ff821a234869d8b9aaf8c5d7f617d42f9c134a2529e76c9519b681dff35affd
-https://bitbucket.org/fenics-project/fiat/downloads/fiat-2019.1.0.tar.gz --hash=sha256:341a1046cbe0f5f2eb26630c2f71f378b0dca51daf9892a54a2ff193970371e9
-https://bitbucket.org/fenics-project/ufl/downloads/ufl-2019.1.0.tar.gz --hash=sha256:213a56bfa2edb0365909fa6f110f970e582b10a3f5f1fd9a0e85254f1eefaa11
