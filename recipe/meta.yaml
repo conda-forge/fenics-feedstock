@@ -227,11 +227,12 @@ outputs:
       host:
         - python
       run:
+        - python
         - fenics-dijitso =={{ version }}
         - fenics-fiat =={{ version }}
         - fenics-ufl =={{ version }}
         - fenics-ffc =={{ version }}
-        - pin_subpackage('fenics-dolfin', exact=True)
+        - {{ pin_subpackage('fenics-dolfin', exact=True) }}
     test:
       imports:
         - dolfin
