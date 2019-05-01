@@ -1,12 +1,16 @@
 mpi:
   - 'mpich'
 petsc:
-  - '3.10.*'
+  - '3.11.*'
 numpy:
   - '1.15.*'
 mpi4py:
-  - '3.0.0'
+  - '3.0.1'
+pybind11:
+  - '2.2.4'
 pin_run_as_build:
+  boost-cpp:
+    max_pin: x.x.x
   eigen:
     max_pin: x.x
   numpy:

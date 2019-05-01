@@ -16,16 +16,14 @@ docker_image:
 - condaforge/linux-anvil-comp7
 hdf5:
 - 1.10.4
-libblas:
-- 3.8 *netlib
-libcblas:
-- 3.8 *netlib
 mpi:
 - mpich
+mpi4py:
+- 3.0.1
 numpy:
 - 1.15.*
 petsc:
-- 3.10.*
+- 3.11.*
 pin_run_as_build:
   boost-cpp:
     max_pin: x.x.x
@@ -33,11 +31,15 @@ pin_run_as_build:
     max_pin: x.x
   petsc:
     max_pin: x.x
+  pybind11:
+    max_pin: x.x.x
   python:
     min_pin: x.x
     max_pin: x.x
   zlib:
     max_pin: x.x
+pybind11:
+- 2.2.4
 python:
 - '3.7'
 zlib:
