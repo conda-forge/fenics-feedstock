@@ -134,6 +134,9 @@ outputs:
         - {{ mpi }}
         - petsc =={{ petsc }}
         - slepc =={{ petsc }}
+        # FIXME: libdolfin shouldn't require Python
+        # but its cmake files do
+        - python
         - fenics-ffc =={{ version }}
       run:
         - {{ compiler('cxx') }}  # [linux]
@@ -149,6 +152,9 @@ outputs:
         - ptscotch
         - suitesparse
         - zlib
+        # FIXME: remove Python dependency
+        - python
+        - fenics-ffc =={{ version }}
       run_constrained:
         - fenics =={{ version }}
     test:
