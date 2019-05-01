@@ -38,6 +38,7 @@ outputs:
       run:
         - python >=3.5
         - numpy
+        - setuptools
       run_constrained:
         - fenics =={{ version }}
     test:
