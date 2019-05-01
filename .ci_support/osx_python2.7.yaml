@@ -1,5 +1,7 @@
 MACOSX_DEPLOYMENT_TARGET:
 - '10.9'
+boost_cpp:
+- 1.68.0
 c_compiler:
 - clang
 c_compiler_version:
@@ -12,6 +14,8 @@ cxx_compiler:
 - clangxx
 cxx_compiler_version:
 - '4'
+hdf5:
+- 1.10.4
 macos_machine:
 - x86_64-apple-darwin13.4.0
 macos_min_version:
@@ -22,15 +26,25 @@ mpi4py:
 - 3.0.1
 numpy:
 - 1.15.*
+petsc:
+- 3.11.*
 pin_run_as_build:
+  boost-cpp:
+    max_pin: x.x.x
   numpy:
+    max_pin: x.x
+  petsc:
     max_pin: x.x
   pybind11:
     max_pin: x.x.x
   python:
     min_pin: x.x
     max_pin: x.x
+  zlib:
+    max_pin: x.x
 pybind11:
 - 2.2.4
 python:
 - '2.7'
+zlib:
+- '1.2'
