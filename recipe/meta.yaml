@@ -176,6 +176,7 @@ outputs:
         - pip
         - cmake >=3.9
         - pkgconfig
+        - {{ mpi }}
         - mpi4py
         - petsc4py =={{ petsc }}
         - slepc4py =={{ petsc }}
