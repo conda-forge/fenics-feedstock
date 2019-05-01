@@ -73,6 +73,7 @@ outputs:
         - pip
       run:
         - python >=3.5
+        - setuptools
         - numpy
       run_constrained:
         - fenics =={{ version }}
