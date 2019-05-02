@@ -11,6 +11,8 @@ source:
   - url: https://bitbucket.org/fenics-project/ffc/downloads/ffc-{{version}}.tar.gz
     sha256: 4ff821a234869d8b9aaf8c5d7f617d42f9c134a2529e76c9519b681dff35affd
     folder: ffc
+    patches:
+      - ufc-include-path.patch
   - url: https://bitbucket.org/fenics-project/fiat/downloads/fiat-{{version}}.tar.gz
     sha256: 341a1046cbe0f5f2eb26630c2f71f378b0dca51daf9892a54a2ff193970371e9
     folder: fiat
@@ -89,7 +91,10 @@ outputs:
   - name: fenics-ffc
     build:
       noarch: python
-      script: $PYTHON -m pip install --no-deps ./ffc
+      script:
+        - $PYTHON -m pip install --no-deps ./ffc
+        - mkdir -p $PREFIX/include
+        - cp ffc/ffc/backends/ufc/*.h $PREFIX/include/
       skip: true  # [win or py2k]
     requirements:
       host:
@@ -113,6 +118,8 @@ outputs:
         - ffc.quadrature
       commands:
         - ffc --help
+        - test -f $PREFIX/include/ufc.h
+        - test -f $PREFIX/include/ufc_geometry.h
 
   - name: fenics-libdolfin
     build:
@@ -122,7 +129,6 @@ outputs:
       build:
         - {{ compiler('c') }}
         - {{ compiler('cxx') }}
-        - python >=3.5
       host:
         - boost-cpp
         - cmake >=3.9
@@ -136,6 +142,7 @@ outputs:
         - {{ mpi }}
         - petsc =={{ petsc }}
         - slepc =={{ petsc }}
+        - fenics-ffc =={{ version }}
       run:
         - {{ compiler('cxx') }}  # [linux]
         - boost-cpp
@@ -150,6 +157,7 @@ outputs:
         - ptscotch
         - suitesparse
         - zlib
+        - fenics-ffc =={{ version }}
       run_constrained:
         - fenics =={{ version }}
     test:

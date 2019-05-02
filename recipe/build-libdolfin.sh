@@ -14,11 +14,6 @@ fi
 export CFLAGS=$(echo $CFLAGS | sed -E 's@\-fdebug\-prefix\-map[^ ]*@@g')
 export CXXFLAGS=$(echo $CXXFLAGS | sed -E 's@\-fdebug\-prefix\-map[^ ]*@@g')
 
-# add ufc header from ffc sources
-UFC_INCLUDE_DIR=$PREFIX/include
-mkdir -p $UFC_INCLUDE_DIR
-cp ../ffc/ffc/backends/ufc/ufc.h $UFC_INCLUDE_DIR/ufc.h
-
 # DOLFIN
 
 rm -rf build
@@ -41,8 +36,7 @@ cmake .. \
   -DCMAKE_INSTALL_LIBDIR=$PREFIX/lib \
   -DCMAKE_INCLUDE_PATH=$INCLUDE_PATH \
   -DCMAKE_LIBRARY_PATH=$LIBRARY_PATH \
-  -DUFC_INCLUDE_DIR=$UFC_INCLUDE_DIR \
-  -DPYTHON_EXECUTABLE=$BUILD_PREFIX/bin/python || (cat CMakeFiles/CMakeError.log && exit 1)
+  -DPYTHON_EXECUTABLE=$PREFIX/bin/python || (cat CMakeFiles/CMakeError.log && exit 1)
 
 make VERBOSE=1 -j${CPU_COUNT}
 make install
