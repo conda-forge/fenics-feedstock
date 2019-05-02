@@ -42,7 +42,7 @@ cmake .. \
   -DCMAKE_INCLUDE_PATH=$INCLUDE_PATH \
   -DCMAKE_LIBRARY_PATH=$LIBRARY_PATH \
   -DUFC_INCLUDE_DIR=$UFC_INCLUDE_DIR \
-  -DPYTHON_EXECUTABLE=$PREFIX/bin/python || (cat CMakeFiles/CMakeError.log && exit 1)
+  -DPYTHON_EXECUTABLE=$BUILD_PREFIX/bin/python || (cat CMakeFiles/CMakeError.log && exit 1)
 
 make VERBOSE=1 -j${CPU_COUNT}
 make install

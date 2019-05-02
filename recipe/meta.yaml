@@ -122,6 +122,7 @@ outputs:
       build:
         - {{ compiler('c') }}
         - {{ compiler('cxx') }}
+        - python >=3.5
       host:
         - boost-cpp
         - cmake >=3.9
@@ -135,7 +136,6 @@ outputs:
         - {{ mpi }}
         - petsc =={{ petsc }}
         - slepc =={{ petsc }}
-        - fenics-ffc =={{ version }}
       run:
         - {{ compiler('cxx') }}  # [linux]
         - boost-cpp
