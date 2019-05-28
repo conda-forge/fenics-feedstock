@@ -130,6 +130,8 @@ outputs:
         - {{ compiler('c') }}
         - {{ compiler('cxx') }}
       host:
+        - libblas
+        - libcblas
         - boost-cpp
         - cmake >=3.9
         - eigen
@@ -175,6 +177,8 @@ outputs:
         - {{ compiler('c') }}
         - {{ compiler('cxx') }}
       host:
+        - libblas
+        - libcblas
         - python
         - pip
         - cmake >=3.9
