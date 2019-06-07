@@ -1,7 +1,7 @@
 MACOSX_DEPLOYMENT_TARGET:
 - '10.9'
 boost_cpp:
-- 1.68.0
+- 1.70.0
 c_compiler:
 - clang
 c_compiler_version:
@@ -15,7 +15,7 @@ cxx_compiler:
 cxx_compiler_version:
 - '4'
 hdf5:
-- 1.10.4
+- 1.10.5
 libblas:
 - 3.8 *netlib
 libcblas:
