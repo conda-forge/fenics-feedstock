@@ -24,15 +24,14 @@ source:
     folder: dolfin
 
 build:
-  number: 1
-  skip: true  # [win or py2k]
+  number: 2
+  skip: true  # [win]
 
 outputs:
   - name: fenics-dijitso
     build:
       noarch: python
       script: $PYTHON -m pip install --no-deps ./dijitso
-      skip: true  # [win or py2k]
     requirements:
       host:
         - python >=3.5
@@ -46,11 +45,11 @@ outputs:
     test:
       imports:
         - dijitso
+
   - name: fenics-fiat
     build:
       noarch: python
       script: $PYTHON -m pip install --no-deps ./fiat
-      skip: true  # [win or py2k]
     requirements:
       host:
         - python >=3.5
@@ -64,11 +63,11 @@ outputs:
     test:
       imports:
         - FIAT
+
   - name: fenics-ufl
     build:
       noarch: python
       script: $PYTHON -m pip install --no-deps ./ufl
-      skip: true  # [win or py2k]
     requirements:
       host:
         - python >=3.5
@@ -95,7 +94,6 @@ outputs:
         - $PYTHON -m pip install --no-deps ./ffc
         - mkdir -p $PREFIX/include
         - cp ffc/ffc/backends/ufc/*.h $PREFIX/include/
-      skip: true  # [win or py2k]
     requirements:
       host:
         - python >=3.5
@@ -124,12 +122,14 @@ outputs:
   - name: fenics-libdolfin
     build:
       script: ${RECIPE_DIR}/build-libdolfin.sh
-      skip: true  # [win or py2k]
+      skip: true  # [win and vc<14]
     requirements:
       build:
         - {{ compiler('c') }}
         - {{ compiler('cxx') }}
       host:
+        - libblas
+        - libcblas
         - boost-cpp
         - cmake >=3.9
         - eigen
@@ -175,6 +175,8 @@ outputs:
         - {{ compiler('c') }}
         - {{ compiler('cxx') }}
       host:
+        - libblas
+        - libcblas
         - python
         - pip
         - cmake >=3.9

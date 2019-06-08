@@ -1,5 +1,5 @@
 boost_cpp:
-- 1.68.0
+- 1.70.0
 c_compiler:
 - gcc
 c_compiler_version:
@@ -15,7 +15,11 @@ cxx_compiler_version:
 docker_image:
 - condaforge/linux-anvil-comp7
 hdf5:
-- 1.10.4
+- 1.10.5
+libblas:
+- 3.8 *netlib
+libcblas:
+- 3.8 *netlib
 mpi:
 - mpich
 mpi4py:
@@ -41,6 +45,8 @@ pin_run_as_build:
 pybind11:
 - 2.2.4
 python:
+- '2.7'
 - '3.6'
+- '3.7'
 zlib:
 - '1.2'
