@@ -17,6 +17,8 @@ pin_run_as_build:
     max_pin: x.x
   mpich:
     max_pin: x.x
+  parmetis:
+    max_pin: x.x
   petsc:
     max_pin: x.x
   petsc4py:
@@ -31,3 +33,6 @@ pin_run_as_build:
     max_pin: x.x
   slepc4py:
     max_pin: x.x
+  suitesparse:
+    max_pin: x.x  # [not osx]
+    max_pin: x.x.x  # [osx]
