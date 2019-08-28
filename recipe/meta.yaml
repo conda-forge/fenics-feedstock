@@ -24,7 +24,7 @@ source:
     folder: dolfin
 
 build:
-  number: 5
+  number: 6
   skip: true  # [win]
 
 outputs:
@@ -133,7 +133,8 @@ outputs:
         - boost-cpp
         - cmake >=3.9
         - eigen
-        - hdf5 1.10.4 mpi_{{ mpi }}_*
+        - hdf5 * mpi_{{ mpi }}_*
+        - hdf5
         - parmetis
         - pkg-config
         - ptscotch
