@@ -28,6 +28,8 @@ numpy:
 - 1.16.*
 petsc:
 - 3.11.*
+petsc4py:
+- '3.11'
 pin_run_as_build:
   boost-cpp:
     max_pin: x.x.x
@@ -35,18 +37,32 @@ pin_run_as_build:
     max_pin: x.x
   petsc:
     max_pin: x.x
+  petsc4py:
+    max_pin: x.x
+  ptscotch:
+    max_pin: x.x.x
   pybind11:
     max_pin: x.x.x
   python:
     min_pin: x.x
     max_pin: x.x
+  slepc:
+    max_pin: x.x
+  slepc4py:
+    max_pin: x.x
   zlib:
     max_pin: x.x
+ptscotch:
+- 6.0.8
 pybind11:
 - 2.3.0
 python:
 - '2.7'
 - '3.6'
 - '3.7'
+slepc:
+- '3.11'
+slepc4py:
+- '3.11'
 zlib:
 - '1.2'
