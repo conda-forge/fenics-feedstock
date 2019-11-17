@@ -24,7 +24,7 @@ source:
     folder: dolfin
 
 build:
-  number: 7
+  number: 8
   skip: true  # [win]
 
 outputs:
