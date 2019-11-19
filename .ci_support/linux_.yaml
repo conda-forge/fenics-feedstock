@@ -22,33 +22,21 @@ libcblas:
 - 3.8 *netlib
 mpi:
 - mpich
-mpi4py:
-- 3.0.1
 numpy:
-- 1.16.*
+- 1.17.*
 petsc:
-- 3.11.*
+- '3.12'
 petsc4py:
-- '3.11'
+- '3.12'
 pin_run_as_build:
   boost-cpp:
     max_pin: x.x.x
   numpy:
     max_pin: x.x
-  petsc:
-    max_pin: x.x
-  petsc4py:
-    max_pin: x.x
-  ptscotch:
-    max_pin: x.x.x
   pybind11:
     max_pin: x.x.x
   python:
     min_pin: x.x
-    max_pin: x.x
-  slepc:
-    max_pin: x.x
-  slepc4py:
     max_pin: x.x
   zlib:
     max_pin: x.x
@@ -61,8 +49,8 @@ python:
 - '3.6'
 - '3.7'
 slepc:
-- '3.11'
+- '3.12'
 slepc4py:
-- '3.11'
+- '3.12'
 zlib:
 - '1.2'
