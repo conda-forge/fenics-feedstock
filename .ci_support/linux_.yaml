@@ -50,5 +50,7 @@ slepc:
 - '3.12'
 slepc4py:
 - '3.12'
+suitesparse:
+- '5.6'
 zlib:
 - '1.2'
