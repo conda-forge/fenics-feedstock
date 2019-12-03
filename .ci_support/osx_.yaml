@@ -5,7 +5,7 @@ boost_cpp:
 c_compiler:
 - clang
 c_compiler_version:
-- '4'
+- '9'
 channel_sources:
 - conda-forge,defaults
 channel_targets:
@@ -13,7 +13,7 @@ channel_targets:
 cxx_compiler:
 - clangxx
 cxx_compiler_version:
-- '4'
+- '9'
 hdf5:
 - 1.10.5
 libblas:
@@ -29,16 +29,14 @@ mpi:
 mpi4py:
 - 3.0.1
 numpy:
-- 1.16.*
+- '1.14'
 petsc:
 - 3.11.*
 petsc4py:
-- '3.11'
+- '3.12'
 pin_run_as_build:
   boost-cpp:
     max_pin: x.x.x
-  numpy:
-    max_pin: x.x
   petsc:
     max_pin: x.x
   petsc4py:
@@ -65,8 +63,8 @@ python:
 - '3.6'
 - '3.7'
 slepc:
-- '3.11'
+- '3.12'
 slepc4py:
-- '3.11'
+- '3.12'
 zlib:
 - '1.2'
