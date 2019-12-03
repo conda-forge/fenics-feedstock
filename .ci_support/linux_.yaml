@@ -23,7 +23,7 @@ libcblas:
 mpi:
 - mpich
 numpy:
-- 1.17.*
+- '1.14'
 petsc:
 - '3.12'
 petsc4py:
@@ -31,8 +31,6 @@ petsc4py:
 pin_run_as_build:
   boost-cpp:
     max_pin: x.x.x
-  numpy:
-    max_pin: x.x
   pybind11:
     max_pin: x.x.x
   python:
