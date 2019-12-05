@@ -1,38 +1,15 @@
 mpi:
   - 'mpich'
-petsc:
-  - '3.11.*'
-numpy:
-  - '1.16.*'
-mpi4py:
-  - '3.0.1'
-pybind11:
-  - '2.3.0'
 pin_run_as_build:
   boost-cpp:
     max_pin: x.x.x
   eigen:
     max_pin: x.x
-  numpy:
-    max_pin: x.x
   mpich:
     max_pin: x.x
   parmetis:
     max_pin: x.x
-  petsc:
-    max_pin: x.x
-  petsc4py:
-    max_pin: x.x
-  ptscotch:
-    max_pin: x.x.x
   # pybind11 generation breaks on patch releases
   # at least between 2.2.3 and 2.2.4
   pybind11:
     max_pin: x.x.x
-  slepc:
-    max_pin: x.x
-  slepc4py:
-    max_pin: x.x
-  suitesparse:
-    max_pin: x.x  # [not osx]
-    max_pin: x.x.x  # [osx]

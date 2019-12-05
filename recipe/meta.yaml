@@ -24,7 +24,7 @@ source:
     folder: dolfin
 
 build:
-  number: 7
+  number: 8
   skip: true  # [win]
 
 outputs:
@@ -141,8 +141,8 @@ outputs:
         - suitesparse
         - zlib
         - {{ mpi }}
-        - petsc =={{ petsc }}
-        - slepc =={{ petsc }}
+        - petsc
+        - slepc
         - fenics-ffc =={{ version }}
       run:
         - {{ compiler('cxx') }}  # [linux]
@@ -184,8 +184,8 @@ outputs:
         - pkgconfig
         - {{ mpi }}
         - mpi4py
-        - petsc4py =={{ petsc }}
-        - slepc4py =={{ petsc }}
+        - petsc4py
+        - slepc4py
         - numpy
         - pybind11
         - six
