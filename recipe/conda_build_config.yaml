@@ -1,7 +1,5 @@
 mpi:
   - 'mpich'
-pybind11:
-  - '2.3.0'
 pin_run_as_build:
   boost-cpp:
     max_pin: x.x.x
