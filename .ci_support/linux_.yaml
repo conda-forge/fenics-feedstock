@@ -25,7 +25,7 @@ mpi:
 numpy:
 - '1.14'
 petsc:
-- '3.12'
+- '3.13'
 petsc4py:
 - '3.12'
 pin_run_as_build:
@@ -39,12 +39,11 @@ pin_run_as_build:
 ptscotch:
 - 6.0.8
 python:
-- '2.7'
-- '3.6'
-- '3.7'
-- '3.8'
+- 3.6.* *_cpython
+- 3.7.* *_cpython
+- 3.8.* *_cpython
 slepc:
-- '3.12'
+- '3.13'
 slepc4py:
 - '3.12'
 suitesparse:
