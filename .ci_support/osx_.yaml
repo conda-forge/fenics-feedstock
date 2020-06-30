@@ -15,7 +15,7 @@ cxx_compiler:
 cxx_compiler_version:
 - '9'
 hdf5:
-- 1.10.5
+- 1.10.6
 libblas:
 - 3.8 *netlib
 libcblas:
@@ -43,10 +43,9 @@ pin_run_as_build:
 ptscotch:
 - 6.0.8
 python:
-- '2.7'
-- '3.6'
-- '3.7'
-- '3.8'
+- 3.6.* *_cpython
+- 3.7.* *_cpython
+- 3.8.* *_cpython
 slepc:
 - '3.12'
 slepc4py:
