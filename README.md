@@ -5,7 +5,7 @@ Home: http://www.fenicsproject.org
 
 Package license: LGPL 3.0
 
-Feedstock license: BSD 3-Clause
+Feedstock license: BSD-3-Clause
 
 Summary: FEniCS is a collection of free software for automated, efficient solution of differential equations
 
