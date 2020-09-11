@@ -1,5 +1,6 @@
 boost_cpp:
-- '1.72'
+- 1.72.0
+- 1.74.0
 c_compiler:
 - gcc
 c_compiler_version:
@@ -23,7 +24,7 @@ libcblas:
 mpi:
 - mpich
 numpy:
-- '1.14'
+- '1.16'
 petsc:
 - '3.12'
 petsc4py:
@@ -48,5 +49,7 @@ slepc4py:
 - '3.12'
 suitesparse:
 - '5.6'
+target_platform:
+- linux-64
 zlib:
 - '1.2'

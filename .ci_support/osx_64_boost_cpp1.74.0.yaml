@@ -1,11 +1,11 @@
 MACOSX_DEPLOYMENT_TARGET:
 - '10.9'
 boost_cpp:
-- '1.72'
+- 1.74.0
 c_compiler:
 - clang
 c_compiler_version:
-- '9'
+- '10'
 channel_sources:
 - conda-forge,defaults
 channel_targets:
@@ -13,7 +13,7 @@ channel_targets:
 cxx_compiler:
 - clangxx
 cxx_compiler_version:
-- '9'
+- '10'
 hdf5:
 - 1.10.6
 libblas:
@@ -22,12 +22,10 @@ libcblas:
 - 3.8 *netlib
 macos_machine:
 - x86_64-apple-darwin13.4.0
-macos_min_version:
-- '10.9'
 mpi:
 - mpich
 numpy:
-- '1.14'
+- '1.16'
 petsc:
 - '3.12'
 petsc4py:
@@ -52,5 +50,7 @@ slepc4py:
 - '3.12'
 suitesparse:
 - '5.6'
+target_platform:
+- osx-64
 zlib:
 - '1.2'
