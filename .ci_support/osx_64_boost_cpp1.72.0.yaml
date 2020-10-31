@@ -26,6 +26,8 @@ mpi:
 - mpich
 numpy:
 - '1.16'
+- '1.16'
+- '1.16'
 petsc:
 - '3.12'
 petsc4py:
@@ -52,5 +54,10 @@ suitesparse:
 - '5.6'
 target_platform:
 - osx-64
+zip_keys:
+- - c_compiler_version
+  - cxx_compiler_version
+- - numpy
+  - python
 zlib:
 - '1.2'

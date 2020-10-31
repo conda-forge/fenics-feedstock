@@ -5,6 +5,8 @@ c_compiler:
 - gcc
 c_compiler_version:
 - '7'
+cdt_name:
+- cos6
 channel_sources:
 - conda-forge,defaults
 channel_targets:
@@ -24,6 +26,8 @@ libcblas:
 mpi:
 - mpich
 numpy:
+- '1.16'
+- '1.16'
 - '1.16'
 petsc:
 - '3.12'
@@ -51,5 +55,10 @@ suitesparse:
 - '5.6'
 target_platform:
 - linux-64
+zip_keys:
+- - c_compiler_version
+  - cxx_compiler_version
+- - numpy
+  - python
 zlib:
 - '1.2'
