@@ -1,6 +1,5 @@
 boost_cpp:
 - 1.72.0
-- 1.74.0
 c_compiler:
 - gcc
 c_compiler_version:
@@ -58,7 +57,7 @@ target_platform:
 zip_keys:
 - - c_compiler_version
   - cxx_compiler_version
-- - numpy
-  - python
+- - python
+  - numpy
 zlib:
 - '1.2'
