@@ -24,6 +24,7 @@ source:
     folder: dolfin
     patches:
       - boost.patch
+      - linuxboost.patch  # [linux]
 
 build:
   number: 11
