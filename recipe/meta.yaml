@@ -5,26 +5,26 @@ package:
   version: {{ version }}
 
 source:
-  - url: https://bitbucket.org/fenics-project/dijitso/downloads/dijitso-{{version}}.tar.gz
+  - url: https://bitbucket.org/fenics-project/dijitso/downloads/dijitso-{{ version }}.tar.gz
     sha256: eaa45eec4457f3f865d72a926b7cba86df089410e78de04cd89b15bb405e8fd9
     folder: dijitso
-  - url: https://bitbucket.org/fenics-project/ffc/downloads/ffc-{{version}}.tar.gz
+  - url: https://bitbucket.org/fenics-project/ffc/downloads/ffc-{{ version }}.tar.gz
     sha256: 4ff821a234869d8b9aaf8c5d7f617d42f9c134a2529e76c9519b681dff35affd
     folder: ffc
     patches:
       - ufc-include-path.patch
-  - url: https://bitbucket.org/fenics-project/fiat/downloads/fiat-{{version}}.tar.gz
+  - url: https://bitbucket.org/fenics-project/fiat/downloads/fiat-{{ version }}.tar.gz
     sha256: 341a1046cbe0f5f2eb26630c2f71f378b0dca51daf9892a54a2ff193970371e9
     folder: fiat
-  - url: https://bitbucket.org/fenics-project/ufl/downloads/ufl-{{version}}.tar.gz
+  - url: https://bitbucket.org/fenics-project/ufl/downloads/ufl-{{ version }}.tar.gz
     sha256: 213a56bfa2edb0365909fa6f110f970e582b10a3f5f1fd9a0e85254f1eefaa11
     folder: ufl
-  - url: https://bitbucket.org/fenics-project/dolfin/downloads/dolfin-{{version}}.post0.tar.gz
+  - url: https://bitbucket.org/fenics-project/dolfin/downloads/dolfin-{{ version }}.post0.tar.gz
     sha256: 61abdcdb13684ba2a3ba4afb7ea6c7907aa0896a46439d3af7e8848483d4392f
     folder: dolfin
 
 build:
-  number: 10
+  number: 11
   skip: true  # [win]
 
 outputs:
@@ -124,6 +124,7 @@ outputs:
     build:
       script: ${RECIPE_DIR}/build-libdolfin.sh
       skip: true  # [win and vc<14]
+      {% set mpi_prefix = "mpi_" + mpi %}
     requirements:
       build:
         - {{ compiler('c') }}
@@ -134,8 +135,6 @@ outputs:
         - boost-cpp
         - cmake >=3.9
         - eigen
-        - hdf5 * mpi_{{ mpi }}_*
-        - hdf5
         - parmetis
         - pkg-config
         - ptscotch
@@ -145,12 +144,15 @@ outputs:
         - petsc
         - slepc
         - fenics-ffc =={{ version }}
+        # need to list libnetcdf and netcdf-fortran twice to get version
+        # pinning from conda_build_config and build pinning from {{ mpi_prefix }}
+        - hdf5
+        - hdf5 * {{ mpi_prefix }}_*
       run:
         - {{ compiler('cxx') }}  # [linux]
         - boost-cpp
         - cmake >=3.9
         - eigen
-        - hdf5
         - {{ mpi }}
         - parmetis
         - petsc
@@ -160,6 +162,10 @@ outputs:
         - suitesparse
         - zlib
         - fenics-ffc =={{ version }}
+        # need to list libnetcdf and netcdf-fortran twice to get version
+        # pinning from conda_build_config and build pinning from {{ mpi_prefix }}
+        - hdf5
+        - hdf5 * {{ mpi_prefix }}_*
       run_constrained:
         - fenics =={{ version }}
     test:
@@ -196,6 +202,10 @@ outputs:
         - fenics-fiat =={{ version }}
         - fenics-ufl =={{ version }}
         - fenics-ffc =={{ version }}
+        # need to list libnetcdf and netcdf-fortran twice to get version
+        # pinning from conda_build_config and build pinning from {{ mpi_prefix }}
+        - hdf5
+        - hdf5 * {{ mpi_prefix }}_*
       run:
         - {{ compiler('cxx') }}  # [linux]
         - python
@@ -216,6 +226,10 @@ outputs:
         - fenics-fiat =={{ version }}
         - fenics-ufl =={{ version }}
         - fenics-ffc =={{ version }}
+        # need to list libnetcdf and netcdf-fortran twice to get version
+        # pinning from conda_build_config and build pinning from {{ mpi_prefix }}
+        - hdf5
+        - hdf5 * {{ mpi_prefix }}_*
       run_constrained:
         - fenics =={{ version }}
 
@@ -248,6 +262,10 @@ outputs:
         - fenics-ufl =={{ version }}
         - fenics-ffc =={{ version }}
         - {{ pin_subpackage('fenics-dolfin', exact=True) }}
+        # need to list libnetcdf and netcdf-fortran twice to get version
+        # pinning from conda_build_config and build pinning from {{ mpi_prefix }}
+        - hdf5
+        - hdf5 * {{ mpi_prefix }}_*
     test:
       imports:
         - dolfin
@@ -272,3 +290,4 @@ extra:
     - johannesring
     - mikaem
     - minrk
+    - jan-janssen
