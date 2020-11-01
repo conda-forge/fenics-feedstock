@@ -28,6 +28,7 @@ numpy:
 - '1.16'
 - '1.16'
 - '1.16'
+- '1.19'
 petsc:
 - '3.13'
 petsc4py:
@@ -46,6 +47,7 @@ python:
 - 3.6.* *_cpython
 - 3.7.* *_cpython
 - 3.8.* *_cpython
+- 3.9.* *_cpython
 slepc:
 - '3.13'
 slepc4py:
