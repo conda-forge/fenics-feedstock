@@ -1,0 +1,35 @@
+From 50d619e29f7664825a87fa526d3d933b521fabf0 Mon Sep 17 00:00:00 2001
+From: jan-janssen <jan.janssen@mpie.de>
+Date: Sun, 1 Nov 2020 18:26:30 +0200
+Subject: Linux boost patch 
+
+Include algorithm.h
+---
+ dolfin/geometry/IntersectionConstruction.cpp   | 1 +
+ dolfin/mesh/MeshFunction.h                     | 1 +
+ 2 files changed, 2 insertions(+), 0 deletions(-)
+
+diff --git a/dolfin/geometry/IntersectionConstruction.cpp b/dolfin/geometry/IntersectionConstruction.cpp
+index 2fee53b..4dba84d 100644
+--- a/dolfin/geometry/IntersectionConstruction.cpp
++++ b/dolfin/geometry/IntersectionConstruction.cpp
+@@ -19,6 +19,7 @@
+ // Last changed: 2017-12-12
+ 
+ #include <iomanip>
++#include <algorithm>
+ #include <dolfin/mesh/MeshEntity.h>
+ #include "predicates.h"
+ #include "GeometryPredicates.h"
+diff --git a/dolfin/mesh/MeshFunction.h b/dolfin/mesh/MeshFunction.h
+index eff6934..b57a665 100644
+--- a/dolfin/mesh/MeshFunction.h
++++ b/dolfin/mesh/MeshFunction.h
+@@ -26,6 +26,7 @@
+ 
+ #include <map>
+ #include <vector>
++#include <algorithm>
+ 
+ #include <memory>
+ #include <unordered_set>
