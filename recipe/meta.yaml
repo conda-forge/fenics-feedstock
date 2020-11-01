@@ -150,8 +150,9 @@ outputs:
         - boost-cpp
         - cmake >=3.9
         - eigen
-        - hdf5
         - {{ mpi }}
+        - hdf5 * mpi_{{ mpi }}_*
+        - hdf5        
         - parmetis
         - petsc
         - slepc
