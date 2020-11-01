@@ -164,6 +164,7 @@ Feedstock Maintainers
 =====================
 
 * [@garth-wells](https://github.com/garth-wells/)
+* [@jan-janssen](https://github.com/jan-janssen/)
 * [@johannesring](https://github.com/johannesring/)
 * [@mikaem](https://github.com/mikaem/)
 * [@minrk](https://github.com/minrk/)
