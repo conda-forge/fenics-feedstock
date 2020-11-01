@@ -124,6 +124,7 @@ outputs:
     build:
       script: ${RECIPE_DIR}/build-libdolfin.sh
       skip: true  # [win and vc<14]
+      {% set mpi_prefix = "mpi_" + mpi %}
     requirements:
       build:
         - {{ compiler('c') }}
@@ -134,8 +135,6 @@ outputs:
         - boost-cpp
         - cmake >=3.9
         - eigen
-        - hdf5 * mpi_{{ mpi }}_*
-        - hdf5
         - parmetis
         - pkg-config
         - ptscotch
@@ -145,12 +144,15 @@ outputs:
         - petsc
         - slepc
         - fenics-ffc =={{ version }}
+        # need to list libnetcdf and netcdf-fortran twice to get version
+        # pinning from conda_build_config and build pinning from {{ mpi_prefix }}
+        - hdf5
+        - hdf5 * {{ mpi_prefix }}_*
       run:
         - {{ compiler('cxx') }}  # [linux]
         - boost-cpp
         - cmake >=3.9
         - eigen
-        - hdf5
         - {{ mpi }}
         - parmetis
         - petsc
@@ -160,6 +162,10 @@ outputs:
         - suitesparse
         - zlib
         - fenics-ffc =={{ version }}
+        # need to list libnetcdf and netcdf-fortran twice to get version
+        # pinning from conda_build_config and build pinning from {{ mpi_prefix }}
+        - hdf5
+        - hdf5 * {{ mpi_prefix }}_*
       run_constrained:
         - fenics =={{ version }}
     test:
