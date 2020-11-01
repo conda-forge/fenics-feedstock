@@ -22,9 +22,12 @@ source:
   - url: https://bitbucket.org/fenics-project/dolfin/downloads/dolfin-{{ version }}.post0.tar.gz
     sha256: 61abdcdb13684ba2a3ba4afb7ea6c7907aa0896a46439d3af7e8848483d4392f
     folder: dolfin
+    patches:
+      - boost.patch
+      - linuxboost.patch  # [linux]
 
 build:
-  number: 11
+  number: 12
   skip: true  # [win]
 
 outputs:
