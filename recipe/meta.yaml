@@ -33,14 +33,14 @@ build:
 outputs:
   - name: fenics-dijitso
     build:
-      noarch: python
+      skip: true  # [win or py2k]
       script: $PYTHON -m pip install --no-deps ./dijitso
     requirements:
       host:
-        - python >=3.5
+        - python
         - pip
       run:
-        - python >=3.5
+        - python
         - numpy
         - setuptools
       run_constrained:
@@ -51,14 +51,14 @@ outputs:
 
   - name: fenics-fiat
     build:
-      noarch: python
+      skip: true  # [win or py2k]
       script: $PYTHON -m pip install --no-deps ./fiat
     requirements:
       host:
-        - python >=3.5
+        - python
         - pip
       run:
-        - python >=3.5
+        - python
         - setuptools
         - numpy
         - sympy >=1
@@ -70,14 +70,14 @@ outputs:
 
   - name: fenics-ufl
     build:
-      noarch: python
+      skip: true  # [win or py2k]
       script: $PYTHON -m pip install --no-deps ./ufl
     requirements:
       host:
-        - python >=3.5
+        - python
         - pip
       run:
-        - python >=3.5
+        - python
         - setuptools
         - numpy
       run_constrained:
@@ -93,17 +93,17 @@ outputs:
 
   - name: fenics-ffc
     build:
-      noarch: python
+      skip: true  # [win or py2k]
       script:
         - $PYTHON -m pip install --no-deps ./ffc
         - mkdir -p $PREFIX/include
         - cp ffc/ffc/backends/ufc/*.h $PREFIX/include/
     requirements:
       host:
-        - python >=3.5
+        - python
         - pip
       run:
-        - python >=3.5
+        - python
         - numpy
         - fenics-dijitso =={{ version }}
         - fenics-fiat =={{ version }}
