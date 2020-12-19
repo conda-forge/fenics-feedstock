@@ -188,7 +188,6 @@ outputs:
         - python
         - pip
         - cmake >=3.9
-        - eigen
         - pkgconfig
         - {{ mpi }}
         - mpi4py
@@ -209,9 +208,9 @@ outputs:
         - hdf5 * {{ mpi_prefix }}_*
       run:
         - {{ compiler('cxx') }}  # [linux]
-        - {{ mpi }}
         - python
         - setuptools
+        - {{ mpi }}
         - mpi4py
         - petsc
         - petsc4py
