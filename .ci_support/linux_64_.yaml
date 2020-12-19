@@ -4,7 +4,7 @@ boost_cpp:
 c_compiler:
 - gcc
 c_compiler_version:
-- '7'
+- '9'
 cdt_name:
 - cos6
 channel_sources:
@@ -14,9 +14,9 @@ channel_targets:
 cxx_compiler:
 - gxx
 cxx_compiler_version:
-- '7'
+- '9'
 docker_image:
-- condaforge/linux-anvil-comp7
+- quay.io/condaforge/linux-anvil-comp7
 hdf5:
 - 1.10.6
 libblas:

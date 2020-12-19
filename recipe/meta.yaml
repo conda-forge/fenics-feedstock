@@ -27,7 +27,7 @@ source:
       - linuxboost.patch  # [linux]
 
 build:
-  number: 13
+  number: 14
   skip: true  # [win]
 
 outputs:
@@ -153,7 +153,6 @@ outputs:
         - hdf5 * {{ mpi_prefix }}_*
       run:
         - {{ compiler('cxx') }}  # [linux]
-        - boost-cpp
         - cmake >=3.9
         - eigen
         - {{ mpi }}
@@ -165,10 +164,8 @@ outputs:
         - suitesparse
         - zlib
         - fenics-ffc =={{ version }}
-        # need to list libnetcdf and netcdf-fortran twice to get version
-        # pinning from conda_build_config and build pinning from {{ mpi_prefix }}
-        - hdf5
         - hdf5 * {{ mpi_prefix }}_*
+        - {{ pin_compatible("boost-cpp", exact=True) }}
       run_constrained:
         - fenics =={{ version }}
     test:
@@ -229,9 +226,6 @@ outputs:
         - fenics-fiat =={{ version }}
         - fenics-ufl =={{ version }}
         - fenics-ffc =={{ version }}
-        # need to list libnetcdf and netcdf-fortran twice to get version
-        # pinning from conda_build_config and build pinning from {{ mpi_prefix }}
-        - hdf5
         - hdf5 * {{ mpi_prefix }}_*
       run_constrained:
         - fenics =={{ version }}
@@ -265,10 +259,6 @@ outputs:
         - fenics-ufl =={{ version }}
         - fenics-ffc =={{ version }}
         - {{ pin_subpackage('fenics-dolfin', exact=True) }}
-        # need to list libnetcdf and netcdf-fortran twice to get version
-        # pinning from conda_build_config and build pinning from {{ mpi_prefix }}
-        - hdf5
-        - hdf5 * {{ mpi_prefix }}_*
     test:
       imports:
         - dolfin
