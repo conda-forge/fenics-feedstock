@@ -153,7 +153,7 @@ outputs:
         - hdf5 * {{ mpi_prefix }}_*
       run:
         - {{ compiler('cxx') }}  # [linux]
-        - {{ pin_subpackage("boost-cpp", exact=True) }}
+        - {{ pin_compatible("boost-cpp", exact=True) }}
       run_constrained:
         - fenics =={{ version }}
     test:
