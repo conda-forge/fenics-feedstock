@@ -176,6 +176,7 @@ outputs:
         - python
         - pip
         - cmake >=3.9
+        - eigen
         - pkgconfig
         - {{ mpi }}
         - mpi4py
