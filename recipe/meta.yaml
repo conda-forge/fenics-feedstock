@@ -27,7 +27,7 @@ source:
       - linuxboost.patch  # [linux]
 
 build:
-  number: 13
+  number: 14
   skip: true  # [win]
 
 outputs:
@@ -153,22 +153,6 @@ outputs:
         - hdf5 * {{ mpi_prefix }}_*
       run:
         - {{ compiler('cxx') }}  # [linux]
-        - boost-cpp
-        - cmake >=3.9
-        - eigen
-        - {{ mpi }}
-        - parmetis
-        - petsc
-        - slepc
-        - pkg-config
-        - ptscotch
-        - suitesparse
-        - zlib
-        - fenics-ffc =={{ version }}
-        # need to list libnetcdf and netcdf-fortran twice to get version
-        # pinning from conda_build_config and build pinning from {{ mpi_prefix }}
-        - hdf5
-        - hdf5 * {{ mpi_prefix }}_*
       run_constrained:
         - fenics =={{ version }}
     test:
@@ -211,28 +195,6 @@ outputs:
         - hdf5 * {{ mpi_prefix }}_*
       run:
         - {{ compiler('cxx') }}  # [linux]
-        - python
-        - setuptools
-        - {{ mpi }}
-        - mpi4py
-        - petsc
-        - petsc4py
-        - slepc
-        - slepc4py
-        - pkgconfig  # Python pkgconfig package
-        - pybind11
-        - {{ pin_compatible('numpy', max_pin=None) }}
-        - six
-        - sympy >=1
-        - {{ pin_subpackage("fenics-libdolfin", exact=True) }}
-        - fenics-dijitso =={{ version }}
-        - fenics-fiat =={{ version }}
-        - fenics-ufl =={{ version }}
-        - fenics-ffc =={{ version }}
-        # need to list libnetcdf and netcdf-fortran twice to get version
-        # pinning from conda_build_config and build pinning from {{ mpi_prefix }}
-        - hdf5
-        - hdf5 * {{ mpi_prefix }}_*
       run_constrained:
         - fenics =={{ version }}
 
