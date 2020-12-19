@@ -172,6 +172,7 @@ outputs:
       host:
         - libblas
         - libcblas
+        - boost-cpp
         - python
         - pip
         - cmake >=3.9
@@ -195,6 +196,7 @@ outputs:
         - hdf5 * {{ mpi_prefix }}_*
       run:
         - {{ compiler('cxx') }}  # [linux]
+        - {{ pin_subpackage("fenics-libdolfin", exact=True) }}
       run_constrained:
         - fenics =={{ version }}
 
