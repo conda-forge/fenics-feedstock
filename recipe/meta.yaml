@@ -153,6 +153,7 @@ outputs:
         - hdf5 * {{ mpi_prefix }}_*
       run:
         - {{ compiler('cxx') }}  # [linux]
+        - {{ pin_subpackage("boost-cpp", exact=True) }}
       run_constrained:
         - fenics =={{ version }}
     test:
@@ -172,7 +173,6 @@ outputs:
       host:
         - libblas
         - libcblas
-        - boost-cpp
         - python
         - pip
         - cmake >=3.9
@@ -197,7 +197,6 @@ outputs:
       run:
         - {{ compiler('cxx') }}  # [linux]
         - {{ pin_subpackage("fenics-libdolfin", exact=True) }}
-        - {{ pin_subpackage("boost-cpp", exact=True) }}
       run_constrained:
         - fenics =={{ version }}
 
