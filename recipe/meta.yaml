@@ -197,6 +197,7 @@ outputs:
       run:
         - {{ compiler('cxx') }}  # [linux]
         - {{ pin_subpackage("fenics-libdolfin", exact=True) }}
+        - {{ pin_subpackage("boost-cpp", exact=True) }}
       run_constrained:
         - fenics =={{ version }}
 
