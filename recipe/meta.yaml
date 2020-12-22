@@ -153,7 +153,7 @@ outputs:
         - hdf5
         - hdf5 * {{ mpi_prefix }}_*
       run:
-        - {{ compiler('cxx') }}  # [linux]
+        - {{ compiler('cxx') }}
         - python
         - cmake >=3.9
         - eigen
@@ -209,7 +209,7 @@ outputs:
         - hdf5
         - hdf5 * {{ mpi_prefix }}_*
       run:
-        - {{ compiler('cxx') }}  # [linux]
+        - {{ compiler('cxx') }}
         - python
         - setuptools
         - {{ mpi }}
