@@ -27,7 +27,7 @@ source:
       - linuxboost.patch  # [linux]
 
 build:
-  number: 14
+  number: 15
   skip: true  # [win]
 
 outputs:
@@ -133,6 +133,7 @@ outputs:
         - {{ compiler('c') }}
         - {{ compiler('cxx') }}
       host:
+        - python
         - libblas
         - libcblas
         - boost-cpp
@@ -153,6 +154,7 @@ outputs:
         - hdf5 * {{ mpi_prefix }}_*
       run:
         - {{ compiler('cxx') }}  # [linux]
+        - python
         - cmake >=3.9
         - eigen
         - {{ mpi }}
