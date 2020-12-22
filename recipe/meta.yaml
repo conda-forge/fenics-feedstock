@@ -27,7 +27,7 @@ source:
       - linuxboost.patch  # [linux]
 
 build:
-  number: 17
+  number: 18
   skip: true  # [win]
 
 # NOTE: Top-level environment with boost-cpp is only to separate the build for
@@ -42,14 +42,13 @@ requirements:
 outputs:
   - name: fenics-dijitso
     build:
-      noarch: python
       script: $PYTHON -m pip install --no-deps ./dijitso
     requirements:
       host:
-        - python >=3.5
+        - python
         - pip
       run:
-        - python >=3.5
+        - python
         - numpy
         - setuptools
       run_constrained:
@@ -60,14 +59,13 @@ outputs:
 
   - name: fenics-fiat
     build:
-      noarch: python
       script: $PYTHON -m pip install --no-deps ./fiat
     requirements:
       host:
-        - python >=3.5
+        - python
         - pip
       run:
-        - python >=3.5
+        - python
         - setuptools
         - numpy
         - sympy >=1
@@ -79,14 +77,13 @@ outputs:
 
   - name: fenics-ufl
     build:
-      noarch: python
       script: $PYTHON -m pip install --no-deps ./ufl
     requirements:
       host:
-        - python >=3.5
+        - python
         - pip
       run:
-        - python >=3.5
+        - python
         - setuptools
         - numpy
       run_constrained:
@@ -102,17 +99,16 @@ outputs:
 
   - name: fenics-ffc
     build:
-      noarch: python
       script:
         - $PYTHON -m pip install --no-deps ./ffc
         - mkdir -p $PREFIX/include
         - cp ffc/ffc/backends/ufc/*.h $PREFIX/include/
     requirements:
       host:
-        - python >=3.5
+        - python
         - pip
       run:
-        - python >=3.5
+        - python
         - numpy
         - {{ pin_subpackage("fenics-dijitso", exact=True) }}
         - {{ pin_subpackage("fenics-fiat", exact=True) }}

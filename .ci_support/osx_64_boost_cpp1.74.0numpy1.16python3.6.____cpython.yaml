@@ -1,7 +1,7 @@
 MACOSX_DEPLOYMENT_TARGET:
 - '10.9'
 boost_cpp:
-- 1.72.0
+- 1.74.0
 c_compiler:
 - clang
 c_compiler_version:
@@ -26,9 +26,6 @@ mpi:
 - mpich
 numpy:
 - '1.16'
-- '1.16'
-- '1.16'
-- '1.19'
 petsc:
 - '3.13'
 petsc4py:
@@ -45,9 +42,6 @@ ptscotch:
 - 6.0.9
 python:
 - 3.6.* *_cpython
-- 3.7.* *_cpython
-- 3.8.* *_cpython
-- 3.9.* *_cpython
 slepc:
 - '3.13'
 slepc4py:
