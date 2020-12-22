@@ -110,9 +110,9 @@ outputs:
       run:
         - python
         - numpy
-        - fenics-dijitso =={{ version }}
-        - fenics-fiat =={{ version }}
-        - fenics-ufl =={{ version }}
+        - {{ pin_subpackage("fenics-dijitso", exact=True) }}
+        - {{ pin_subpackage("fenics-fiat", exact=True) }}
+        - {{ pin_subpackage("fenics-ufl", exact=True) }}
       run_constrained:
         - fenics =={{ version }}
     test:
@@ -151,7 +151,7 @@ outputs:
         - {{ mpi }}
         - petsc
         - slepc
-        - fenics-ffc =={{ version }}
+        - {{ pin_subpackage("fenics-ffc", exact=True) }}
         # need to list libnetcdf and netcdf-fortran twice to get version
         # pinning from conda_build_config and build pinning from {{ mpi_prefix }}
         - hdf5
@@ -168,7 +168,7 @@ outputs:
         - ptscotch
         - suitesparse
         - zlib
-        - fenics-ffc =={{ version }}
+        - {{ pin_subpackage("fenics-ffc", exact=True) }}
         - boost-cpp
       run_constrained:
         - fenics =={{ version }}
@@ -259,10 +259,10 @@ outputs:
         - python
       run:
         - python
-        - fenics-dijitso =={{ version }}
-        - fenics-fiat =={{ version }}
-        - fenics-ufl =={{ version }}
-        - fenics-ffc =={{ version }}
+        - {{ pin_subpackage("fenics-dijitso", exact=True) }}
+        - {{ pin_subpackage("fenics-fiat", exact=True) }}
+        - {{ pin_subpackage("fenics-ufl", exact=True) }}
+        - {{ pin_subpackage("fenics-ffc", exact=True) }}
         - {{ pin_subpackage('fenics-dolfin', exact=True) }}
     test:
       imports:
