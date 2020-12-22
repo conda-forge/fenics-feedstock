@@ -39,7 +39,6 @@ outputs:
       host:
         - python >=3.5
         - pip
-        - boost-cpp
       run:
         - python >=3.5
         - numpy
@@ -58,7 +57,6 @@ outputs:
       host:
         - python >=3.5
         - pip
-        - boost-cpp
       run:
         - python >=3.5
         - setuptools
@@ -78,7 +76,6 @@ outputs:
       host:
         - python >=3.5
         - pip
-        - boost-cpp
       run:
         - python >=3.5
         - setuptools
@@ -105,7 +102,6 @@ outputs:
       host:
         - python >=3.5
         - pip
-        - boost-cpp
       run:
         - python >=3.5
         - numpy
@@ -168,8 +164,7 @@ outputs:
         - suitesparse
         - zlib
         - fenics-ffc =={{ version }}
-        - hdf5 * {{ mpi_prefix }}_*
-        - {{ pin_compatible("boost-cpp", exact=True) }}
+        - boost-cpp
       run_constrained:
         - fenics =={{ version }}
     test:
@@ -189,7 +184,6 @@ outputs:
       host:
         - libblas
         - libcblas
-        - boost-cpp
         - python
         - pip
         - cmake >=3.9
@@ -231,7 +225,6 @@ outputs:
         - fenics-fiat =={{ version }}
         - fenics-ufl =={{ version }}
         - fenics-ffc =={{ version }}
-        - hdf5 * {{ mpi_prefix }}_*
       run_constrained:
         - fenics =={{ version }}
 
@@ -257,7 +250,6 @@ outputs:
     requirements:
       host:
         - python
-        - boost-cpp
       run:
         - python
         - fenics-dijitso =={{ version }}
