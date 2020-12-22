@@ -27,8 +27,17 @@ source:
       - linuxboost.patch  # [linux]
 
 build:
-  number: 14
+  number: 15
   skip: true  # [win]
+
+# NOTE: Top-level environment with boost-cpp is only to separate the build for
+#       multiple boost versions into different CI jobs.
+# TODO: Needs investigation why "separate the two boost builds more strictly"
+#       would be necessary. Ref:
+#       https://github.com/conda-forge/mshr-feedstock/pull/23#issuecomment-749520383
+requirements:
+  host:
+    - boost-cpp
 
 outputs:
   - name: fenics-dijitso
@@ -164,8 +173,7 @@ outputs:
         - suitesparse
         - zlib
         - fenics-ffc =={{ version }}
-        - hdf5 * {{ mpi_prefix }}_*
-        - {{ pin_compatible("boost-cpp", exact=True) }}
+        - boost-cpp
       run_constrained:
         - fenics =={{ version }}
     test:
@@ -226,7 +234,6 @@ outputs:
         - fenics-fiat =={{ version }}
         - fenics-ufl =={{ version }}
         - fenics-ffc =={{ version }}
-        - hdf5 * {{ mpi_prefix }}_*
       run_constrained:
         - fenics =={{ version }}
 
