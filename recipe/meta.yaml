@@ -27,7 +27,7 @@ source:
       - linuxboost.patch  # [linux]
 
 build:
-  number: 15
+  number: 16
   skip: true  # [win]
 
 # NOTE: Top-level environment with boost-cpp is only to separate the build for
@@ -193,6 +193,7 @@ outputs:
       host:
         - libblas
         - libcblas
+        - boost-cpp
         - python
         - pip
         - cmake >=3.9
@@ -217,6 +218,7 @@ outputs:
       run:
         - {{ compiler('cxx') }}  # [linux]
         - python
+        - boost-cpp
         - setuptools
         - {{ mpi }}
         - mpi4py
