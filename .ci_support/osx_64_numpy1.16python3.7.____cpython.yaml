@@ -25,7 +25,7 @@ macos_machine:
 mpi:
 - mpich
 numpy:
-- '1.19'
+- '1.16'
 petsc:
 - '3.13'
 petsc4py:
@@ -41,7 +41,7 @@ pin_run_as_build:
 ptscotch:
 - 6.0.9
 python:
-- 3.9.* *_cpython
+- 3.7.* *_cpython
 slepc:
 - '3.13'
 slepc4py:
@@ -53,7 +53,7 @@ target_platform:
 zip_keys:
 - - c_compiler_version
   - cxx_compiler_version
-- - numpy
-  - python
+- - python
+  - numpy
 zlib:
 - '1.2'
