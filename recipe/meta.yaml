@@ -27,7 +27,7 @@ source:
       - linuxboost.patch  # [linux]
 
 build:
-  number: 18
+  number: 19
   skip: true  # [win]
 
 # NOTE: Top-level environment with boost-cpp is only to separate the build for
