@@ -1,7 +1,7 @@
 MACOSX_DEPLOYMENT_TARGET:
 - '10.9'
 boost_cpp:
-- 1.72.0
+- 1.74.0
 c_compiler:
 - clang
 c_compiler_version:
@@ -25,11 +25,11 @@ macos_machine:
 mpi:
 - mpich
 numpy:
-- '1.19'
+- '1.16'
 petsc:
-- '3.13'
+- '3.14'
 petsc4py:
-- '3.13'
+- '3.14'
 pin_run_as_build:
   boost-cpp:
     max_pin: x.x.x
@@ -41,11 +41,11 @@ pin_run_as_build:
 ptscotch:
 - 6.0.9
 python:
-- 3.9.* *_cpython
+- 3.8.* *_cpython
 slepc:
-- '3.13'
+- '3.14'
 slepc4py:
-- '3.13'
+- '3.14'
 suitesparse:
 - '5.6'
 target_platform:
@@ -53,7 +53,7 @@ target_platform:
 zip_keys:
 - - c_compiler_version
   - cxx_compiler_version
-- - numpy
-  - python
+- - python
+  - numpy
 zlib:
 - '1.2'
