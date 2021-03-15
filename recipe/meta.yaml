@@ -28,7 +28,7 @@ source:
 
 build:
   number: 18
-  skip: true  # [win]
+  skip: true  # [win or pypy]
 
 # NOTE: Top-level environment with boost-cpp is only to separate the build for
 #       multiple boost versions into different CI jobs.
