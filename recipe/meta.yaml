@@ -27,7 +27,7 @@ source:
       - linuxboost.patch  # [linux]
 
 build:
-  number: 18
+  number: 19
   skip: true  # [win]
 
 # NOTE: Top-level environment with boost-cpp is only to separate the build for
@@ -158,6 +158,7 @@ outputs:
         - hdf5 * {{ mpi_prefix }}_*
       run:
         - {{ compiler('cxx') }}  # [linux]
+        - blas-devel
         - cmake >=3.9
         - eigen
         - {{ mpi }}
@@ -213,6 +214,7 @@ outputs:
         - hdf5 * {{ mpi_prefix }}_*
       run:
         - {{ compiler('cxx') }}  # [linux]
+        - blas-devel
         - python
         - boost-cpp
         - setuptools
