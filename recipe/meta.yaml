@@ -159,6 +159,7 @@ outputs:
         - hdf5 * {{ mpi_prefix }}_*
       run:
         - {{ compiler('cxx') }}  # [linux]
+        - blas-devel
         - cmake >=3.9
         - eigen
         - {{ mpi }}
@@ -214,6 +215,7 @@ outputs:
         - hdf5 * {{ mpi_prefix }}_*
       run:
         - {{ compiler('cxx') }}  # [linux]
+        - blas-devel
         - python
         - boost-cpp
         - setuptools
