@@ -25,7 +25,7 @@ libcblas:
 mpi:
 - mpich
 numpy:
-- '1.16'
+- '1.18'
 petsc:
 - '3.14'
 petsc4py:
@@ -41,7 +41,7 @@ pin_run_as_build:
 ptscotch:
 - 6.0.9
 python:
-- 3.7.* *_cpython
+- 3.6.* *_73_pypy
 slepc:
 - '3.14'
 slepc4py:
