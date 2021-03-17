@@ -1,0 +1,39 @@
+From c89696111b1cdac27890f13af851bf8f9b972f90 Mon Sep 17 00:00:00 2001
+From: Min RK <benjaminrk@gmail.com>
+Date: Wed, 17 Mar 2021 11:14:44 +0100
+Subject: [PATCH] allow case-insensitive search for petsc/slepc
+
+---
+ cmake/modules/FindPETSc.cmake | 2 +-
+ cmake/modules/FindSLEPc.cmake | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/cmake/modules/FindPETSc.cmake b/cmake/modules/FindPETSc.cmake
+index 80faffdad..d89716751 100644
+--- a/cmake/modules/FindPETSc.cmake
++++ b/cmake/modules/FindPETSc.cmake
+@@ -51,7 +51,7 @@ find_package(PkgConfig REQUIRED)
+ 
+ # Find PETSc pkg-config file. Note: craypetsc_real is on Cray systems
+ set(ENV{PKG_CONFIG_PATH} "$ENV{CRAY_PETSC_PREFIX_DIR}/lib/pkgconfig:$ENV{PETSC_DIR}/$ENV{PETSC_ARCH}/lib/pkgconfig:$ENV{PETSC_DIR}/lib/pkgconfig:$ENV{PKG_CONFIG_PATH}")
+-pkg_search_module(PETSC craypetsc_real PETSc)
++pkg_search_module(PETSC craypetsc_real PETSc petsc)
+ 
+ # Extract major, minor, etc from version string
+ if (PETSC_VERSION)
+diff --git a/cmake/modules/FindSLEPc.cmake b/cmake/modules/FindSLEPc.cmake
+index 327cffc23..ba5e4c465 100644
+--- a/cmake/modules/FindSLEPc.cmake
++++ b/cmake/modules/FindSLEPc.cmake
+@@ -48,7 +48,7 @@ find_package(PkgConfig REQUIRED)
+ set(ENV{PKG_CONFIG_PATH} "$ENV{SLEPC_DIR}/$ENV{PETSC_ARCH}/lib/pkgconfig:$ENV{SLEPC_DIR}/lib/pkgconfig:$ENV{PKG_CONFIG_PATH}")
+ set(ENV{PKG_CONFIG_PATH} "$ENV{PETSC_DIR}/$ENV{PETSC_ARCH}/lib/pkgconfig:$ENV{PETSC_DIR}/lib/pkgconfig:$ENV{PKG_CONFIG_PATH}")
+ set(ENV{PKG_CONFIG_PATH} "$ENV{PETSC_DIR}/$ENV{PETSC_ARCH}:$ENV{PETSC_DIR}:$ENV{PKG_CONFIG_PATH}")
+-pkg_search_module(SLEPC crayslepc_real SLEPc)
++pkg_search_module(SLEPC crayslepc_real SLEPc slepc)
+ 
+ # Extract major, minor, etc from version string
+ if (SLEPC_VERSION)
+-- 
+2.30.2
+
