@@ -25,6 +25,7 @@ source:
     patches:
       - boost.patch
       - linuxboost.patch  # [linux]
+      - find-petsc-slepc.patch
 
 build:
   number: 19
