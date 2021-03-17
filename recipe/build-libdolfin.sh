@@ -26,6 +26,7 @@ export BLAS_DIR=$LIBRARY_PATH
 cmake .. \
   -DDOLFIN_ENABLE_MPI=on \
   -DDOLFIN_ENABLE_PETSC=on \
+  -DDOLFIN_ENABLE_SLEPC=on \
   -DDOLFIN_ENABLE_SCOTCH=on \
   -DDOLFIN_ENABLE_HDF5=on \
   -DCMAKE_INSTALL_PREFIX=$PREFIX \
@@ -33,6 +34,11 @@ cmake .. \
   -DCMAKE_INCLUDE_PATH=$INCLUDE_PATH \
   -DCMAKE_LIBRARY_PATH=$LIBRARY_PATH \
   -DPYTHON_EXECUTABLE=$PREFIX/bin/python || (cat CMakeFiles/CMakeError.log && exit 1)
+
+if [[ -f CMakeFiles/CMakeError.log ]]; then
+    echo "Captured CMakeError.log"
+    cat CMakeFiles/CMakeError.log
+fi
 
 make VERBOSE=1 -j${CPU_COUNT}
 make install
