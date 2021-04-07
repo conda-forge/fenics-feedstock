@@ -54,4 +54,9 @@ if [[ "$(uname)" == "Darwin" ]]; then
     find $PREFIX/share/dolfin -name '*.cmake' -print -exec sh -c "sed -E -i ''  's@/Applications/Xcode.app[^;]*(.dylib|.framework|.a);@@g' {}" \;
 else
     find $PREFIX/share/dolfin -name '*.cmake' -print -exec sh -c "sed -E -i''  's@/usr/lib(64)?/[^;]*(.so|.a);@@g' {}" \;
+
+    # strip libdolfin
+    # it's unclear why this doesn't happen from the default flags
+    # it seems to on mac
+    strip -s $PREFIX/lib/libdolfin.so
 fi
