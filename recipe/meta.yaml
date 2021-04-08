@@ -28,7 +28,7 @@ source:
       - find-petsc-slepc.patch
 
 build:
-  number: 20
+  number: 21
   skip: true  # [win]
 
 # NOTE: Top-level environment with boost-cpp is only to separate the build for
@@ -152,7 +152,7 @@ outputs:
         - {{ mpi }}
         - petsc
         - slepc
-        - {{ pin_subpackage("fenics-ffc", exact=True) }}
+        - fenics-ffc =={{ version }}
         # need to list libnetcdf and netcdf-fortran twice to get version
         # pinning from conda_build_config and build pinning from {{ mpi_prefix }}
         - hdf5
@@ -169,7 +169,7 @@ outputs:
         - ptscotch
         - suitesparse
         - zlib
-        - {{ pin_subpackage("fenics-ffc", exact=True) }}
+        - fenics-ffc =={{ version }}
         - boost-cpp
       run_constrained:
         - fenics =={{ version }}
