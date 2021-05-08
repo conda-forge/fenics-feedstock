@@ -25,11 +25,11 @@ macos_machine:
 mpi:
 - mpich
 numpy:
-- '1.16'
+- '1.17'
 petsc:
-- '3.14'
+- '3.15'
 petsc4py:
-- '3.14'
+- '3.15'
 pin_run_as_build:
   boost-cpp:
     max_pin: x.x.x
@@ -41,13 +41,13 @@ pin_run_as_build:
 ptscotch:
 - 6.0.9
 python:
-- 3.7.* *_cpython
+- 3.8.* *_cpython
 slepc:
-- '3.14'
+- '3.15'
 slepc4py:
-- '3.14'
+- '3.15'
 suitesparse:
-- '5.6'
+- '5'
 target_platform:
 - osx-64
 zip_keys:
