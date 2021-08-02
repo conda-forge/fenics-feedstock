@@ -48,7 +48,7 @@ slepc:
 slepc4py:
 - '3.14'
 suitesparse:
-- '5.6'
+- '5'
 target_platform:
 - linux-64
 zip_keys:
