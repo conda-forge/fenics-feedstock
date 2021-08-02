@@ -8,6 +8,8 @@ pin_run_as_build:
     max_pin: x.x
   mpich:
     max_pin: x.x
+  openmpi:
+    max_pin: x.x
   parmetis:
     max_pin: x.x
   # pybind11 generation breaks on patch releases
