@@ -28,7 +28,7 @@ source:
       - find-petsc-slepc.patch
 
 build:
-  number: 21
+  number: 22
   skip: true  # [win]
 
 # NOTE: Top-level environment with boost-cpp is only to separate the build for
