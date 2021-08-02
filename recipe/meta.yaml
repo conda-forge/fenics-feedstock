@@ -175,9 +175,11 @@ outputs:
         - fenics =={{ version }}
     test:
       commands:
-        - export OMPI_MCA_plm=isolated # [ mpi == 'openmpi' ]
-        - export OMPI_MCA_btl_vader_single_copy_mechanism=none # [ mpi == 'openmpi' ]
-        - export OMPI_MCA_rmaps_base_oversubscribe=yes # [ mpi == 'openmpi' ]
+        - export OMPI_MCA_plm=isolated  # [mpi == 'openmpi']
+        - export OMPI_MCA_btl_vader_single_copy_mechanism=none  # [mpi == 'openmpi']
+        - export OMPI_MCA_rmaps_base_oversubscribe=yes  # [mpi == 'openmpi']
+        - export OMPI_MCA_plm_rsh_agent=/bin/false  # [mpi == 'openmpi']
+        - export OMPI_MCA_btl_base_warn_component_unused=0  # [mpi == 'openmpi']
         - test -f ${PREFIX}/lib/libdolfin${SHLIB_EXT}
         - test -f ${PREFIX}/lib/libdolfin.{{ version }}${SHLIB_EXT}  # [osx]
         - test -f ${PREFIX}/lib/libdolfin${SHLIB_EXT}.{{ version }}  # [linux]
@@ -241,9 +243,11 @@ outputs:
 
     test:
       commands:
-        - export OMPI_MCA_plm=isolated # [ mpi == 'openmpi' ]
-        - export OMPI_MCA_btl_vader_single_copy_mechanism=none # [ mpi == 'openmpi' ]
-        - export OMPI_MCA_rmaps_base_oversubscribe=yes # [ mpi == 'openmpi' ]
+        - export OMPI_MCA_plm=isolated  # [ mpi == 'openmpi' ]
+        - export OMPI_MCA_btl_vader_single_copy_mechanism=none  # [ mpi == 'openmpi' ]
+        - export OMPI_MCA_rmaps_base_oversubscribe=yes  # [ mpi == 'openmpi' ]
+        - export OMPI_MCA_plm_rsh_agent=/bin/false  # [mpi == 'openmpi']
+        - export OMPI_MCA_btl_base_warn_component_unused=0  # [mpi == 'openmpi']
         - bash ${RECIPE_DIR}/parent/test-dolfin.sh
       source_files:
         - dolfin/python/test
