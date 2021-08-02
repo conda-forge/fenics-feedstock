@@ -1,4 +1,5 @@
 mpi:
+  - 'openmpi'
   - 'mpich'
 pin_run_as_build:
   boost-cpp:
