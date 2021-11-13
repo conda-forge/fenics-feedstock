@@ -148,6 +148,7 @@ outputs:
         - pkg-config
         - ptscotch
         - suitesparse
+        - superlu_dist <=6.2.0
         - zlib
         - {{ mpi }}
         - petsc
@@ -168,6 +169,7 @@ outputs:
         - pkg-config
         - ptscotch
         - suitesparse
+        - superlu_dist <=6.2.0
         - zlib
         - fenics-ffc =={{ version }}
         - boost-cpp
@@ -199,6 +201,7 @@ outputs:
         - mpi4py
         - petsc4py
         - slepc4py
+        - superlu_dist <=6.2.0
         - numpy
         - pybind11
         - six
@@ -223,6 +226,7 @@ outputs:
         - petsc4py
         - slepc
         - slepc4py
+        - superlu_dist <=6.2.0
         - pkgconfig  # Python pkgconfig package
         - pybind11
         - {{ pin_compatible('numpy', max_pin=None) }}
