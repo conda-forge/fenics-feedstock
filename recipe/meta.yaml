@@ -152,6 +152,7 @@ outputs:
         - {{ mpi }}
         - petsc
         - slepc
+        - superlu_dist =6.2.0
         - fenics-ffc =={{ version }}
         # need to list libnetcdf and netcdf-fortran twice to get version
         # pinning from conda_build_config and build pinning from {{ mpi_prefix }}
