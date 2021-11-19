@@ -23,7 +23,6 @@ libcblas:
 macos_machine:
 - x86_64-apple-darwin13.4.0
 mpi:
-- mpich
 - openmpi
 numpy:
 - '1.18'
