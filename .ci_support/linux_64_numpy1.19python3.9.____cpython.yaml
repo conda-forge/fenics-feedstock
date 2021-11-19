@@ -24,6 +24,7 @@ libcblas:
 - 3.8 *netlib
 mpi:
 - mpich
+- openmpi
 numpy:
 - '1.19'
 petsc:
