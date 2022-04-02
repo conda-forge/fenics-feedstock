@@ -143,6 +143,7 @@ outputs:
         - libcblas
         - boost-cpp
         - cmake >=3.9
+        - make
         - eigen
         - parmetis
         - pkg-config
@@ -194,6 +195,7 @@ outputs:
         - python
         - pip
         - cmake >=3.9
+        - make
         - pkgconfig
         - {{ mpi }}
         - mpi4py
