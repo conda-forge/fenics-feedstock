@@ -3,7 +3,7 @@ boost_cpp:
 c_compiler:
 - gcc
 c_compiler_version:
-- '9'
+- '10'
 cdt_name:
 - cos6
 channel_sources:
@@ -13,9 +13,9 @@ channel_targets:
 cxx_compiler:
 - gxx
 cxx_compiler_version:
-- '9'
+- '10'
 docker_image:
-- quay.io/condaforge/linux-anvil-comp7
+- quay.io/condaforge/linux-anvil-cos7-x86_64
 hdf5:
 - 1.10.6
 libblas:
@@ -24,8 +24,12 @@ libcblas:
 - 3.8 *netlib
 mpi:
 - mpich
+mpich:
+- '4'
 numpy:
 - '1.21'
+openmpi:
+- '4'
 petsc:
 - '3.16'
 petsc4py:
@@ -33,6 +37,8 @@ petsc4py:
 pin_run_as_build:
   boost-cpp:
     max_pin: x.x.x
+  mpich:
+    max_pin: x.x
   python:
     min_pin: x.x
     max_pin: x.x
@@ -53,8 +59,6 @@ target_platform:
 zip_keys:
 - - c_compiler_version
   - cxx_compiler_version
-- - cdt_name
-  - docker_image
 - - python
   - numpy
 zlib:
