@@ -28,7 +28,7 @@ source:
       - find-petsc-slepc.patch
 
 build:
-  number: 26
+  number: 27
   skip: true  # [win]
 
 # NOTE: Top-level environment with boost-cpp is only to separate the build for
@@ -143,6 +143,7 @@ outputs:
         - libcblas
         - boost-cpp
         - cmake >=3.9
+        - make
         - eigen
         - parmetis
         - pkg-config
@@ -194,6 +195,7 @@ outputs:
         - python
         - pip
         - cmake >=3.9
+        - make
         - pkgconfig
         - {{ mpi }}
         - mpi4py

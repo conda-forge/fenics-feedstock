@@ -5,7 +5,7 @@ boost_cpp:
 c_compiler:
 - clang
 c_compiler_version:
-- '11'
+- '12'
 channel_sources:
 - conda-forge
 channel_targets:
@@ -13,7 +13,7 @@ channel_targets:
 cxx_compiler:
 - clangxx
 cxx_compiler_version:
-- '11'
+- '12'
 hdf5:
 - 1.10.6
 libblas:
@@ -24,8 +24,12 @@ macos_machine:
 - x86_64-apple-darwin13.4.0
 mpi:
 - mpich
+mpich:
+- '4'
 numpy:
 - '1.21'
+openmpi:
+- '4'
 petsc:
 - '3.16'
 petsc4py:
@@ -33,6 +37,8 @@ petsc4py:
 pin_run_as_build:
   boost-cpp:
     max_pin: x.x.x
+  mpich:
+    max_pin: x.x
   python:
     min_pin: x.x
     max_pin: x.x
