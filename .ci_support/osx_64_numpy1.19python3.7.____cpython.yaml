@@ -24,6 +24,7 @@ macos_machine:
 - x86_64-apple-darwin13.4.0
 mpi:
 - mpich
+- openmpi
 mpich:
 - '4'
 numpy:
