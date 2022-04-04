@@ -26,6 +26,7 @@ source:
       - boost.patch
       - linuxboost.patch  # [linux]
       - find-petsc-slepc.patch
+      - hdf5-1.12.patch
 
 build:
   number: 28
