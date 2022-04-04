@@ -1,29 +1,28 @@
+MACOSX_DEPLOYMENT_TARGET:
+- '10.9'
 boost_cpp:
 - 1.74.0
 c_compiler:
-- gcc
+- clang
 c_compiler_version:
-- '10'
-cdt_name:
-- cos6
+- '12'
 channel_sources:
 - conda-forge
 channel_targets:
 - conda-forge main
 cxx_compiler:
-- gxx
+- clangxx
 cxx_compiler_version:
-- '10'
-docker_image:
-- quay.io/condaforge/linux-anvil-cos7-x86_64
+- '12'
 hdf5:
 - 1.12.1
 libblas:
 - 3.8 *netlib
 libcblas:
 - 3.8 *netlib
+macos_machine:
+- x86_64-apple-darwin13.4.0
 mpi:
-- mpich
 - openmpi
 mpich:
 - '4'
@@ -54,7 +53,7 @@ slepc4py:
 suitesparse:
 - '5'
 target_platform:
-- linux-64
+- osx-64
 zip_keys:
 - - c_compiler_version
   - cxx_compiler_version

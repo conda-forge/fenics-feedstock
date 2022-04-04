@@ -24,7 +24,6 @@ macos_machine:
 - x86_64-apple-darwin13.4.0
 mpi:
 - mpich
-- openmpi
 mpich:
 - '4'
 numpy:
@@ -46,7 +45,7 @@ pin_run_as_build:
 ptscotch:
 - 6.0.9
 python:
-- 3.8.* *_cpython
+- 3.7.* *_cpython
 slepc:
 - '3.16'
 slepc4py:
