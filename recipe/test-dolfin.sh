@@ -6,6 +6,14 @@ if [[ "$(uname)" == "Darwin" ]]; then
   export CXXFLAGS="-std=c++11 -stdlib=libc++ $CXXFLAGS"
 fi
 
+mpiexec="mpiexec"
+if command -v "${PREFIX}/bin/ompi_info" >/dev/null; then
+    export OMPI_MCA_plm=isolated
+    export OMPI_MCA_rmaps_base_oversubscribe=yes
+    export OMPI_MCA_btl_vader_single_copy_mechanism=none
+    mpiexec="mpiexec --allow-run-as-root"
+fi
+
 export DIJITSO_CACHE_DIR=${PWD}/instant
 
 # verify that we have the features we intend to
@@ -32,4 +40,4 @@ RUN_TESTS="python -b -m pytest -vs $TESTS"
 $RUN_TESTS
 
 # parallel
-mpiexec -n 3 $RUN_TESTS 2>&1 </dev/null | cat
+$mpiexec -n 3 $RUN_TESTS 2>&1 </dev/null | cat
