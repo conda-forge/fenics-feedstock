@@ -40,6 +40,8 @@ build:
 requirements:
   host:
     - boost-cpp
+    # need to split the build matrix on mpi provider
+    - {{ mpi }}
 
 outputs:
   - name: fenics-dijitso
