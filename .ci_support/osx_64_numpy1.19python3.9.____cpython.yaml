@@ -15,7 +15,7 @@ cxx_compiler:
 cxx_compiler_version:
 - '12'
 hdf5:
-- 1.10.6
+- 1.12.1
 libblas:
 - 3.8 *netlib
 libcblas:
@@ -37,8 +37,6 @@ petsc4py:
 pin_run_as_build:
   boost-cpp:
     max_pin: x.x.x
-  mpich:
-    max_pin: x.x
   python:
     min_pin: x.x
     max_pin: x.x
