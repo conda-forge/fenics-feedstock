@@ -1,0 +1,30 @@
+From 88ae382272d4a60cf6bc5fbd9deb61fc3701956a Mon Sep 17 00:00:00 2001
+From: Min RK <benjaminrk@gmail.com>
+Date: Mon, 4 Apr 2022 12:05:51 +0200
+Subject: [PATCH] boost 1.74, hdf5 1.12 compatibility
+
+backport https://bitbucket.org/fenics-project/dolfin/pull-requests/540
+---
+ dolfin/io/HDF5Interface.cpp |  9 +++++++--
+diff --git a/dolfin/io/HDF5Interface.cpp b/dolfin/io/HDF5Interface.cpp
+index 02bfd5875..c619d9432 100644
+--- a/dolfin/io/HDF5Interface.cpp
++++ b/dolfin/io/HDF5Interface.cpp
+@@ -282,8 +282,13 @@ bool HDF5Interface::has_group(const hid_t hdf5_file_handle,
+   }
+
+   H5O_info_t object_info;
+-  H5Oget_info_by_name(hdf5_file_handle, group_name.c_str(), &object_info,
+-                      lapl_id);
++  #if H5_VERSION_GE(1, 12, 0)
++    H5Oget_info_by_name3(hdf5_file_handle, group_name.c_str(), &object_info,
++                        H5O_INFO_BASIC, lapl_id);
++  #else
++    H5Oget_info_by_name(hdf5_file_handle, group_name.c_str(), &object_info,
++                        lapl_id);
++  #endif
+
+   // Close link access properties
+   status = H5Pclose(lapl_id);
+--
+2.35.1

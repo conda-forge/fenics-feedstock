@@ -26,9 +26,10 @@ source:
       - boost.patch
       - linuxboost.patch  # [linux]
       - find-petsc-slepc.patch
+      - hdf5-1.12.patch
 
 build:
-  number: 27
+  number: 28
   skip: true  # [win]
 
 # NOTE: Top-level environment with boost-cpp is only to separate the build for
