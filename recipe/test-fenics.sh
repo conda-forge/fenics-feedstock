@@ -29,15 +29,3 @@ assert dolfin.has_scotch(), 'scotch'
 assert dolfin.has_mpi(), 'mpi'
 assert dolfin.has_parmetis(), 'parmetis'
 EOF
-
-python -c 'from dolfin import *; info(parameters["form_compiler"], True)'
-
-pushd "dolfin/python/test/unit"
-TESTS="jit fem/test_form.py::test_assemble_linear"
-
-RUN_TESTS="python -b -m pytest -vs $TESTS"
-# serial
-$RUN_TESTS
-
-# parallel
-$mpiexec -n 3 $RUN_TESTS 2>&1 </dev/null | cat

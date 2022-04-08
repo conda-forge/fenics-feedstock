@@ -29,7 +29,7 @@ source:
       - hdf5-1.12.patch
 
 build:
-  number: 28
+  number: 29
   skip: true  # [win]
 
 # NOTE: Top-level environment with boost-cpp is only to separate the build for
@@ -40,6 +40,8 @@ build:
 requirements:
   host:
     - boost-cpp
+    # need to split the build matrix on mpi provider
+    - {{ mpi }}
 
 outputs:
   - name: fenics-dijitso
@@ -133,7 +135,11 @@ outputs:
   - name: fenics-libdolfin
     build:
       script: ${RECIPE_DIR}/build-libdolfin.sh
-      skip: true  # [win and vc<14]
+      skip: true  # [win]
+      script_env:
+        - OMPI_MCA_plm=isolated
+        - OMPI_MCA_rmaps_base_oversubscribe=yes
+        - OMPI_MCA_btl_vader_single_copy_mechanism=none
       {% set mpi_prefix = "mpi_" + mpi %}
     requirements:
       build:
@@ -184,7 +190,10 @@ outputs:
   - name: fenics-dolfin
     build:
       script: ${RECIPE_DIR}/build-dolfin.sh
-      skip: true  # [win or py2k]
+      script_env:
+        - OMPI_MCA_plm=isolated
+        - OMPI_MCA_rmaps_base_oversubscribe=yes
+        - OMPI_MCA_btl_vader_single_copy_mechanism=none
     requirements:
       build:
         - {{ compiler('c') }}
@@ -251,9 +260,6 @@ outputs:
         - git
         - decorator
 
-      imports:
-        - dolfin
-
   - name: fenics
     build:
       skip: true  # [win or py2k]
@@ -269,8 +275,8 @@ outputs:
         - {{ pin_subpackage("fenics-ffc", exact=True) }}
         - {{ pin_subpackage('fenics-dolfin', exact=True) }}
     test:
-      imports:
-        - dolfin
+      commands:
+        - bash ${RECIPE_DIR}/parent/test-fenics.sh
 
 about:
   home: http://www.fenicsproject.org

@@ -1,5 +1,6 @@
 mpi:
   - mpich
+  - openmpi
 pin_run_as_build:
   boost-cpp:
     max_pin: x.x.x
