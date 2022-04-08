@@ -260,9 +260,6 @@ outputs:
         - git
         - decorator
 
-      imports:
-        - dolfin
-
   - name: fenics
     build:
       skip: true  # [win or py2k]
@@ -278,8 +275,8 @@ outputs:
         - {{ pin_subpackage("fenics-ffc", exact=True) }}
         - {{ pin_subpackage('fenics-dolfin', exact=True) }}
     test:
-      imports:
-        - dolfin
+      commands:
+        - bash ${RECIPE_DIR}/parent/test-fenics.sh
 
 about:
   home: http://www.fenicsproject.org
