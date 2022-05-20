@@ -5,7 +5,7 @@ boost_cpp:
 c_compiler:
 - clang
 c_compiler_version:
-- '12'
+- '13'
 channel_sources:
 - conda-forge
 channel_targets:
@@ -13,7 +13,7 @@ channel_targets:
 cxx_compiler:
 - clangxx
 cxx_compiler_version:
-- '12'
+- '13'
 hdf5:
 - 1.12.1
 libblas:
@@ -31,9 +31,9 @@ numpy:
 openmpi:
 - '4'
 petsc:
-- '3.16'
+- '3.17'
 petsc4py:
-- '3.16'
+- '3.17'
 pin_run_as_build:
   boost-cpp:
     max_pin: x.x.x
@@ -47,9 +47,9 @@ ptscotch:
 python:
 - 3.7.* *_cpython
 slepc:
-- '3.16'
+- '3.17'
 slepc4py:
-- '3.16'
+- '3.17'
 suitesparse:
 - '5'
 target_platform:
