@@ -1,5 +1,5 @@
 MACOSX_DEPLOYMENT_TARGET:
-- '10.9'
+- '11.0'
 boost_cpp:
 - 1.74.0
 c_compiler:
@@ -21,13 +21,13 @@ libblas:
 libcblas:
 - 3.9 *netlib
 macos_machine:
-- x86_64-apple-darwin13.4.0
+- arm64-apple-darwin20.0.0
 mpi:
-- openmpi
+- mpich
 mpich:
 - '4'
 numpy:
-- '1.19'
+- '1.21'
 openmpi:
 - '4'
 petsc:
@@ -45,7 +45,7 @@ pin_run_as_build:
 ptscotch:
 - 6.0.9
 python:
-- 3.7.* *_cpython
+- 3.10.* *_cpython
 slepc:
 - '3.17'
 slepc4py:
@@ -53,7 +53,7 @@ slepc4py:
 suitesparse:
 - '5'
 target_platform:
-- osx-64
+- osx-arm64
 zip_keys:
 - - c_compiler_version
   - cxx_compiler_version
