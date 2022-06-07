@@ -19,9 +19,9 @@ docker_image:
 hdf5:
 - 1.12.1
 libblas:
-- 3.8 *netlib
+- 3.9 *netlib
 libcblas:
-- 3.8 *netlib
+- 3.9 *netlib
 mpi:
 - openmpi
 mpich:
