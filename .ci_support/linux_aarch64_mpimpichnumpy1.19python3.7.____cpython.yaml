@@ -21,7 +21,7 @@ cxx_compiler_version:
 docker_image:
 - quay.io/condaforge/linux-anvil-aarch64
 hdf5:
-- 1.12.1
+- 1.12.2
 libblas:
 - 3.9 *netlib
 libcblas:
