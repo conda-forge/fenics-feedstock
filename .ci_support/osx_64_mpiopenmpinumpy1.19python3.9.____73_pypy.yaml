@@ -27,7 +27,7 @@ mpi:
 mpich:
 - '4'
 numpy:
-- '1.21'
+- '1.19'
 openmpi:
 - '4'
 petsc:
@@ -45,7 +45,7 @@ pin_run_as_build:
 ptscotch:
 - 6.0.9
 python:
-- 3.10.* *_cpython
+- 3.9.* *_73_pypy
 slepc:
 - '3.17'
 slepc4py:
