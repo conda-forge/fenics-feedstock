@@ -29,7 +29,7 @@ source:
       - hdf5-1.12.patch
 
 build:
-  number: 31
+  number: 32
   skip: true  # [win]
 
 # NOTE: Top-level environment with boost-cpp is only to separate the build for
