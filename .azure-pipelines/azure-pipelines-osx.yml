@@ -8,29 +8,29 @@ jobs:
     vmImage: macOS-11
   strategy:
     matrix:
-      osx_64_mpimpichnumpy1.19python3.7.____cpython:
-        CONFIG: osx_64_mpimpichnumpy1.19python3.7.____cpython
+      osx_64_mpimpichnumpy1.20python3.8.____cpython:
+        CONFIG: osx_64_mpimpichnumpy1.20python3.8.____cpython
         UPLOAD_PACKAGES: 'True'
-      osx_64_mpimpichnumpy1.19python3.8.____cpython:
-        CONFIG: osx_64_mpimpichnumpy1.19python3.8.____cpython
-        UPLOAD_PACKAGES: 'True'
-      osx_64_mpimpichnumpy1.19python3.9.____cpython:
-        CONFIG: osx_64_mpimpichnumpy1.19python3.9.____cpython
+      osx_64_mpimpichnumpy1.20python3.9.____cpython:
+        CONFIG: osx_64_mpimpichnumpy1.20python3.9.____cpython
         UPLOAD_PACKAGES: 'True'
       osx_64_mpimpichnumpy1.21python3.10.____cpython:
         CONFIG: osx_64_mpimpichnumpy1.21python3.10.____cpython
         UPLOAD_PACKAGES: 'True'
-      osx_64_mpiopenmpinumpy1.19python3.7.____cpython:
-        CONFIG: osx_64_mpiopenmpinumpy1.19python3.7.____cpython
+      osx_64_mpimpichnumpy1.23python3.11.____cpython:
+        CONFIG: osx_64_mpimpichnumpy1.23python3.11.____cpython
         UPLOAD_PACKAGES: 'True'
-      osx_64_mpiopenmpinumpy1.19python3.8.____cpython:
-        CONFIG: osx_64_mpiopenmpinumpy1.19python3.8.____cpython
+      osx_64_mpiopenmpinumpy1.20python3.8.____cpython:
+        CONFIG: osx_64_mpiopenmpinumpy1.20python3.8.____cpython
         UPLOAD_PACKAGES: 'True'
-      osx_64_mpiopenmpinumpy1.19python3.9.____cpython:
-        CONFIG: osx_64_mpiopenmpinumpy1.19python3.9.____cpython
+      osx_64_mpiopenmpinumpy1.20python3.9.____cpython:
+        CONFIG: osx_64_mpiopenmpinumpy1.20python3.9.____cpython
         UPLOAD_PACKAGES: 'True'
       osx_64_mpiopenmpinumpy1.21python3.10.____cpython:
         CONFIG: osx_64_mpiopenmpinumpy1.21python3.10.____cpython
+        UPLOAD_PACKAGES: 'True'
+      osx_64_mpiopenmpinumpy1.23python3.11.____cpython:
+        CONFIG: osx_64_mpiopenmpinumpy1.23python3.11.____cpython
         UPLOAD_PACKAGES: 'True'
   timeoutInMinutes: 360
 
