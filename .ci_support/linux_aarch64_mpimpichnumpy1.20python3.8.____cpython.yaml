@@ -27,11 +27,11 @@ libblas:
 libcblas:
 - 3.9 *netlib
 mpi:
-- openmpi
+- mpich
 mpich:
 - '4'
 numpy:
-- '1.19'
+- '1.20'
 openmpi:
 - '4'
 petsc:
@@ -44,12 +44,10 @@ pin_run_as_build:
   python:
     min_pin: x.x
     max_pin: x.x
-  zlib:
-    max_pin: x.x
 ptscotch:
 - 6.0.9
 python:
-- 3.7.* *_cpython
+- 3.8.* *_cpython
 slepc:
 - '3.17'
 slepc4py:
