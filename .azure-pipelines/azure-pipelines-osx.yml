@@ -8,8 +8,14 @@ jobs:
     vmImage: macOS-11
   strategy:
     matrix:
+      osx_64_mpimpichnumpy1.20python3.8.____73_pypy:
+        CONFIG: osx_64_mpimpichnumpy1.20python3.8.____73_pypy
+        UPLOAD_PACKAGES: 'True'
       osx_64_mpimpichnumpy1.20python3.8.____cpython:
         CONFIG: osx_64_mpimpichnumpy1.20python3.8.____cpython
+        UPLOAD_PACKAGES: 'True'
+      osx_64_mpimpichnumpy1.20python3.9.____73_pypy:
+        CONFIG: osx_64_mpimpichnumpy1.20python3.9.____73_pypy
         UPLOAD_PACKAGES: 'True'
       osx_64_mpimpichnumpy1.20python3.9.____cpython:
         CONFIG: osx_64_mpimpichnumpy1.20python3.9.____cpython
@@ -20,8 +26,14 @@ jobs:
       osx_64_mpimpichnumpy1.23python3.11.____cpython:
         CONFIG: osx_64_mpimpichnumpy1.23python3.11.____cpython
         UPLOAD_PACKAGES: 'True'
+      osx_64_mpiopenmpinumpy1.20python3.8.____73_pypy:
+        CONFIG: osx_64_mpiopenmpinumpy1.20python3.8.____73_pypy
+        UPLOAD_PACKAGES: 'True'
       osx_64_mpiopenmpinumpy1.20python3.8.____cpython:
         CONFIG: osx_64_mpiopenmpinumpy1.20python3.8.____cpython
+        UPLOAD_PACKAGES: 'True'
+      osx_64_mpiopenmpinumpy1.20python3.9.____73_pypy:
+        CONFIG: osx_64_mpiopenmpinumpy1.20python3.9.____73_pypy
         UPLOAD_PACKAGES: 'True'
       osx_64_mpiopenmpinumpy1.20python3.9.____cpython:
         CONFIG: osx_64_mpiopenmpinumpy1.20python3.9.____cpython
