@@ -280,7 +280,7 @@ outputs:
 
 about:
   home: http://www.fenicsproject.org
-  license: LGPL 3.0
+  license: LGPL-3.0-or-later
   license_file: dolfin/COPYING.LESSER
   summary: 'FEniCS is a collection of free software for automated, efficient solution of differential equations'
 
