@@ -27,9 +27,10 @@ source:
       - linuxboost.patch  # [linux]
       - find-petsc-slepc.patch
       - hdf5-1.12.patch
+      - fix-xdmf.patch
 
 build:
-  number: 33
+  number: 34
   skip: true  # [win]
 
 # NOTE: Top-level environment with boost-cpp is only to separate the build for

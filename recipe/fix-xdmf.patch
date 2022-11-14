@@ -1,0 +1,30 @@
+From 6fbc9fb8e1272c4cdd73d7e2e432dc29ebfe03ac Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?J=C3=B8rgen=20S=2E=20Dokken?= <dokken@simula.no>
+Date: Fri, 11 Nov 2022 12:58:58 +0100
+Subject: [PATCH] Fix boost behavior with h5. Fix various includes of
+ algorithm.
+URL: https://bitbucket.org/fenics-project/dolfin/pull-requests/555/fix-xdmffile-string-merging-with-h5
+
+---
+ dolfin/geometry/IntersectionConstruction.cpp | 1 +
+ dolfin/io/VTKFile.cpp                        | 7 +++----
+ dolfin/io/VTKWriter.cpp                      | 1 -
+ dolfin/io/XDMFFile.cpp                       | 2 +-
+ dolfin/mesh/MeshFunction.h                   | 2 +-
+ 5 files changed, 6 insertions(+), 7 deletions(-)
+
+diff --git a/dolfin/io/XDMFFile.cpp b/dolfin/io/XDMFFile.cpp
+index 817624d58..fd5b0a202 100644
+--- a/dolfin/io/XDMFFile.cpp
++++ b/dolfin/io/XDMFFile.cpp
+@@ -1915,7 +1915,7 @@ void XDMFFile::add_data_item(MPI_Comm comm, pugi::xml_node& xml_node,
+     const boost::filesystem::path p(hdf5_filename);
+
+     // Add HDF5 filename and HDF5 internal path to XML file
+-    const std::string xdmf_path = p.filename().string() + ":" + h5_path;
++    const std::string xdmf_path = std::string(p.filename().c_str()) + ":" + h5_path;
+     data_item_node.append_child(pugi::node_pcdata).set_value(xdmf_path.c_str());
+
+     // Compute total number of items and check for consistency with shape
+--
+2.37.1
