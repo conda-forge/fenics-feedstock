@@ -5,3 +5,5 @@ github:
 provider:
   linux_aarch64: azure
   linux_ppc64le: azure
+conda_build:
+  pkg_format: '2'
