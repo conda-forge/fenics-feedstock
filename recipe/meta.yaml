@@ -30,7 +30,7 @@ source:
       - fix-xdmf.patch
 
 build:
-  number: 34
+  number: 35
   skip: true  # [win]
 
 # NOTE: Top-level environment with boost-cpp is only to separate the build for
@@ -256,6 +256,7 @@ outputs:
     requirements:
       host:
         - python
+        - {{ mpi }}  # ensure mpi is in hash inputs
       run:
         - python
         - {{ pin_subpackage("fenics-dijitso", exact=True) }}
