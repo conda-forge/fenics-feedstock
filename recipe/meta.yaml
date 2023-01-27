@@ -56,8 +56,6 @@ outputs:
         - python
         - numpy
         - setuptools
-      run_constrained:
-        - fenics =={{ version }}
     test:
       imports:
         - dijitso
@@ -74,8 +72,6 @@ outputs:
         - setuptools
         - numpy
         - sympy >=1
-      run_constrained:
-        - fenics =={{ version }}
     test:
       imports:
         - FIAT
@@ -91,8 +87,6 @@ outputs:
         - python
         - setuptools
         - numpy
-      run_constrained:
-        - fenics =={{ version }}
     test:
       imports:
         - ufl
@@ -118,8 +112,6 @@ outputs:
         - {{ pin_subpackage("fenics-dijitso", exact=True) }}
         - {{ pin_subpackage("fenics-fiat", exact=True) }}
         - {{ pin_subpackage("fenics-ufl", exact=True) }}
-      run_constrained:
-        - fenics =={{ version }}
     test:
       imports:
         - ffc
@@ -180,8 +172,6 @@ outputs:
         - zlib
         - fenics-ffc =={{ version }}
         - boost-cpp
-      run_constrained:
-        - fenics =={{ version }}
     test:
       commands:
         - test -f ${PREFIX}/lib/libdolfin${SHLIB_EXT}
@@ -246,8 +236,6 @@ outputs:
         - fenics-fiat =={{ version }}
         - fenics-ufl =={{ version }}
         - fenics-ffc =={{ version }}
-      run_constrained:
-        - fenics =={{ version }}
 
     test:
       commands:
