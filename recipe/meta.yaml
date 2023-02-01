@@ -16,13 +16,8 @@ source:
       - fix-xdmf.patch
 
 build:
-  number: 42
+  number: 43
   skip: true  # [win]
-  # this doesn't actually affect the build hashes
-  # so duplicate where the build hash should actually change
-  force_use_keys:
-    - python
-    - mpi
 
 outputs:
   - name: fenics-libdolfin
