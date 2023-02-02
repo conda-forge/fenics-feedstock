@@ -36,15 +36,16 @@ outputs:
       build:
         - {{ compiler('c') }}
         - {{ compiler('cxx') }}
+        - cmake >=3.9
+        - make
+        - pkg-config
+        - {{ mpi }}  # [mpi == 'openmpi' and build_platform != target_platform]
       host:
         - libblas
         - libcblas
         - libboost-devel
-        - cmake >=3.9
-        - make
         - eigen
         - parmetis
-        - pkg-config
         - ptscotch
         - suitesparse
         - zlib
@@ -88,14 +89,21 @@ outputs:
       build:
         - {{ compiler('c') }}
         - {{ compiler('cxx') }}
+        - cmake >=3.9
+        - make
+        - pkg-config
+        - python                                 # [build_platform != target_platform]
+        - cross-python_{{ target_platform }}     # [build_platform != target_platform]
+        - pybind11                               # [build_platform != target_platform]
+        - pkgconfig  # [build_platform != target_platform]
+        - {{ mpi }}  # [mpi == 'openmpi' and build_platform != target_platform]
       host:
+        - {{ compiler('cxx') }}  # [linux]
         - libblas
         - libcblas
         - libboost-devel
         - python
         - pip
-        - cmake >=3.9
-        - make
         - pkgconfig
         - {{ mpi }}
         - mpi4py
