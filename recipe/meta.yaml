@@ -32,17 +32,10 @@ source:
 build:
   number: 36
   skip: true  # [win]
-
-# NOTE: Top-level environment with boost-cpp is only to separate the build for
-#       multiple boost versions into different CI jobs.
-# TODO: Needs investigation why "separate the two boost builds more strictly"
-#       would be necessary. Ref:
-#       https://github.com/conda-forge/mshr-feedstock/pull/23#issuecomment-749520383
-requirements:
-  host:
-    - boost-cpp
-    # need to split the build matrix on mpi provider
-    - {{ mpi }}
+  force_use_keys:
+   - mpi
+   - {{ mpi }}
+   - python
 
 outputs:
   - name: fenics-dijitso
