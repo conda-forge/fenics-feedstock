@@ -32,10 +32,6 @@ source:
 build:
   number: 36
   skip: true  # [win]
-  force_use_keys:
-   - mpi
-   - {{ mpi }}
-   - python
 
 outputs:
   - name: fenics-dijitso
@@ -126,6 +122,8 @@ outputs:
         - OMPI_MCA_plm=isolated
         - OMPI_MCA_rmaps_base_oversubscribe=yes
         - OMPI_MCA_btl_vader_single_copy_mechanism=none
+      force_use_keys:
+        - python
       {% set mpi_prefix = "mpi_" + mpi %}
     requirements:
       build:
