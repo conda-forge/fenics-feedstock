@@ -1,11 +1,11 @@
-About fenics-pkgs
-=================
+About fenics-pkgs-feedstock
+===========================
+
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/fenics-feedstock/blob/main/LICENSE.txt)
 
 Home: http://www.fenicsproject.org
 
 Package license: LGPL-3.0-or-later
-
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/fenics-feedstock/blob/main/LICENSE.txt)
 
 Summary: FEniCS is a collection of free software for automated, efficient solution of differential equations
 
