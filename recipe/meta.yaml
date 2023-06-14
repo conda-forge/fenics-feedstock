@@ -32,6 +32,9 @@ source:
 build:
   number: 36
   skip: true  # [win]
+  force_use_keys:
+    - python
+    - mpi
 
 outputs:
   - name: fenics-dijitso
