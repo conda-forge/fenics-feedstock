@@ -261,7 +261,8 @@ outputs:
         - {{ pin_subpackage("fenics-fiat", exact=True) }}
         - {{ pin_subpackage("fenics-ufl", exact=True) }}
         - {{ pin_subpackage("fenics-ffc", exact=True) }}
-        - {{ pin_subpackage('fenics-dolfin', exact=True) }}
+        - {{ pin_subpackage("fenics-libdolfin", exact=True) }}
+        - {{ pin_subpackage("fenics-dolfin", exact=True) }}
     test:
       commands:
         - bash ${RECIPE_DIR}/parent/test-fenics.sh
