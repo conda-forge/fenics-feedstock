@@ -30,19 +30,11 @@ source:
       - fix-xdmf.patch
 
 build:
-  number: 35
+  number: 36
   skip: true  # [win]
-
-# NOTE: Top-level environment with boost-cpp is only to separate the build for
-#       multiple boost versions into different CI jobs.
-# TODO: Needs investigation why "separate the two boost builds more strictly"
-#       would be necessary. Ref:
-#       https://github.com/conda-forge/mshr-feedstock/pull/23#issuecomment-749520383
-requirements:
-  host:
-    - boost-cpp
-    # need to split the build matrix on mpi provider
-    - {{ mpi }}
+  force_use_keys:
+    - python
+    - mpi
 
 outputs:
   - name: fenics-dijitso
@@ -133,6 +125,9 @@ outputs:
         - OMPI_MCA_plm=isolated
         - OMPI_MCA_rmaps_base_oversubscribe=yes
         - OMPI_MCA_btl_vader_single_copy_mechanism=none
+      ignore_run_exports:
+        - python
+        - numpy
       {% set mpi_prefix = "mpi_" + mpi %}
     requirements:
       build:
@@ -153,6 +148,8 @@ outputs:
         - {{ mpi }}
         - petsc
         - slepc
+        - python
+        - numpy
         - fenics-ffc =={{ version }}
         # need to list libnetcdf and netcdf-fortran twice to get version
         # pinning from conda_build_config and build pinning from {{ mpi_prefix }}
@@ -256,14 +253,14 @@ outputs:
     requirements:
       host:
         - python
-        - {{ mpi }}  # ensure mpi is in hash inputs
       run:
         - python
         - {{ pin_subpackage("fenics-dijitso", exact=True) }}
         - {{ pin_subpackage("fenics-fiat", exact=True) }}
         - {{ pin_subpackage("fenics-ufl", exact=True) }}
         - {{ pin_subpackage("fenics-ffc", exact=True) }}
-        - {{ pin_subpackage('fenics-dolfin', exact=True) }}
+        - {{ pin_subpackage("fenics-libdolfin", exact=True) }}
+        - {{ pin_subpackage("fenics-dolfin", exact=True) }}
     test:
       commands:
         - bash ${RECIPE_DIR}/parent/test-fenics.sh
