@@ -156,9 +156,7 @@ outputs:
         - hdf5
         - hdf5 * {{ mpi_prefix }}_*
       run:
-        # remove version pin from runtime compiler dep
-        # we need _a_ compiler, we don't want version pinning
-        - {{ compiler("cxx").split()[0] }}  # [linux]
+        - {{ compiler('cxx') }}  # [linux]
         - cmake >=3.9
         - eigen
         - {{ mpi }}
@@ -215,9 +213,7 @@ outputs:
         - hdf5
         - hdf5 * {{ mpi_prefix }}_*
       run:
-        # remove version pin from runtime compiler dep
-        # we need _a_ compiler, we don't want version pinning
-        - {{ compiler("cxx").split()[0] }}  # [linux]
+        - {{ compiler('cxx') }}  # [linux]
         - python
         - boost-cpp
         - setuptools
