@@ -263,6 +263,8 @@ outputs:
         - {{ pin_subpackage("fenics-libdolfin", exact=True) }}
         - {{ pin_subpackage("fenics-dolfin", exact=True) }}
     test:
+      requires:
+        - {{ mpi }}  # ensure mpi is here, otherwise conda-build will pin it
       commands:
         - bash ${RECIPE_DIR}/parent/test-fenics.sh
 
