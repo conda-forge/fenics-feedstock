@@ -30,8 +30,10 @@ source:
       - fix-xdmf.patch
 
 build:
-  number: 36
+  number: 37
   skip: true  # [win]
+  # this doesn't actually affect the build hashes
+  # so duplicate where the build hash should actually change
   force_use_keys:
     - python
     - mpi
@@ -250,6 +252,8 @@ outputs:
     build:
       skip: true  # [win or py2k]
       script: "echo 1"
+      force_use_keys:
+        - mpi
     requirements:
       host:
         - python
