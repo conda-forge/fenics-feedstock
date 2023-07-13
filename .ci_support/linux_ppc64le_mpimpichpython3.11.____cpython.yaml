@@ -31,9 +31,9 @@ numpy:
 openmpi:
 - '4'
 petsc:
-- '3.18'
+- '3.19'
 petsc4py:
-- '3.18'
+- '3.19'
 pin_run_as_build:
   boost-cpp:
     max_pin: x.x.x
@@ -45,9 +45,9 @@ ptscotch:
 python:
 - 3.11.* *_cpython
 slepc:
-- '3.18'
+- '3.19'
 slepc4py:
-- '3.18'
+- '3.19'
 suitesparse:
 - '5'
 target_platform:
