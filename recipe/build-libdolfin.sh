@@ -49,11 +49,10 @@ rm -rf $PREFIX/share/dolfin/demo
 # remove paths for unused deps in cmake files
 # these paths may not exist on targets and aren't needed,
 # but cmake will die with 'no rule to make /Applications/...libclang_rt.osx.a'
+# these should be excluded in cmake, but it's not clear how to get them all out
+find $PREFIX/share/dolfin -name '*.cmake' -print -exec python3 ${RECIPE_DIR}/cmake_replace.py {} \;
 
-if [[ "$(uname)" == "Darwin" ]]; then
-    find $PREFIX/share/dolfin -name '*.cmake' -print -exec sh -c "sed -E -i ''  's@/Applications/Xcode.app[^;]*(.dylib|.framework|.a);@@g' {}" \;
-else
-    find $PREFIX/share/dolfin -name '*.cmake' -print -exec sh -c "sed -E -i's@${BUILD_PREFIX}[^;]*;@@g' ; sed -E -i''  's@;/usr/lib(64)?/[^;]*(.so|.a);@;@g' {}" \;
+if [[ "$(uname)" == "Linux" ]]; then
 
     # strip libdolfin
     # it's unclear why this doesn't happen from the default flags
