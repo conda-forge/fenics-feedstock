@@ -17,7 +17,7 @@ cxx_compiler_version:
 docker_image:
 - quay.io/condaforge/linux-anvil-ppc64le
 hdf5:
-- 1.12.2
+- 1.14.1
 libblas:
 - 3.9 *netlib
 libcblas:
@@ -27,7 +27,7 @@ mpi:
 mpich:
 - '4'
 numpy:
-- '1.21'
+- '1.22'
 openmpi:
 - '4'
 petsc:
