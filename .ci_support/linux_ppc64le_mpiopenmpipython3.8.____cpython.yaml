@@ -1,5 +1,3 @@
-boost_cpp:
-- 1.78.0
 c_compiler:
 - gcc
 c_compiler_version:
@@ -20,6 +18,8 @@ hdf5:
 - 1.12.2
 libblas:
 - 3.9 *netlib
+libboost_devel:
+- '1.82'
 libcblas:
 - 3.9 *netlib
 mpi:
@@ -27,7 +27,7 @@ mpi:
 mpich:
 - '4'
 numpy:
-- '1.21'
+- '1.22'
 openmpi:
 - '4'
 petsc:
@@ -35,8 +35,6 @@ petsc:
 petsc4py:
 - '3.18'
 pin_run_as_build:
-  boost-cpp:
-    max_pin: x.x.x
   python:
     min_pin: x.x
     max_pin: x.x
