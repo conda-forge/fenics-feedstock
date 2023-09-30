@@ -23,14 +23,14 @@ source:
     sha256: 61abdcdb13684ba2a3ba4afb7ea6c7907aa0896a46439d3af7e8848483d4392f
     folder: dolfin
     patches:
-      - boost.patch
+      - libboost-python-devel.patch
       - linuxboost.patch  # [linux]
       - find-petsc-slepc.patch
       - hdf5-1.12.patch
       - fix-xdmf.patch
 
 build:
-  number: 37
+  number: 38
   skip: true  # [win]
   # this doesn't actually affect the build hashes
   # so duplicate where the build hash should actually change
@@ -138,7 +138,7 @@ outputs:
       host:
         - libblas
         - libcblas
-        - boost-cpp
+        - libboost-devel
         - cmake >=3.9
         - make
         - eigen
@@ -170,7 +170,6 @@ outputs:
         - suitesparse
         - zlib
         - fenics-ffc =={{ version }}
-        - boost-cpp
     test:
       commands:
         - test -f ${PREFIX}/lib/libdolfin${SHLIB_EXT}
@@ -191,7 +190,7 @@ outputs:
       host:
         - libblas
         - libcblas
-        - boost-cpp
+        - libboost-devel
         - python
         - pip
         - cmake >=3.9
@@ -217,7 +216,6 @@ outputs:
       run:
         - {{ compiler('cxx') }}  # [linux]
         - python
-        - boost-cpp
         - setuptools
         - {{ mpi }}
         - mpi4py
