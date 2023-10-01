@@ -216,6 +216,9 @@ outputs:
       run:
         - {{ compiler('cxx') }}  # [linux]
         - python
+        # dolfin depends on the boost headers for its own headers, see
+        # https://bitbucket.org/fenics-project/dolfin/src/master/dolfin/parameter/Parameters.h#lines-24
+        - libboost-headers
         - setuptools
         - {{ mpi }}
         - mpi4py
