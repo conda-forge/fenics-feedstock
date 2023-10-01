@@ -23,7 +23,7 @@ source:
     sha256: 61abdcdb13684ba2a3ba4afb7ea6c7907aa0896a46439d3af7e8848483d4392f
     folder: dolfin
     patches:
-      - libboost-python-devel.patch
+      - boost.patch
       - linuxboost.patch  # [linux]
       - find-petsc-slepc.patch
       - hdf5-1.12.patch
