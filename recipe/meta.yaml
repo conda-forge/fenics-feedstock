@@ -138,7 +138,7 @@ outputs:
       host:
         - libblas
         - libcblas
-        - boost-cpp
+        - libboost-devel
         - cmake >=3.9
         - make
         - eigen
@@ -170,7 +170,6 @@ outputs:
         - suitesparse
         - zlib
         - fenics-ffc =={{ version }}
-        - boost-cpp
     test:
       commands:
         - test -f ${PREFIX}/lib/libdolfin${SHLIB_EXT}
@@ -191,7 +190,7 @@ outputs:
       host:
         - libblas
         - libcblas
-        - boost-cpp
+        - libboost-devel
         - python
         - pip
         - cmake >=3.9
@@ -217,7 +216,9 @@ outputs:
       run:
         - {{ compiler('cxx') }}  # [linux]
         - python
-        - boost-cpp
+        # dolfin depends on the boost headers for its own headers, see
+        # https://bitbucket.org/fenics-project/dolfin/src/master/dolfin/parameter/Parameters.h#lines-24
+        - libboost-headers
         - setuptools
         - {{ mpi }}
         - mpi4py
