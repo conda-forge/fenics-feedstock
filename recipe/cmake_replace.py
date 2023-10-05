@@ -45,7 +45,7 @@ def strip_prefixes(match):
 def replace_one(path):
     with open(path) as f:
         old_text = f.read()
-        new_text, n_subs = str_pat.subn(strip_prefixes, old_text)
+    new_text, n_subs = str_pat.subn(strip_prefixes, old_text)
     name = os.path.basename(path)
     if n_subs:
         print(
@@ -58,7 +58,7 @@ def replace_one(path):
                 )
             )
         )
-        with open(path + ".fixed", "w") as f:
+        with open(path, "w") as f:
             f.write(new_text)
 
 
