@@ -120,7 +120,7 @@ outputs:
         - hdf5
         - hdf5 * {{ mpi_prefix }}_*
       run:
-        - {{ compiler('cxx') }}  # [linux]
+        - {{ compiler('cxx') }}
         - python
         # dolfin depends on the boost headers for its own headers, see
         # https://bitbucket.org/fenics-project/dolfin/src/master/dolfin/parameter/Parameters.h#lines-24
