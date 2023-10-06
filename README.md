@@ -11,7 +11,7 @@ Summary: FEniCS is a collection of free software for automated, efficient soluti
 
 Development: https://bitbucket.org/fenics-project/
 
-Documentation: http://fenics.readthedocs.io/
+Documentation: https://fenics.readthedocs.io/
 
 FEniCS is a collection of free software for automated, efficient solution of differential equations
 (<http://fenicsproject.org>). It provides C++ and Python interfaces, and creates effecient solvers via
@@ -37,227 +37,227 @@ Current build status
         <table>
           <thead><tr><th>Variant</th><th>Status</th></tr></thead>
           <tbody><tr>
-              <td>linux_64_mpimpichpython3.10.____cpython</td>
+              <td>linux_64_mpimpichnumpy1.22python3.10.____cpython</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=5898&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/fenics-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_64_mpimpichpython3.10.____cpython" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/fenics-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_64_mpimpichnumpy1.22python3.10.____cpython" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>linux_64_mpimpichpython3.11.____cpython</td>
+              <td>linux_64_mpimpichnumpy1.22python3.8.____cpython</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=5898&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/fenics-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_64_mpimpichpython3.11.____cpython" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/fenics-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_64_mpimpichnumpy1.22python3.8.____cpython" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>linux_64_mpimpichpython3.8.____cpython</td>
+              <td>linux_64_mpimpichnumpy1.22python3.9.____cpython</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=5898&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/fenics-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_64_mpimpichpython3.8.____cpython" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/fenics-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_64_mpimpichnumpy1.22python3.9.____cpython" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>linux_64_mpimpichpython3.9.____cpython</td>
+              <td>linux_64_mpimpichnumpy1.23python3.11.____cpython</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=5898&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/fenics-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_64_mpimpichpython3.9.____cpython" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/fenics-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_64_mpimpichnumpy1.23python3.11.____cpython" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>linux_64_mpiopenmpipython3.10.____cpython</td>
+              <td>linux_64_mpiopenmpinumpy1.22python3.10.____cpython</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=5898&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/fenics-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_64_mpiopenmpipython3.10.____cpython" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/fenics-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_64_mpiopenmpinumpy1.22python3.10.____cpython" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>linux_64_mpiopenmpipython3.11.____cpython</td>
+              <td>linux_64_mpiopenmpinumpy1.22python3.8.____cpython</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=5898&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/fenics-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_64_mpiopenmpipython3.11.____cpython" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/fenics-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_64_mpiopenmpinumpy1.22python3.8.____cpython" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>linux_64_mpiopenmpipython3.8.____cpython</td>
+              <td>linux_64_mpiopenmpinumpy1.22python3.9.____cpython</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=5898&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/fenics-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_64_mpiopenmpipython3.8.____cpython" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/fenics-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_64_mpiopenmpinumpy1.22python3.9.____cpython" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>linux_64_mpiopenmpipython3.9.____cpython</td>
+              <td>linux_64_mpiopenmpinumpy1.23python3.11.____cpython</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=5898&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/fenics-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_64_mpiopenmpipython3.9.____cpython" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/fenics-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_64_mpiopenmpinumpy1.23python3.11.____cpython" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>linux_aarch64_mpimpichpython3.10.____cpython</td>
+              <td>linux_aarch64_mpimpichnumpy1.22python3.10.____cpython</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=5898&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/fenics-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_aarch64_mpimpichpython3.10.____cpython" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/fenics-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_aarch64_mpimpichnumpy1.22python3.10.____cpython" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>linux_aarch64_mpimpichpython3.11.____cpython</td>
+              <td>linux_aarch64_mpimpichnumpy1.22python3.8.____cpython</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=5898&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/fenics-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_aarch64_mpimpichpython3.11.____cpython" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/fenics-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_aarch64_mpimpichnumpy1.22python3.8.____cpython" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>linux_aarch64_mpimpichpython3.8.____cpython</td>
+              <td>linux_aarch64_mpimpichnumpy1.22python3.9.____cpython</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=5898&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/fenics-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_aarch64_mpimpichpython3.8.____cpython" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/fenics-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_aarch64_mpimpichnumpy1.22python3.9.____cpython" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>linux_aarch64_mpimpichpython3.9.____cpython</td>
+              <td>linux_aarch64_mpimpichnumpy1.23python3.11.____cpython</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=5898&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/fenics-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_aarch64_mpimpichpython3.9.____cpython" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/fenics-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_aarch64_mpimpichnumpy1.23python3.11.____cpython" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>linux_aarch64_mpiopenmpipython3.10.____cpython</td>
+              <td>linux_aarch64_mpiopenmpinumpy1.22python3.10.____cpython</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=5898&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/fenics-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_aarch64_mpiopenmpipython3.10.____cpython" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/fenics-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_aarch64_mpiopenmpinumpy1.22python3.10.____cpython" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>linux_aarch64_mpiopenmpipython3.11.____cpython</td>
+              <td>linux_aarch64_mpiopenmpinumpy1.22python3.8.____cpython</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=5898&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/fenics-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_aarch64_mpiopenmpipython3.11.____cpython" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/fenics-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_aarch64_mpiopenmpinumpy1.22python3.8.____cpython" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>linux_aarch64_mpiopenmpipython3.8.____cpython</td>
+              <td>linux_aarch64_mpiopenmpinumpy1.22python3.9.____cpython</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=5898&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/fenics-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_aarch64_mpiopenmpipython3.8.____cpython" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/fenics-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_aarch64_mpiopenmpinumpy1.22python3.9.____cpython" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>linux_aarch64_mpiopenmpipython3.9.____cpython</td>
+              <td>linux_aarch64_mpiopenmpinumpy1.23python3.11.____cpython</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=5898&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/fenics-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_aarch64_mpiopenmpipython3.9.____cpython" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/fenics-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_aarch64_mpiopenmpinumpy1.23python3.11.____cpython" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>linux_ppc64le_mpimpichpython3.10.____cpython</td>
+              <td>linux_ppc64le_mpimpichnumpy1.22python3.10.____cpython</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=5898&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/fenics-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_ppc64le_mpimpichpython3.10.____cpython" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/fenics-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_ppc64le_mpimpichnumpy1.22python3.10.____cpython" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>linux_ppc64le_mpimpichpython3.11.____cpython</td>
+              <td>linux_ppc64le_mpimpichnumpy1.22python3.8.____cpython</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=5898&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/fenics-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_ppc64le_mpimpichpython3.11.____cpython" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/fenics-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_ppc64le_mpimpichnumpy1.22python3.8.____cpython" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>linux_ppc64le_mpimpichpython3.8.____cpython</td>
+              <td>linux_ppc64le_mpimpichnumpy1.22python3.9.____cpython</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=5898&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/fenics-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_ppc64le_mpimpichpython3.8.____cpython" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/fenics-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_ppc64le_mpimpichnumpy1.22python3.9.____cpython" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>linux_ppc64le_mpimpichpython3.9.____cpython</td>
+              <td>linux_ppc64le_mpimpichnumpy1.23python3.11.____cpython</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=5898&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/fenics-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_ppc64le_mpimpichpython3.9.____cpython" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/fenics-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_ppc64le_mpimpichnumpy1.23python3.11.____cpython" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>linux_ppc64le_mpiopenmpipython3.10.____cpython</td>
+              <td>linux_ppc64le_mpiopenmpinumpy1.22python3.10.____cpython</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=5898&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/fenics-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_ppc64le_mpiopenmpipython3.10.____cpython" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/fenics-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_ppc64le_mpiopenmpinumpy1.22python3.10.____cpython" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>linux_ppc64le_mpiopenmpipython3.11.____cpython</td>
+              <td>linux_ppc64le_mpiopenmpinumpy1.22python3.8.____cpython</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=5898&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/fenics-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_ppc64le_mpiopenmpipython3.11.____cpython" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/fenics-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_ppc64le_mpiopenmpinumpy1.22python3.8.____cpython" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>linux_ppc64le_mpiopenmpipython3.8.____cpython</td>
+              <td>linux_ppc64le_mpiopenmpinumpy1.22python3.9.____cpython</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=5898&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/fenics-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_ppc64le_mpiopenmpipython3.8.____cpython" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/fenics-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_ppc64le_mpiopenmpinumpy1.22python3.9.____cpython" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>linux_ppc64le_mpiopenmpipython3.9.____cpython</td>
+              <td>linux_ppc64le_mpiopenmpinumpy1.23python3.11.____cpython</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=5898&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/fenics-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_ppc64le_mpiopenmpipython3.9.____cpython" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/fenics-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_ppc64le_mpiopenmpinumpy1.23python3.11.____cpython" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>osx_64_mpimpichpython3.10.____cpython</td>
+              <td>osx_64_mpimpichnumpy1.22python3.10.____cpython</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=5898&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/fenics-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_64_mpimpichpython3.10.____cpython" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/fenics-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_64_mpimpichnumpy1.22python3.10.____cpython" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>osx_64_mpimpichpython3.11.____cpython</td>
+              <td>osx_64_mpimpichnumpy1.22python3.8.____cpython</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=5898&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/fenics-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_64_mpimpichpython3.11.____cpython" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/fenics-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_64_mpimpichnumpy1.22python3.8.____cpython" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>osx_64_mpimpichpython3.8.____cpython</td>
+              <td>osx_64_mpimpichnumpy1.22python3.9.____cpython</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=5898&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/fenics-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_64_mpimpichpython3.8.____cpython" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/fenics-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_64_mpimpichnumpy1.22python3.9.____cpython" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>osx_64_mpimpichpython3.9.____cpython</td>
+              <td>osx_64_mpimpichnumpy1.23python3.11.____cpython</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=5898&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/fenics-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_64_mpimpichpython3.9.____cpython" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/fenics-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_64_mpimpichnumpy1.23python3.11.____cpython" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>osx_64_mpiopenmpipython3.10.____cpython</td>
+              <td>osx_64_mpiopenmpinumpy1.22python3.10.____cpython</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=5898&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/fenics-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_64_mpiopenmpipython3.10.____cpython" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/fenics-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_64_mpiopenmpinumpy1.22python3.10.____cpython" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>osx_64_mpiopenmpipython3.11.____cpython</td>
+              <td>osx_64_mpiopenmpinumpy1.22python3.8.____cpython</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=5898&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/fenics-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_64_mpiopenmpipython3.11.____cpython" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/fenics-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_64_mpiopenmpinumpy1.22python3.8.____cpython" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>osx_64_mpiopenmpipython3.8.____cpython</td>
+              <td>osx_64_mpiopenmpinumpy1.22python3.9.____cpython</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=5898&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/fenics-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_64_mpiopenmpipython3.8.____cpython" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/fenics-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_64_mpiopenmpinumpy1.22python3.9.____cpython" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>osx_64_mpiopenmpipython3.9.____cpython</td>
+              <td>osx_64_mpiopenmpinumpy1.23python3.11.____cpython</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=5898&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/fenics-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_64_mpiopenmpipython3.9.____cpython" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/fenics-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_64_mpiopenmpinumpy1.23python3.11.____cpython" alt="variant">
                 </a>
               </td>
             </tr>
@@ -274,12 +274,8 @@ Current release info
 | Name | Downloads | Version | Platforms |
 | --- | --- | --- | --- |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-fenics-green.svg)](https://anaconda.org/conda-forge/fenics) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/fenics.svg)](https://anaconda.org/conda-forge/fenics) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/fenics.svg)](https://anaconda.org/conda-forge/fenics) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/fenics.svg)](https://anaconda.org/conda-forge/fenics) |
-| [![Conda Recipe](https://img.shields.io/badge/recipe-fenics--dijitso-green.svg)](https://anaconda.org/conda-forge/fenics-dijitso) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/fenics-dijitso.svg)](https://anaconda.org/conda-forge/fenics-dijitso) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/fenics-dijitso.svg)](https://anaconda.org/conda-forge/fenics-dijitso) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/fenics-dijitso.svg)](https://anaconda.org/conda-forge/fenics-dijitso) |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-fenics--dolfin-green.svg)](https://anaconda.org/conda-forge/fenics-dolfin) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/fenics-dolfin.svg)](https://anaconda.org/conda-forge/fenics-dolfin) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/fenics-dolfin.svg)](https://anaconda.org/conda-forge/fenics-dolfin) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/fenics-dolfin.svg)](https://anaconda.org/conda-forge/fenics-dolfin) |
-| [![Conda Recipe](https://img.shields.io/badge/recipe-fenics--ffc-green.svg)](https://anaconda.org/conda-forge/fenics-ffc) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/fenics-ffc.svg)](https://anaconda.org/conda-forge/fenics-ffc) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/fenics-ffc.svg)](https://anaconda.org/conda-forge/fenics-ffc) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/fenics-ffc.svg)](https://anaconda.org/conda-forge/fenics-ffc) |
-| [![Conda Recipe](https://img.shields.io/badge/recipe-fenics--fiat-green.svg)](https://anaconda.org/conda-forge/fenics-fiat) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/fenics-fiat.svg)](https://anaconda.org/conda-forge/fenics-fiat) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/fenics-fiat.svg)](https://anaconda.org/conda-forge/fenics-fiat) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/fenics-fiat.svg)](https://anaconda.org/conda-forge/fenics-fiat) |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-fenics--libdolfin-green.svg)](https://anaconda.org/conda-forge/fenics-libdolfin) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/fenics-libdolfin.svg)](https://anaconda.org/conda-forge/fenics-libdolfin) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/fenics-libdolfin.svg)](https://anaconda.org/conda-forge/fenics-libdolfin) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/fenics-libdolfin.svg)](https://anaconda.org/conda-forge/fenics-libdolfin) |
-| [![Conda Recipe](https://img.shields.io/badge/recipe-fenics--ufl-green.svg)](https://anaconda.org/conda-forge/fenics-ufl) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/fenics-ufl.svg)](https://anaconda.org/conda-forge/fenics-ufl) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/fenics-ufl.svg)](https://anaconda.org/conda-forge/fenics-ufl) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/fenics-ufl.svg)](https://anaconda.org/conda-forge/fenics-ufl) |
 
 Installing fenics-pkgs
 ======================
@@ -291,16 +287,16 @@ conda config --add channels conda-forge
 conda config --set channel_priority strict
 ```
 
-Once the `conda-forge` channel has been enabled, `fenics, fenics-dijitso, fenics-dolfin, fenics-ffc, fenics-fiat, fenics-libdolfin, fenics-ufl` can be installed with `conda`:
+Once the `conda-forge` channel has been enabled, `fenics, fenics-dolfin, fenics-libdolfin` can be installed with `conda`:
 
 ```
-conda install fenics fenics-dijitso fenics-dolfin fenics-ffc fenics-fiat fenics-libdolfin fenics-ufl
+conda install fenics fenics-dolfin fenics-libdolfin
 ```
 
 or with `mamba`:
 
 ```
-mamba install fenics fenics-dijitso fenics-dolfin fenics-ffc fenics-fiat fenics-libdolfin fenics-ufl
+mamba install fenics fenics-dolfin fenics-libdolfin
 ```
 
 It is possible to list all of the versions of `fenics` available on your platform with `conda`:

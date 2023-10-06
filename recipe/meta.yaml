@@ -16,7 +16,7 @@ source:
       - fix-xdmf.patch
 
 build:
-  number: 39
+  number: 40
   skip: true  # [win]
   # this doesn't actually affect the build hashes
   # so duplicate where the build hash should actually change
@@ -33,7 +33,7 @@ outputs:
         - OMPI_MCA_plm=isolated
         - OMPI_MCA_rmaps_base_oversubscribe=yes
         - OMPI_MCA_btl_vader_single_copy_mechanism=none
-      ignore_run_exports:
+      ignore_run_exports_from:
         - python
         - numpy
       {% set mpi_prefix = "mpi_" + mpi %}
@@ -120,7 +120,7 @@ outputs:
         - hdf5
         - hdf5 * {{ mpi_prefix }}_*
       run:
-        - {{ compiler('cxx') }}  # [linux]
+        - {{ compiler('cxx') }}
         - python
         # dolfin depends on the boost headers for its own headers, see
         # https://bitbucket.org/fenics-project/dolfin/src/master/dolfin/parameter/Parameters.h#lines-24
