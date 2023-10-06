@@ -3,7 +3,7 @@ MACOSX_DEPLOYMENT_TARGET:
 c_compiler:
 - clang
 c_compiler_version:
-- '16'
+- '15'
 channel_sources:
 - conda-forge
 channel_targets:
@@ -11,7 +11,7 @@ channel_targets:
 cxx_compiler:
 - clangxx
 cxx_compiler_version:
-- '16'
+- '15'
 hdf5:
 - 1.14.2
 libblas:
@@ -23,11 +23,11 @@ libcblas:
 macos_machine:
 - x86_64-apple-darwin13.4.0
 mpi:
-- mpich
+- openmpi
 mpich:
 - '4'
 numpy:
-- '1.23'
+- '1.22'
 openmpi:
 - '4'
 petsc:
@@ -41,7 +41,7 @@ pin_run_as_build:
 ptscotch:
 - 6.0.9
 python:
-- 3.11.* *_cpython
+- 3.9.* *_cpython
 slepc:
 - '3.19'
 slepc4py:
