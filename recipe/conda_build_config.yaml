@@ -2,13 +2,6 @@ mpi:
   - mpich
   - openmpi
 
-# FIXME: seems to be problems with clang 16
-# causing weird link errors
-c_compiler_version:
-  - 15  # [osx]
-cxx_compiler_version:
-  - 15  # [osx]
-
 pin_run_as_build:
   boost-cpp:
     max_pin: x.x.x
