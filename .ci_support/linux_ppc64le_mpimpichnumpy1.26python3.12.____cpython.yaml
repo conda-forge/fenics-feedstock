@@ -1,0 +1,59 @@
+c_compiler:
+- gcc
+c_compiler_version:
+- '12'
+cdt_name:
+- cos7
+channel_sources:
+- conda-forge
+channel_targets:
+- conda-forge main
+cxx_compiler:
+- gxx
+cxx_compiler_version:
+- '12'
+docker_image:
+- quay.io/condaforge/linux-anvil-ppc64le
+hdf5:
+- 1.14.2
+libblas:
+- 3.9 *netlib
+libboost_devel:
+- '1.82'
+libcblas:
+- 3.9 *netlib
+mpi:
+- mpich
+mpich:
+- '4'
+numpy:
+- '1.26'
+openmpi:
+- '4'
+petsc:
+- '3.20'
+petsc4py:
+- '3.20'
+pin_run_as_build:
+  python:
+    min_pin: x.x
+    max_pin: x.x
+ptscotch:
+- 6.0.9
+python:
+- 3.12.* *_cpython
+slepc:
+- '3.20'
+slepc4py:
+- '3.20'
+suitesparse:
+- '5'
+target_platform:
+- linux-ppc64le
+zip_keys:
+- - c_compiler_version
+  - cxx_compiler_version
+- - python
+  - numpy
+zlib:
+- '1.2'
