@@ -10,6 +10,12 @@ cd dolfin
 export CFLAGS=$(echo $CFLAGS | sed -E 's@\-fdebug\-prefix\-map[^ ]*@@g')
 export CXXFLAGS=$(echo $CXXFLAGS | sed -E 's@\-fdebug\-prefix\-map[^ ]*@@g')
 
+if [[ "${CONDA_BUILD_CROSS_COMPILATION:-0}" != "0" ]]; then
+  # needed for cross-compile openmpi
+  export OPAL_CC="$CC"
+  export OPAL_PREFIX="$PREFIX"
+fi
+
 # DOLFIN
 
 rm -rf build

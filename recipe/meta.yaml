@@ -16,13 +16,8 @@ source:
       - fix-xdmf.patch
 
 build:
-  number: 42
+  number: 43
   skip: true  # [win]
-  # this doesn't actually affect the build hashes
-  # so duplicate where the build hash should actually change
-  force_use_keys:
-    - python
-    - mpi
 
 outputs:
   - name: fenics-libdolfin
@@ -41,15 +36,16 @@ outputs:
       build:
         - {{ compiler('c') }}
         - {{ compiler('cxx') }}
+        - cmake >=3.9
+        - make
+        - pkg-config
+        - {{ mpi }}  # [mpi == 'openmpi' and build_platform != target_platform]
       host:
         - libblas
         - libcblas
         - libboost-devel
-        - cmake >=3.9
-        - make
         - eigen
         - parmetis
-        - pkg-config
         - ptscotch
         - suitesparse
         - zlib
@@ -64,7 +60,6 @@ outputs:
         - hdf5
         - hdf5 * {{ mpi_prefix }}_*
       run:
-        - {{ compiler('cxx') }}  # [linux]
         - cmake >=3.9
         - eigen
         - {{ mpi }}
@@ -93,14 +88,20 @@ outputs:
       build:
         - {{ compiler('c') }}
         - {{ compiler('cxx') }}
+        - cmake >=3.9
+        - make
+        - pkg-config
+        - python                                 # [build_platform != target_platform]
+        - cross-python_{{ target_platform }}     # [build_platform != target_platform]
+        - pybind11                               # [build_platform != target_platform]
+        - pkgconfig  # [build_platform != target_platform]
+        - {{ mpi }}  # [mpi == 'openmpi' and build_platform != target_platform]
       host:
         - libblas
         - libcblas
         - libboost-devel
         - python
         - pip
-        - cmake >=3.9
-        - make
         - pkgconfig
         - {{ mpi }}
         - mpi4py
