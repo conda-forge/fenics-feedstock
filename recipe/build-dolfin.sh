@@ -10,8 +10,17 @@ cd dolfin
 export CFLAGS=$(echo $CFLAGS | sed -E 's@\-fdebug\-prefix\-map[^ ]*@@g')
 export CXXFLAGS=$(echo $CXXFLAGS | sed -E 's@\-fdebug\-prefix\-map[^ ]*@@g')
 
+if [[ "${CONDA_BUILD_CROSS_COMPILATION:-0}" != "0" ]]; then
+  # needed for cross-compile openmpi
+  export OPAL_CC="$CC"
+  export OPAL_PREFIX="$PREFIX"
+fi
+
 # install Python bindings
 cd python
 $PYTHON -m pip install -v --no-deps .
-cd test
-$PYTHON -c 'from dolfin import *; info(parameters["form_compiler"], True)'
+
+if [[ "${CONDA_BUILD_CROSS_COMPILATION:-0}" != "0" ]]; then
+  cd test
+  $PYTHON -c 'from dolfin import *; info(parameters["form_compiler"], True)'
+fi
