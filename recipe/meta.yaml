@@ -60,7 +60,6 @@ outputs:
         - hdf5
         - hdf5 * {{ mpi_prefix }}_*
       run:
-        - {{ compiler('cxx') }}  # [linux]
         - cmake >=3.9
         - eigen
         - {{ mpi }}
@@ -98,7 +97,6 @@ outputs:
         - pkgconfig  # [build_platform != target_platform]
         - {{ mpi }}  # [mpi == 'openmpi' and build_platform != target_platform]
       host:
-        - {{ compiler('cxx') }}  # [linux]
         - libblas
         - libcblas
         - libboost-devel
