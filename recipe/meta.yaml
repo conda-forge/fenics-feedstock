@@ -16,7 +16,7 @@ source:
       - fix-xdmf.patch
 
 build:
-  number: 42
+  number: 43
   skip: true  # [win]
   # this doesn't actually affect the build hashes
   # so duplicate where the build hash should actually change
@@ -50,7 +50,8 @@ outputs:
         - eigen
         - parmetis
         - pkg-config
-        - ptscotch
+        - libptscotch
+        - libscotch
         - suitesparse
         - zlib
         - {{ mpi }}
@@ -72,7 +73,8 @@ outputs:
         - petsc
         - slepc
         - pkg-config
-        - ptscotch
+        - libptscotch
+        - libscotch
         - suitesparse
         - zlib
         - fenics-ffc =={{ version }}
