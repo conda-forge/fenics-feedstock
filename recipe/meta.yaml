@@ -40,7 +40,7 @@ outputs:
     requirements:
       build:
         - {{ compiler('c') }}
-        - {{ stdlib("c") }}    # [linux]
+        - {{ stdlib("c") }}
         - {{ compiler('cxx') }}
       host:
         - libblas
