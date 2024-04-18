@@ -4,6 +4,10 @@ c_compiler:
 - clang
 c_compiler_version:
 - '16'
+c_stdlib:
+- macosx_deployment_target
+c_stdlib_version:
+- '10.9'
 channel_sources:
 - conda-forge
 channel_targets:
@@ -17,7 +21,7 @@ hdf5:
 libblas:
 - 3.9 *netlib
 libboost_devel:
-- '1.82'
+- '1.84'
 libcblas:
 - 3.9 *netlib
 macos_machine:
@@ -53,6 +57,8 @@ target_platform:
 zip_keys:
 - - c_compiler_version
   - cxx_compiler_version
+- - c_stdlib_version
+  - MACOSX_DEPLOYMENT_TARGET
 - - python
   - numpy
 zlib:
