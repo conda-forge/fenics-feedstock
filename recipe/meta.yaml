@@ -16,7 +16,7 @@ source:
       - fix-xdmf.patch
 
 build:
-  number: 42
+  number: 43
   skip: true  # [win]
   # this doesn't actually affect the build hashes
   # so duplicate where the build hash should actually change
@@ -40,6 +40,7 @@ outputs:
     requirements:
       build:
         - {{ compiler('c') }}
+        - {{ stdlib("c") }}
         - {{ compiler('cxx') }}
       host:
         - libblas
@@ -92,6 +93,7 @@ outputs:
     requirements:
       build:
         - {{ compiler('c') }}
+        - {{ stdlib("c") }}
         - {{ compiler('cxx') }}
       host:
         - libblas
