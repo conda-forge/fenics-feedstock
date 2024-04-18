@@ -24,6 +24,10 @@ libboost_devel:
 - '1.84'
 libcblas:
 - 3.9 *netlib
+libptscotch:
+- 7.0.4
+libscotch:
+- 7.0.4
 macos_machine:
 - x86_64-apple-darwin13.4.0
 mpi:
@@ -42,8 +46,6 @@ pin_run_as_build:
   python:
     min_pin: x.x
     max_pin: x.x
-ptscotch:
-- 7.0.4
 python:
 - 3.8.* *_cpython
 slepc:
@@ -57,8 +59,6 @@ target_platform:
 zip_keys:
 - - c_compiler_version
   - cxx_compiler_version
-- - c_stdlib_version
-  - MACOSX_DEPLOYMENT_TARGET
 - - python
   - numpy
 zlib:

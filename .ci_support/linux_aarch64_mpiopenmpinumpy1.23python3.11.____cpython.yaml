@@ -30,6 +30,10 @@ libboost_devel:
 - '1.84'
 libcblas:
 - 3.9 *netlib
+libptscotch:
+- 7.0.4
+libscotch:
+- 7.0.4
 mpi:
 - openmpi
 mpich:
@@ -46,8 +50,6 @@ pin_run_as_build:
   python:
     min_pin: x.x
     max_pin: x.x
-ptscotch:
-- 7.0.4
 python:
 - 3.11.* *_cpython
 slepc:
