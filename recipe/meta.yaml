@@ -42,15 +42,15 @@ outputs:
         - {{ compiler('c') }}
         - {{ stdlib("c") }}
         - {{ compiler('cxx') }}
+        - cmake >=3.9
+        - make
+        - pkg-config
       host:
         - libblas
         - libcblas
         - libboost-devel
-        - cmake >=3.9
-        - make
         - eigen
         - parmetis
-        - pkg-config
         - ptscotch
         - suitesparse
         - zlib
@@ -72,7 +72,6 @@ outputs:
         - parmetis
         - petsc
         - slepc
-        - pkg-config
         - ptscotch
         - suitesparse
         - zlib
