@@ -53,7 +53,7 @@ slepc:
 slepc4py:
 - '3.21'
 suitesparse:
-- '5'
+- '7'
 target_platform:
 - osx-64
 zip_keys:
@@ -62,4 +62,4 @@ zip_keys:
 - - python
   - numpy
 zlib:
-- '1.2'
+- '1'
