@@ -19,7 +19,7 @@ fi
 cd python
 $PYTHON -m pip install -v --no-deps .
 
-if [[ "${CONDA_BUILD_CROSS_COMPILATION:-0}" != "0" ]]; then
+if [[ "${CONDA_BUILD_CROSS_COMPILATION:-0}" != "1" ]]; then
   cd test
   $PYTHON -c 'from dolfin import *; info(parameters["form_compiler"], True)'
 fi
