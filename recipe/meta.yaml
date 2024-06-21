@@ -41,6 +41,7 @@ outputs:
       build:
         - {{ compiler('c') }}
         - {{ compiler('cxx') }}
+        - {{ stdlib('c') }}
       host:
         - libblas
         - libcblas
@@ -93,6 +94,7 @@ outputs:
       build:
         - {{ compiler('c') }}
         - {{ compiler('cxx') }}
+        - {{ stdlib('c') }}
       host:
         - libblas
         - libcblas
