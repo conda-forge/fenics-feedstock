@@ -71,4 +71,5 @@ if [[ "$(uname)" == "Linux" ]]; then
     strip -s $PREFIX/lib/libdolfin.so
 fi
 
-grep -R pthread -C 3 $PREFIX || true
+find $PREFIX/share/dolfin -name '*.cmake' -print -exec cat {} \;
+grep -R pthread -C 3 $PREFIX/share/dolfin || true

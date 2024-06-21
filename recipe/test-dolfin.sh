@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-grep -R pthread -C 3 $PREFIX || true
+grep -R pthread -C 3 $PREFIX/share/dolfin || true
 
 if [[ "$(uname)" == "Darwin" ]]; then
   export MACOSX_DEPLOYMENT_TARGET=10.9
@@ -39,7 +39,7 @@ TESTS="jit fem/test_form.py::test_assemble_linear"
 
 RUN_TESTS="python -b -m pytest -vs $TESTS"
 # serial
-$RUN_TESTS
+$RUN_TESTS || (ls jitfailure*; cat jitfailure*/*; exit 1)
 
 # parallel
 $mpiexec -n 3 $RUN_TESTS 2>&1 </dev/null | cat
