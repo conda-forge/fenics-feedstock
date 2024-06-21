@@ -71,4 +71,4 @@ if [[ "$(uname)" == "Linux" ]]; then
     strip -s $PREFIX/lib/libdolfin.so
 fi
 
-grep -R pthread_nonshared -C 3 $PREFIX || true
+grep -R pthread -C 3 $PREFIX || true
