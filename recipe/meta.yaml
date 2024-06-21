@@ -17,7 +17,7 @@ source:
       - python-cmake-args.patch
 
 build:
-  number: 44
+  number: 45
   skip: true  # [win]
   # this doesn't actually affect the build hashes
   # so duplicate where the build hash should actually change
@@ -127,7 +127,6 @@ outputs:
         - hdf5 * {{ mpi_prefix }}_*
       run:
         - {{ compiler('cxx') }}
-        - cmake >=3.9
         - python
         # dolfin depends on the boost headers for its own headers, see
         # https://bitbucket.org/fenics-project/dolfin/src/master/dolfin/parameter/Parameters.h#lines-24
