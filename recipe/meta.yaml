@@ -16,8 +16,13 @@ source:
       - fix-xdmf.patch
 
 build:
-  number: 43
+  number: 44
   skip: true  # [win]
+  # this doesn't actually affect the build hashes
+  # so duplicate where the build hash should actually change
+  force_use_keys:
+    - python
+    - mpi
 
 outputs:
   - name: fenics-libdolfin
@@ -47,7 +52,7 @@ outputs:
         - libboost-devel
         - eigen
         - parmetis
-        - ptscotch
+        - libptscotch
         - suitesparse
         - zlib
         - {{ mpi }}
@@ -61,17 +66,9 @@ outputs:
         - hdf5
         - hdf5 * {{ mpi_prefix }}_*
       run:
-        - cmake >=3.9
+        # only need library dependencies that _lack_ run_exports here
         - eigen
-        - {{ mpi }}
         - parmetis
-        - petsc
-        - slepc
-        - pkg-config
-        - ptscotch
-        - suitesparse
-        - zlib
-        - fenics-ffc =={{ version }}
     test:
       commands:
         - test -f ${PREFIX}/lib/libdolfin${SHLIB_EXT}
@@ -124,16 +121,14 @@ outputs:
         - hdf5 * {{ mpi_prefix }}_*
       run:
         - {{ compiler('cxx') }}
+        - cmake >=3.9
         - python
         # dolfin depends on the boost headers for its own headers, see
         # https://bitbucket.org/fenics-project/dolfin/src/master/dolfin/parameter/Parameters.h#lines-24
         - libboost-headers
         - setuptools
-        - {{ mpi }}
         - mpi4py
-        - petsc
         - petsc4py
-        - slepc
         - slepc4py
         - pkgconfig  # Python pkgconfig package
         - pybind11
@@ -164,9 +159,10 @@ outputs:
       script: "echo 1"
       force_use_keys:
         - mpi
-    requirements:
-      host:
         - python
+    requirements:
+      build: []
+      host: []
       run:
         - python
         - {{ pin_subpackage("fenics-libdolfin", exact=True) }}

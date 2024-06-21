@@ -12,8 +12,12 @@ export CXXFLAGS=$(echo $CXXFLAGS | sed -E 's@\-fdebug\-prefix\-map[^ ]*@@g')
 
 if [[ "${CONDA_BUILD_CROSS_COMPILATION:-0}" != "0" ]]; then
   # needed for cross-compile openmpi
-  export OPAL_CC="$CC"
+  export OMPI_CC="$CC"
+  export OMPI_CXX="$CXX"
+
   export OPAL_PREFIX="$PREFIX"
+  # disable build tests when cross-compiling
+  export CMAKE_ARGS="${CMAKE_ARGS} -DDOLFIN_SKIP_BUILD_TESTS=ON"
 fi
 
 # DOLFIN
@@ -30,6 +34,7 @@ export SLEPC_DIR=$PREFIX
 export BLAS_DIR=$LIBRARY_PATH
 
 cmake .. \
+  ${CMAKE_ARGS} \
   -DDOLFIN_ENABLE_MPI=on \
   -DDOLFIN_ENABLE_PETSC=on \
   -DDOLFIN_ENABLE_SLEPC=on \
