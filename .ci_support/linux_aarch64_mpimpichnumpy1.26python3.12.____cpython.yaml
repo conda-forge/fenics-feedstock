@@ -27,7 +27,7 @@ hdf5:
 libblas:
 - 3.9 *netlib
 libboost_devel:
-- '1.82'
+- '1.84'
 libcblas:
 - 3.9 *netlib
 mpi:
@@ -39,9 +39,9 @@ numpy:
 openmpi:
 - '4'
 petsc:
-- '3.20'
+- '3.21'
 petsc4py:
-- '3.20'
+- '3.21'
 pin_run_as_build:
   python:
     min_pin: x.x
@@ -51,11 +51,11 @@ ptscotch:
 python:
 - 3.12.* *_cpython
 slepc:
-- '3.20'
+- '3.21'
 slepc4py:
-- '3.20'
+- '3.21'
 suitesparse:
-- '5'
+- '7'
 target_platform:
 - linux-aarch64
 zip_keys:
@@ -66,4 +66,4 @@ zip_keys:
 - - python
   - numpy
 zlib:
-- '1.2'
+- '1'
