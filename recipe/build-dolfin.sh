@@ -1,8 +1,6 @@
 #!/bin/bash
 set -eux
 
-unset CMAKE_PREFIX_PATH
-
 cd dolfin
 
 # scrub problematic -fdebug-prefix-map from C[XX]FLAGS
@@ -12,7 +10,8 @@ export CXXFLAGS=$(echo $CXXFLAGS | sed -E 's@\-fdebug\-prefix\-map[^ ]*@@g')
 
 if [[ "${CONDA_BUILD_CROSS_COMPILATION:-0}" != "0" ]]; then
   # needed for cross-compile openmpi
-  export OPAL_CC="$CC"
+  export OMPI_CC="$CC"
+
   export OPAL_PREFIX="$PREFIX"
 fi
 
