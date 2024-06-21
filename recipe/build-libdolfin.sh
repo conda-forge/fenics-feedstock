@@ -70,3 +70,5 @@ if [[ "$(uname)" == "Linux" ]]; then
     # it seems to on mac
     strip -s $PREFIX/lib/libdolfin.so
 fi
+
+grep -R pthread_nonshared -C 3 $PREFIX || true
