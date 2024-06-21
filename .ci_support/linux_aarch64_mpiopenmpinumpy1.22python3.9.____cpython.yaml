@@ -4,6 +4,10 @@ c_compiler:
 - gcc
 c_compiler_version:
 - '12'
+c_stdlib:
+- sysroot
+c_stdlib_version:
+- '2.17'
 cdt_arch:
 - aarch64
 cdt_name:
@@ -19,11 +23,11 @@ cxx_compiler_version:
 docker_image:
 - quay.io/condaforge/linux-anvil-aarch64
 hdf5:
-- 1.14.2
+- 1.14.3
 libblas:
 - 3.9 *netlib
 libboost_devel:
-- '1.82'
+- '1.84'
 libcblas:
 - 3.9 *netlib
 mpi:
@@ -35,21 +39,21 @@ numpy:
 openmpi:
 - '4'
 petsc:
-- '3.20'
+- '3.21'
 petsc4py:
-- '3.20'
+- '3.21'
 pin_run_as_build:
   python:
     min_pin: x.x
     max_pin: x.x
 ptscotch:
-- 6.0.9
+- 7.0.4
 python:
 - 3.9.* *_cpython
 slepc:
-- '3.20'
+- '3.21'
 slepc4py:
-- '3.20'
+- '3.21'
 suitesparse:
 - '5'
 target_platform:
@@ -57,6 +61,8 @@ target_platform:
 zip_keys:
 - - c_compiler_version
   - cxx_compiler_version
+- - c_stdlib_version
+  - cdt_name
 - - python
   - numpy
 zlib:
