@@ -30,6 +30,8 @@ libboost_devel:
 - '1.84'
 libcblas:
 - 3.9 *netlib
+libptscotch:
+- 7.0.4
 mpi:
 - mpich
 mpich:
@@ -46,8 +48,6 @@ pin_run_as_build:
   python:
     min_pin: x.x
     max_pin: x.x
-ptscotch:
-- 7.0.4
 python:
 - 3.12.* *_cpython
 slepc:
@@ -55,7 +55,7 @@ slepc:
 slepc4py:
 - '3.21'
 suitesparse:
-- '5'
+- '7'
 target_platform:
 - linux-aarch64
 zip_keys:
@@ -66,4 +66,4 @@ zip_keys:
 - - python
   - numpy
 zlib:
-- '1.2'
+- '1'
