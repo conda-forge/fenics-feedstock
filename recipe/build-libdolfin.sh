@@ -20,6 +20,13 @@ if [[ "${CONDA_BUILD_CROSS_COMPILATION:-0}" != "0" ]]; then
   export CMAKE_ARGS="${CMAKE_ARGS} -DDOLFIN_SKIP_BUILD_TESTS=ON"
 fi
 
+if [[ "${target_platform}" == "osx-arm64" ]]; then
+  # scotch seems to crash on osx-arm64
+  export CMAKE_ARGS="${CMAKE_ARGS} -DDOLFIN_ENABLE_SCOTCH=OFF"
+else
+  export CMAKE_ARGS="${CMAKE_ARGS} -DDOLFIN_ENABLE_SCOTCH=ON"
+fi
+
 # dolfinx pkg-config records compilers
 # avoid recording build prefix
 export CC=$(basename $CC)
@@ -41,7 +48,6 @@ cmake .. \
   -DDOLFIN_ENABLE_MPI=on \
   -DDOLFIN_ENABLE_PETSC=on \
   -DDOLFIN_ENABLE_SLEPC=on \
-  -DDOLFIN_ENABLE_SCOTCH=on \
   -DDOLFIN_ENABLE_HDF5=on \
   -DPYTHON_EXECUTABLE=$PREFIX/bin/python || (cat CMakeFiles/CMakeError.log && exit 1)
 

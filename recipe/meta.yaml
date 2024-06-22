@@ -17,7 +17,7 @@ source:
       - python-cmake-args.patch
 
 build:
-  number: 45
+  number: 46
   skip: true  # [win]
   # this doesn't actually affect the build hashes
   # so duplicate where the build hash should actually change
@@ -59,7 +59,7 @@ outputs:
         - libboost-devel
         - eigen
         - parmetis
-        - libptscotch
+        - libptscotch  # [target_platform != "osx-arm64"]
         - suitesparse
         - zlib
         - {{ mpi }}
