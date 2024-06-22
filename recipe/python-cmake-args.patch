@@ -1,0 +1,45 @@
+From c9c80fe25330f82a9fef33e2826cd0430c864f00 Mon Sep 17 00:00:00 2001
+From: Min RK <benjaminrk@gmail.com>
+Date: Fri, 21 Jun 2024 20:56:58 +0200
+Subject: [PATCH] python: respect CMAKE_ARGS env
+
+---
+ python/setup.py | 9 +++------
+ 1 file changed, 3 insertions(+), 6 deletions(-)
+
+diff --git a/python/setup.py b/python/setup.py
+index d4aa8d38e..95bbd7634 100644
+--- a/python/setup.py
++++ b/python/setup.py
+@@ -1,5 +1,6 @@
+ import os
+ import re
++import shlex
+ import sys
+ import platform
+ import subprocess
+@@ -48,7 +49,8 @@ class CMakeBuild(build_ext):
+ 
+     def build_extension(self, ext):
+         extdir = os.path.abspath(os.path.dirname(self.get_ext_fullpath(ext.name)))
+-        cmake_args = ['-DCMAKE_LIBRARY_OUTPUT_DIRECTORY=' + extdir,
++        cmake_args = shlex.split(os.environ.get("CMAKE_ARGS", ""))
++        cmake_args += ['-DCMAKE_LIBRARY_OUTPUT_DIRECTORY=' + extdir,
+                       '-DPYTHON_EXECUTABLE=' + sys.executable]
+ 
+         cfg = 'Debug' if self.debug else 'Release'
+@@ -61,11 +63,6 @@ class CMakeBuild(build_ext):
+             build_args += ['--', '/m']
+         else:
+             cmake_args += ['-DCMAKE_BUILD_TYPE=' + cfg]
+-            if "CIRCLECI" in os.environ:
+-                build_args += ['--', '-j2']
+-            else:
+-                num_build_threads = max(1, multiprocessing.cpu_count() - 1)
+-                build_args += ['--', '-j' + str(num_build_threads)]
+ 
+         env = os.environ.copy()
+         env['CXXFLAGS'] = '{} -DVERSION_INFO=\\"{}\\"'.format(env.get('CXXFLAGS', ''),
+-- 
+2.42.0
+

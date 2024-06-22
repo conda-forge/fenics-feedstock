@@ -10,7 +10,20 @@ cd dolfin
 export CFLAGS=$(echo $CFLAGS | sed -E 's@\-fdebug\-prefix\-map[^ ]*@@g')
 export CXXFLAGS=$(echo $CXXFLAGS | sed -E 's@\-fdebug\-prefix\-map[^ ]*@@g')
 
-# DOLFIN
+if [[ "${CONDA_BUILD_CROSS_COMPILATION:-0}" != "0" ]]; then
+  # needed for cross-compile openmpi
+  export OMPI_CC="$CC"
+  export OMPI_CXX="$CXX"
+
+  export OPAL_PREFIX="$PREFIX"
+  # disable build tests when cross-compiling
+  export CMAKE_ARGS="${CMAKE_ARGS} -DDOLFIN_SKIP_BUILD_TESTS=ON"
+fi
+
+# dolfinx pkg-config records compilers
+# avoid recording build prefix
+export CC=$(basename $CC)
+export CXX=$(basename $CXX)
 
 rm -rf build
 mkdir build
@@ -24,15 +37,12 @@ export SLEPC_DIR=$PREFIX
 export BLAS_DIR=$LIBRARY_PATH
 
 cmake .. \
+  ${CMAKE_ARGS} \
   -DDOLFIN_ENABLE_MPI=on \
   -DDOLFIN_ENABLE_PETSC=on \
   -DDOLFIN_ENABLE_SLEPC=on \
   -DDOLFIN_ENABLE_SCOTCH=on \
   -DDOLFIN_ENABLE_HDF5=on \
-  -DCMAKE_INSTALL_PREFIX=$PREFIX \
-  -DCMAKE_INSTALL_LIBDIR=$PREFIX/lib \
-  -DCMAKE_INCLUDE_PATH=$INCLUDE_PATH \
-  -DCMAKE_LIBRARY_PATH=$LIBRARY_PATH \
   -DPYTHON_EXECUTABLE=$PREFIX/bin/python || (cat CMakeFiles/CMakeError.log && exit 1)
 
 if [[ -f CMakeFiles/CMakeError.log ]]; then
@@ -59,3 +69,10 @@ if [[ "$(uname)" == "Linux" ]]; then
     # it seems to on mac
     strip -s $PREFIX/lib/libdolfin.so
 fi
+
+# patch pkg-config file, which has some wonky stuff
+cat $PREFIX/lib/pkgconfig/dolfin.pc
+mv $PREFIX/lib/pkgconfig/dolfin.pc ./
+# sysroot is recorded in $BUILD_PREFIX, but at runtime this will be in $PREFIX
+cat dolfin.pc | sed "s@$BUILD_PREFIX@$PREFIX@g" > $PREFIX/lib/pkgconfig/dolfin.pc
+cat $PREFIX/lib/pkgconfig/dolfin.pc

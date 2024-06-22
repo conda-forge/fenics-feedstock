@@ -14,9 +14,10 @@ source:
       - find-petsc-slepc.patch
       - hdf5-1.12.patch
       - fix-xdmf.patch
+      - python-cmake-args.patch
 
 build:
-  number: 44
+  number: 45
   skip: true  # [win]
   # this doesn't actually affect the build hashes
   # so duplicate where the build hash should actually change
@@ -36,22 +37,29 @@ outputs:
       ignore_run_exports_from:
         - python
         - numpy
+        - cross-python_{{ target_platform }}
       {% set mpi_prefix = "mpi_" + mpi %}
     requirements:
       build:
         - {{ compiler('c') }}
         - {{ stdlib("c") }}
         - {{ compiler('cxx') }}
+        - cmake >=3.9
+        - make
+        - pkg-config
+        - {{ mpi }}  # [mpi == 'openmpi' and build_platform != target_platform]
+        # python needed for ufc discovery via ffc
+        - python                                 # [build_platform != target_platform]
+        - cross-python_{{ target_platform }}     # [build_platform != target_platform]
+        - numpy  # [build_platform != target_platform]
+        - fenics-ffc =={{ version }}  # [build_platform != target_platform]
       host:
         - libblas
         - libcblas
         - libboost-devel
-        - cmake >=3.9
-        - make
         - eigen
         - parmetis
-        - pkg-config
-        - ptscotch
+        - libptscotch
         - suitesparse
         - zlib
         - {{ mpi }}
@@ -65,18 +73,9 @@ outputs:
         - hdf5
         - hdf5 * {{ mpi_prefix }}_*
       run:
-        - {{ compiler('cxx') }}  # [linux]
-        - cmake >=3.9
+        # only need library dependencies that _lack_ run_exports here
         - eigen
-        - {{ mpi }}
         - parmetis
-        - petsc
-        - slepc
-        - pkg-config
-        - ptscotch
-        - suitesparse
-        - zlib
-        - fenics-ffc =={{ version }}
     test:
       commands:
         - test -f ${PREFIX}/lib/libdolfin${SHLIB_EXT}
@@ -95,14 +94,19 @@ outputs:
         - {{ compiler('c') }}
         - {{ stdlib("c") }}
         - {{ compiler('cxx') }}
+        - cmake >=3.9
+        - make
+        - pkg-config
+        - python                                 # [build_platform != target_platform]
+        - cross-python_{{ target_platform }}     # [build_platform != target_platform]
+        - pybind11                               # [build_platform != target_platform]
+        - {{ mpi }}  # [mpi == 'openmpi' and build_platform != target_platform]
       host:
         - libblas
         - libcblas
         - libboost-devel
         - python
         - pip
-        - cmake >=3.9
-        - make
         - pkgconfig
         - {{ mpi }}
         - mpi4py
@@ -128,11 +132,8 @@ outputs:
         # https://bitbucket.org/fenics-project/dolfin/src/master/dolfin/parameter/Parameters.h#lines-24
         - libboost-headers
         - setuptools
-        - {{ mpi }}
         - mpi4py
-        - petsc
         - petsc4py
-        - slepc
         - slepc4py
         - pkgconfig  # Python pkgconfig package
         - pybind11
@@ -163,9 +164,10 @@ outputs:
       script: "echo 1"
       force_use_keys:
         - mpi
-    requirements:
-      host:
         - python
+    requirements:
+      build: []
+      host: []
       run:
         - python
         - {{ pin_subpackage("fenics-libdolfin", exact=True) }}

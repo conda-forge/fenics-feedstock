@@ -1,23 +1,23 @@
+MACOSX_DEPLOYMENT_TARGET:
+- '11.0'
+MACOSX_SDK_VERSION:
+- '11.0'
 c_compiler:
-- gcc
+- clang
 c_compiler_version:
-- '12'
+- '16'
 c_stdlib:
-- sysroot
+- macosx_deployment_target
 c_stdlib_version:
-- '2.17'
-cdt_name:
-- cos7
+- '11.0'
 channel_sources:
 - conda-forge
 channel_targets:
 - conda-forge main
 cxx_compiler:
-- gxx
+- clangxx
 cxx_compiler_version:
-- '12'
-docker_image:
-- quay.io/condaforge/linux-anvil-ppc64le
+- '16'
 hdf5:
 - 1.14.3
 libblas:
@@ -28,6 +28,8 @@ libcblas:
 - 3.9 *netlib
 libptscotch:
 - 7.0.4
+macos_machine:
+- arm64-apple-darwin20.0.0
 mpi:
 - openmpi
 mpich:
@@ -45,7 +47,7 @@ pin_run_as_build:
     min_pin: x.x
     max_pin: x.x
 python:
-- 3.9.* *_cpython
+- 3.10.* *_cpython
 slepc:
 - '3.21'
 slepc4py:
@@ -53,12 +55,10 @@ slepc4py:
 suitesparse:
 - '7'
 target_platform:
-- linux-ppc64le
+- osx-arm64
 zip_keys:
 - - c_compiler_version
   - cxx_compiler_version
-- - c_stdlib_version
-  - cdt_name
 - - python
   - numpy
 zlib:
