@@ -23,5 +23,3 @@ if [[ "${CONDA_BUILD_CROSS_COMPILATION:-0}" != "1" ]]; then
   cd test
   $PYTHON -c 'from dolfin import *; info(parameters["form_compiler"], True)'
 fi
-
-grep -R pthread -C 3 $PREFIX/share/dolfin || true

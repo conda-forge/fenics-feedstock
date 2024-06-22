@@ -70,8 +70,6 @@ if [[ "$(uname)" == "Linux" ]]; then
     strip -s $PREFIX/lib/libdolfin.so
 fi
 
-find $PREFIX/share/dolfin -name '*.cmake' -print -exec cat {} \;
-
 # patch pkg-config file, which has some wonky stuff
 cat $PREFIX/lib/pkgconfig/dolfin.pc
 mv $PREFIX/lib/pkgconfig/dolfin.pc ./
