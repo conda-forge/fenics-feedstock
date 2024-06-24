@@ -1,6 +1,7 @@
 {% set version = "2019.2.0" %}
 {% set date = "20240219" %}
 {% set commit = "1c52e837eb54cc34627f90bde254be4aa8a2ae17" %}
+{% set version_xy = "2019.2" %}
 
 
 package:
@@ -76,8 +77,8 @@ outputs:
     test:
       commands:
         - test -f ${PREFIX}/lib/libdolfin${SHLIB_EXT}
-        - test -f ${PREFIX}/lib/libdolfin.{{ version }}${SHLIB_EXT}  # [osx]
-        - test -f ${PREFIX}/lib/libdolfin${SHLIB_EXT}.{{ version }}  # [linux]
+        - test -f ${PREFIX}/lib/libdolfin.{{ version_xy }}${SHLIB_EXT}  # [osx]
+        - test -f ${PREFIX}/lib/libdolfin${SHLIB_EXT}.{{ version_xy }}  # [linux]
 
   - name: fenics-dolfin
     build:
@@ -176,6 +177,7 @@ outputs:
 about:
   home: http://www.fenicsproject.org
   license: LGPL-3.0-or-later
+  license_family: LGPL
   license_file:
     - COPYING
     - COPYING.LESSER
