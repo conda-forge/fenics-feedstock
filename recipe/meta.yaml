@@ -10,7 +10,6 @@ package:
 source:
   - url: https://bitbucket.org/fenics-project/dolfin/get/{{ commit }}.tar.gz
     sha256: b7254c67193a745a587b46f052f80167823a9f89f3327d813775c313d61c3bae
-    folder: dolfin
     patches:
       - python-cmake-args.patch
 
@@ -50,7 +49,7 @@ outputs:
         - python                                 # [build_platform != target_platform]
         - cross-python_{{ target_platform }}     # [build_platform != target_platform]
         - numpy  # [build_platform != target_platform]
-        - fenics-ffc =={{ version }}  # [build_platform != target_platform]
+        - fenics-ffc =={{ version }}.dev*  # [build_platform != target_platform]
       host:
         - libblas
         - libcblas
@@ -65,7 +64,7 @@ outputs:
         - slepc
         - python
         - numpy
-        - fenics-ffc =={{ version }}
+        - fenics-ffc =={{ version }}.dev*
         # need to list libnetcdf and netcdf-fortran twice to get version
         # pinning from conda_build_config and build pinning from {{ mpi_prefix }}
         - hdf5
@@ -115,10 +114,10 @@ outputs:
         - six
         - sympy >=1
         - {{ pin_subpackage("fenics-libdolfin", exact=True) }}
-        - fenics-dijitso =={{ version }}
-        - fenics-fiat =={{ version }}
-        - fenics-ufl =={{ version }}
-        - fenics-ffc =={{ version }}
+        - fenics-dijitso ==2019.1.0
+        - fenics-fiat =={{ version }}.dev*
+        - fenics-ufl-legacy ==2022.3.0
+        - fenics-ffc =={{ version }}.dev*
         # need to list libnetcdf and netcdf-fortran twice to get version
         # pinning from conda_build_config and build pinning from {{ mpi_prefix }}
         - hdf5
@@ -139,10 +138,10 @@ outputs:
         - six
         - sympy >=1
         - {{ pin_subpackage("fenics-libdolfin", exact=True) }}
-        - fenics-dijitso =={{ version }}
-        - fenics-fiat =={{ version }}
-        - fenics-ufl =={{ version }}
-        - fenics-ffc =={{ version }}
+        - fenics-dijitso ==2019.1.0
+        - fenics-fiat =={{ version }}.dev*
+        - fenics-ufl-legacy ==2022.3.0
+        - fenics-ffc =={{ version }}.dev*
 
     test:
       commands:
