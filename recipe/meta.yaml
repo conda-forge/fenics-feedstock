@@ -1,25 +1,22 @@
-{% set version = "2019.1.0" %}
+{% set version = "2019.2.0" %}
+{% set date = "20240219" %}
+{% set commit = "1c52e837eb54cc34627f90bde254be4aa8a2ae17" %}
+{% set version_xy = "2019.2" %}
 
 
 package:
   name: fenics-pkgs
-  version: {{ version }}
+  version: {{ version }}.dev{{ date }}
 
 source:
-  - url: https://bitbucket.org/fenics-project/dolfin/downloads/dolfin-{{ version }}.post0.tar.gz
-    sha256: 61abdcdb13684ba2a3ba4afb7ea6c7907aa0896a46439d3af7e8848483d4392f
-    folder: dolfin
+  - url: https://bitbucket.org/fenics-project/dolfin/get/{{ commit }}.tar.gz
+    sha256: b7254c67193a745a587b46f052f80167823a9f89f3327d813775c313d61c3bae
     patches:
-      - boost.patch
-      - linuxboost.patch  # [linux]
-      - find-petsc-slepc.patch
-      - hdf5-1.12.patch
-      - fix-xdmf.patch
       - python-cmake-args.patch
 
 build:
-  number: 47
-  skip: true  # [win]
+  number: 0
+  skip: true  # [win or ppc64le]
   # this doesn't actually affect the build hashes
   # so duplicate where the build hash should actually change
   force_use_keys:
@@ -53,7 +50,7 @@ outputs:
         - python                                 # [build_platform != target_platform]
         - cross-python_{{ target_platform }}     # [build_platform != target_platform]
         - numpy  # [build_platform != target_platform]
-        - fenics-ffc =={{ version }}  # [build_platform != target_platform]
+        - fenics-ffc =={{ version }}.dev*  # [build_platform != target_platform]
       host:
         - libblas
         - libcblas
@@ -68,7 +65,7 @@ outputs:
         - slepc
         - python
         - numpy
-        - fenics-ffc =={{ version }}
+        - fenics-ffc =={{ version }}.dev*
         # need to list libnetcdf and netcdf-fortran twice to get version
         # pinning from conda_build_config and build pinning from {{ mpi_prefix }}
         - hdf5
@@ -80,8 +77,8 @@ outputs:
     test:
       commands:
         - test -f ${PREFIX}/lib/libdolfin${SHLIB_EXT}
-        - test -f ${PREFIX}/lib/libdolfin.{{ version }}${SHLIB_EXT}  # [osx]
-        - test -f ${PREFIX}/lib/libdolfin${SHLIB_EXT}.{{ version }}  # [linux]
+        - test -f ${PREFIX}/lib/libdolfin.{{ version_xy }}${SHLIB_EXT}  # [osx]
+        - test -f ${PREFIX}/lib/libdolfin${SHLIB_EXT}.{{ version_xy }}  # [linux]
 
   - name: fenics-dolfin
     build:
@@ -118,10 +115,10 @@ outputs:
         - six
         - sympy >=1
         - {{ pin_subpackage("fenics-libdolfin", exact=True) }}
-        - fenics-dijitso =={{ version }}
-        - fenics-fiat =={{ version }}
-        - fenics-ufl =={{ version }}
-        - fenics-ffc =={{ version }}
+        - fenics-dijitso ==2019.1.0
+        - fenics-fiat =={{ version }}.dev*
+        - fenics-ufl-legacy ==2022.3.0
+        - fenics-ffc =={{ version }}.dev*
         # need to list libnetcdf and netcdf-fortran twice to get version
         # pinning from conda_build_config and build pinning from {{ mpi_prefix }}
         - hdf5
@@ -142,16 +139,16 @@ outputs:
         - six
         - sympy >=1
         - {{ pin_subpackage("fenics-libdolfin", exact=True) }}
-        - fenics-dijitso =={{ version }}
-        - fenics-fiat =={{ version }}
-        - fenics-ufl =={{ version }}
-        - fenics-ffc =={{ version }}
+        - fenics-dijitso ==2019.1.0
+        - fenics-fiat =={{ version }}.dev*
+        - fenics-ufl-legacy ==2022.3.0
+        - fenics-ffc =={{ version }}.dev*
 
     test:
       commands:
         - bash ${RECIPE_DIR}/parent/test-dolfin.sh
       source_files:
-        - dolfin/python/test
+        - python/test
 
       requires:
         - nose
@@ -180,9 +177,10 @@ outputs:
 about:
   home: http://www.fenicsproject.org
   license: LGPL-3.0-or-later
+  license_family: LGPL
   license_file:
-    - dolfin/COPYING
-    - dolfin/COPYING.LESSER
+    - COPYING
+    - COPYING.LESSER
   summary: 'FEniCS is a collection of free software for automated, efficient solution of differential equations'
 
   description: |

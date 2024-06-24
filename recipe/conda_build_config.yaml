@@ -1,3 +1,8 @@
+channel_sources:
+  - conda-forge/label/fenics-dev,conda-forge
+channel_targets:
+- conda-forge fenics-dev
+
 mpi:
   - mpich
   - openmpi

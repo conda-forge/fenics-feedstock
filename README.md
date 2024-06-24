@@ -177,76 +177,6 @@ Current build status
                 </a>
               </td>
             </tr><tr>
-              <td>linux_ppc64le_mpimpichnumpy1.22python3.10.____cpython</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=5898&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/fenics-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_ppc64le_mpimpichnumpy1.22python3.10.____cpython" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>linux_ppc64le_mpimpichnumpy1.22python3.8.____cpython</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=5898&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/fenics-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_ppc64le_mpimpichnumpy1.22python3.8.____cpython" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>linux_ppc64le_mpimpichnumpy1.22python3.9.____cpython</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=5898&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/fenics-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_ppc64le_mpimpichnumpy1.22python3.9.____cpython" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>linux_ppc64le_mpimpichnumpy1.23python3.11.____cpython</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=5898&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/fenics-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_ppc64le_mpimpichnumpy1.23python3.11.____cpython" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>linux_ppc64le_mpimpichnumpy1.26python3.12.____cpython</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=5898&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/fenics-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_ppc64le_mpimpichnumpy1.26python3.12.____cpython" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>linux_ppc64le_mpiopenmpinumpy1.22python3.10.____cpython</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=5898&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/fenics-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_ppc64le_mpiopenmpinumpy1.22python3.10.____cpython" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>linux_ppc64le_mpiopenmpinumpy1.22python3.8.____cpython</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=5898&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/fenics-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_ppc64le_mpiopenmpinumpy1.22python3.8.____cpython" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>linux_ppc64le_mpiopenmpinumpy1.22python3.9.____cpython</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=5898&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/fenics-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_ppc64le_mpiopenmpinumpy1.22python3.9.____cpython" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>linux_ppc64le_mpiopenmpinumpy1.23python3.11.____cpython</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=5898&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/fenics-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_ppc64le_mpiopenmpinumpy1.23python3.11.____cpython" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>linux_ppc64le_mpiopenmpinumpy1.26python3.12.____cpython</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=5898&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/fenics-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_ppc64le_mpiopenmpinumpy1.26python3.12.____cpython" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
               <td>osx_64_mpimpichnumpy1.22python3.10.____cpython</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=5898&branchName=main">
@@ -406,14 +336,14 @@ Current release info
 Installing fenics-pkgs
 ======================
 
-Installing `fenics-pkgs` from the `conda-forge` channel can be achieved by adding `conda-forge` to your channels with:
+Installing `fenics-pkgs` from the `conda-forge/label/fenics-dev` channel can be achieved by adding `conda-forge/label/fenics-dev` to your channels with:
 
 ```
-conda config --add channels conda-forge
+conda config --add channels conda-forge/label/fenics-dev
 conda config --set channel_priority strict
 ```
 
-Once the `conda-forge` channel has been enabled, `fenics, fenics-dolfin, fenics-libdolfin` can be installed with `conda`:
+Once the `conda-forge/label/fenics-dev` channel has been enabled, `fenics, fenics-dolfin, fenics-libdolfin` can be installed with `conda`:
 
 ```
 conda install fenics fenics-dolfin fenics-libdolfin
@@ -428,26 +358,26 @@ mamba install fenics fenics-dolfin fenics-libdolfin
 It is possible to list all of the versions of `fenics` available on your platform with `conda`:
 
 ```
-conda search fenics --channel conda-forge
+conda search fenics --channel conda-forge/label/fenics-dev
 ```
 
 or with `mamba`:
 
 ```
-mamba search fenics --channel conda-forge
+mamba search fenics --channel conda-forge/label/fenics-dev
 ```
 
 Alternatively, `mamba repoquery` may provide more information:
 
 ```
 # Search all versions available on your platform:
-mamba repoquery search fenics --channel conda-forge
+mamba repoquery search fenics --channel conda-forge/label/fenics-dev
 
 # List packages depending on `fenics`:
-mamba repoquery whoneeds fenics --channel conda-forge
+mamba repoquery whoneeds fenics --channel conda-forge/label/fenics-dev
 
 # List dependencies of `fenics`:
-mamba repoquery depends fenics --channel conda-forge
+mamba repoquery depends fenics --channel conda-forge/label/fenics-dev
 ```
 
 
