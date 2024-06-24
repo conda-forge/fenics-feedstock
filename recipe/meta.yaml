@@ -8,7 +8,6 @@ package:
 source:
   - url: https://bitbucket.org/fenics-project/dolfin/downloads/dolfin-{{ version }}.post0.tar.gz
     sha256: 61abdcdb13684ba2a3ba4afb7ea6c7907aa0896a46439d3af7e8848483d4392f
-    folder: dolfin
     patches:
       - boost.patch
       - linuxboost.patch  # [linux]
@@ -151,7 +150,7 @@ outputs:
       commands:
         - bash ${RECIPE_DIR}/parent/test-dolfin.sh
       source_files:
-        - dolfin/python/test
+        - python/test
 
       requires:
         - nose
@@ -180,9 +179,10 @@ outputs:
 about:
   home: http://www.fenicsproject.org
   license: LGPL-3.0-or-later
+  license_family: LGPL
   license_file:
-    - dolfin/COPYING
-    - dolfin/COPYING.LESSER
+    - COPYING
+    - COPYING.LESSER
   summary: 'FEniCS is a collection of free software for automated, efficient solution of differential equations'
 
   description: |

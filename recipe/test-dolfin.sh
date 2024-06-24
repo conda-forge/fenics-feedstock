@@ -31,7 +31,7 @@ EOF
 
 python -c 'from dolfin import *; info(parameters["form_compiler"], True)'
 
-pushd "dolfin/python/test/unit"
+pushd "python/test/unit"
 TESTS="jit fem/test_form.py::test_assemble_linear"
 
 RUN_TESTS="python -b -m pytest -vs $TESTS"

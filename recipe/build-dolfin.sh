@@ -1,8 +1,6 @@
 #!/bin/bash
 set -eux
 
-cd dolfin
-
 # scrub problematic -fdebug-prefix-map from C[XX]FLAGS
 # these are loaded in the clang[++] activate scripts
 export CFLAGS=$(echo $CFLAGS | sed -E 's@\-fdebug\-prefix\-map[^ ]*@@g')
