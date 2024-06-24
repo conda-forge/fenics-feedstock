@@ -147,7 +147,7 @@ outputs:
       commands:
         - bash ${RECIPE_DIR}/parent/test-dolfin.sh
       source_files:
-        - dolfin/python/test
+        - python/test
 
       requires:
         - nose
@@ -177,8 +177,8 @@ about:
   home: http://www.fenicsproject.org
   license: LGPL-3.0-or-later
   license_file:
-    - dolfin/COPYING
-    - dolfin/COPYING.LESSER
+    - COPYING
+    - COPYING.LESSER
   summary: 'FEniCS is a collection of free software for automated, efficient solution of differential equations'
 
   description: |
