@@ -130,7 +130,7 @@ outputs:
         # https://bitbucket.org/fenics-project/dolfin/src/master/dolfin/parameter/Parameters.h#lines-24
         - libboost-headers
         - setuptools
-        - mpi4py
+        - {{ pin_compatible('mpi4py', max_pin='x') }}
         - petsc4py
         - slepc4py
         - pkgconfig  # Python pkgconfig package
