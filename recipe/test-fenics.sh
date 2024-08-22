@@ -7,12 +7,6 @@ if [[ "$(uname)" == "Darwin" ]]; then
 fi
 
 mpiexec="mpiexec"
-if command -v "${PREFIX}/bin/ompi_info" >/dev/null; then
-    export OMPI_MCA_plm=isolated
-    export OMPI_MCA_rmaps_base_oversubscribe=yes
-    export OMPI_MCA_btl_vader_single_copy_mechanism=none
-    mpiexec="mpiexec --allow-run-as-root"
-fi
 
 export DIJITSO_CACHE_DIR=${PWD}/instant
 
