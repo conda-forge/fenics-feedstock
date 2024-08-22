@@ -37,7 +37,7 @@ mpich:
 numpy:
 - '1.22'
 openmpi:
-- '4'
+- '5'
 petsc:
 - '3.21'
 petsc4py:
