@@ -31,11 +31,11 @@ libptscotch:
 macos_machine:
 - x86_64-apple-darwin13.4.0
 mpi:
-- openmpi
+- mpich
 mpich:
 - '4'
 numpy:
-- '1.22'
+- '2.0'
 openmpi:
 - '5'
 petsc:
@@ -47,7 +47,7 @@ pin_run_as_build:
     min_pin: x.x
     max_pin: x.x
 python:
-- 3.8.* *_cpython
+- 3.10.* *_cpython
 slepc:
 - '3.21'
 slepc4py:
