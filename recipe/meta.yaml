@@ -17,7 +17,7 @@ source:
       - python-cmake-args.patch
 
 build:
-  number: 49
+  number: 50
   skip: true  # [win]
   # this doesn't actually affect the build hashes
   # so duplicate where the build hash should actually change
