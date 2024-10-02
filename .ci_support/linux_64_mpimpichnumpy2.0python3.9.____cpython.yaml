@@ -24,6 +24,8 @@ libblas:
 - 3.9 *netlib
 libboost_devel:
 - '1.84'
+libboost_headers:
+- '1.84'
 libcblas:
 - 3.9 *netlib
 libptscotch:
@@ -61,5 +63,6 @@ zip_keys:
   - cdt_name
 - - python
   - numpy
+  - channel_sources
 zlib:
 - '1'
