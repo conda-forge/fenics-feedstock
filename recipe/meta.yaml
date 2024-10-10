@@ -99,6 +99,7 @@ outputs:
         - libboost-devel
         - python
         - pip
+        - setuptools
         - pkgconfig
         - {{ mpi }}
         - mpi4py
