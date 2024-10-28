@@ -19,7 +19,7 @@ cxx_compiler:
 cxx_compiler_version:
 - '17'
 hdf5:
-- 1.14.3
+- 1.14.4
 libblas:
 - 3.9 *netlib
 libboost_devel:
@@ -49,7 +49,7 @@ pin_run_as_build:
 python:
 - 3.10.* *_cpython
 slepc:
-- '3.21'
+- '3.19'
 slepc4py:
 - '3.21'
 suitesparse:
