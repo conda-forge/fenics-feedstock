@@ -19,7 +19,7 @@ cxx_compiler_version:
 docker_image:
 - quay.io/condaforge/linux-anvil-ppc64le
 hdf5:
-- 1.14.3
+- 1.14.4
 libblas:
 - 3.9 *netlib
 libboost_devel:
@@ -29,7 +29,7 @@ libboost_headers:
 libcblas:
 - 3.9 *netlib
 libptscotch:
-- 7.0.4
+- 7.0.5
 mpi:
 - openmpi
 mpich:
@@ -49,7 +49,7 @@ pin_run_as_build:
 python:
 - 3.9.* *_cpython
 slepc:
-- '3.21'
+- '3.19'
 slepc4py:
 - '3.21'
 suitesparse:
