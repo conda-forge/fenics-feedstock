@@ -102,6 +102,7 @@ outputs:
         - pip
         - setuptools
         - pkgconfig
+        - zlib
         - {{ mpi }}
         - mpi4py
         - petsc4py
@@ -196,3 +197,4 @@ extra:
     - mikaem
     - minrk
     - jan-janssen
+    - sblauth
