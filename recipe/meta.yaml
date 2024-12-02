@@ -15,6 +15,7 @@ source:
       - hdf5-1.12.patch
       - fix-xdmf.patch
       - python-cmake-args.patch
+      - boost-1.86.patch
 
 build:
   number: 50
