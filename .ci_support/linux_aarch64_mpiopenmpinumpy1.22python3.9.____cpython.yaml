@@ -49,7 +49,7 @@ pin_run_as_build:
 python:
 - 3.9.* *_cpython
 slepc:
-- '3.19'
+- '3.21'
 slepc4py:
 - '3.21'
 suitesparse:
