@@ -19,5 +19,6 @@ $PYTHON -m pip install -v --no-build-isolation --no-deps .
 
 if [[ "${CONDA_BUILD_CROSS_COMPILATION:-0}" != "1" ]]; then
   cd test
+  export OMPI_MCA_btl_sm_backing_directory=/tmp
   $PYTHON -c 'from dolfin import *; info(parameters["form_compiler"], True)'
 fi

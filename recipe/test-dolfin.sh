@@ -7,7 +7,7 @@ fi
 
 mpiexec="mpiexec"
 
-export TMPDIR=$HOME/tmp
+export OMPI_MCA_btl_sm_backing_directory=/tmp
 export DIJITSO_CACHE_DIR=${PWD}/instant
 
 # verify that we have the features we intend to
