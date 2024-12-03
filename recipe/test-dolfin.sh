@@ -7,6 +7,7 @@ fi
 
 mpiexec="mpiexec"
 
+export TMPDIR=$HOME/tmp
 export DIJITSO_CACHE_DIR=${PWD}/instant
 
 # verify that we have the features we intend to
