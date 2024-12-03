@@ -19,5 +19,5 @@ $PYTHON -m pip install -v --no-build-isolation --no-deps .
 
 if [[ "${CONDA_BUILD_CROSS_COMPILATION:-0}" != "1" ]]; then
   cd test
-  mpiexec -n 1 $PYTHON -c 'from dolfin import *; info(parameters["form_compiler"], True)'
+  $PYTHON -c 'from dolfin import *; info(parameters["form_compiler"], True)'
 fi

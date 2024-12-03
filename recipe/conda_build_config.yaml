@@ -1,6 +1,6 @@
 mpi:
   - mpich
-  - openmpi
+  - openmpi # [not osx]
 
 pin_run_as_build:
   boost-cpp:

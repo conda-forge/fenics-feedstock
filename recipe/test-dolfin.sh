@@ -23,7 +23,7 @@ assert dolfin.has_mpi(), 'mpi'
 assert dolfin.has_parmetis(), 'parmetis'
 EOF
 
-$mpiexec -n 1 python -c 'from dolfin import *; info(parameters["form_compiler"], True)'
+python -c 'from dolfin import *; info(parameters["form_compiler"], True)'
 
 pushd "python/test/unit"
 TESTS="jit fem/test_form.py::test_assemble_linear"
