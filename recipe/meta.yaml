@@ -18,7 +18,7 @@ source:
       - boost-1.86.patch
 
 build:
-  number: 50
+  number: 51
   skip: true  # [win]
   # this doesn't actually affect the build hashes
   # so duplicate where the build hash should actually change
