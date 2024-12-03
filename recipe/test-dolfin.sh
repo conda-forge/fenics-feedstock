@@ -7,7 +7,6 @@ fi
 
 mpiexec="mpiexec"
 
-export OMPI_MCA_btl_sm_backing_directory=/tmp
 export DIJITSO_CACHE_DIR=${PWD}/instant
 
 # verify that we have the features we intend to
@@ -24,7 +23,7 @@ assert dolfin.has_mpi(), 'mpi'
 assert dolfin.has_parmetis(), 'parmetis'
 EOF
 
-python -c 'from dolfin import *; info(parameters["form_compiler"], True)'
+$mpiexec -n 1 python -c 'from dolfin import *; info(parameters["form_compiler"], True)'
 
 pushd "python/test/unit"
 TESTS="jit fem/test_form.py::test_assemble_linear"
