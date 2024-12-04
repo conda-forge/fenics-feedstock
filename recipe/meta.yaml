@@ -18,7 +18,7 @@ source:
       - boost-1.86.patch
 
 build:
-  number: 50
+  number: 51
   skip: true  # [win]
   # this doesn't actually affect the build hashes
   # so duplicate where the build hash should actually change
@@ -192,6 +192,7 @@ about:
   dev_url: https://bitbucket.org/fenics-project/
 
 extra:
+  feedstock-name: fenics
   recipe-maintainers:
     - garth-wells
     - johannesring

@@ -1,5 +1,5 @@
-About fenics-pkgs-feedstock
-===========================
+About fenics-feedstock
+======================
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/fenics-feedstock/blob/main/LICENSE.txt)
 
@@ -277,10 +277,10 @@ Current release info
 | [![Conda Recipe](https://img.shields.io/badge/recipe-fenics--dolfin-green.svg)](https://anaconda.org/conda-forge/fenics-dolfin) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/fenics-dolfin.svg)](https://anaconda.org/conda-forge/fenics-dolfin) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/fenics-dolfin.svg)](https://anaconda.org/conda-forge/fenics-dolfin) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/fenics-dolfin.svg)](https://anaconda.org/conda-forge/fenics-dolfin) |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-fenics--libdolfin-green.svg)](https://anaconda.org/conda-forge/fenics-libdolfin) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/fenics-libdolfin.svg)](https://anaconda.org/conda-forge/fenics-libdolfin) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/fenics-libdolfin.svg)](https://anaconda.org/conda-forge/fenics-libdolfin) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/fenics-libdolfin.svg)](https://anaconda.org/conda-forge/fenics-libdolfin) |
 
-Installing fenics-pkgs
-======================
+Installing fenics
+=================
 
-Installing `fenics-pkgs` from the `conda-forge` channel can be achieved by adding `conda-forge` to your channels with:
+Installing `fenics` from the `conda-forge` channel can be achieved by adding `conda-forge` to your channels with:
 
 ```
 conda config --add channels conda-forge
@@ -366,17 +366,17 @@ Terminology
                   produce the finished article (built conda distributions)
 
 
-Updating fenics-pkgs-feedstock
-==============================
+Updating fenics-feedstock
+=========================
 
-If you would like to improve the fenics-pkgs recipe or build a new
+If you would like to improve the fenics recipe or build a new
 package version, please fork this repository and submit a PR. Upon submission,
 your changes will be run on the appropriate platforms to give the reviewer an
 opportunity to confirm that the changes result in a successful build. Once
 merged, the recipe will be re-built and uploaded automatically to the
 `conda-forge` channel, whereupon the built conda packages will be available for
 everybody to install and use from the `conda-forge` channel.
-Note that all branches in the conda-forge/fenics-pkgs-feedstock are
+Note that all branches in the conda-forge/fenics-feedstock are
 immediately built and any created packages are uploaded, so PRs should be based
 on branches in forks and branches in the main repository should only be used to
 build distinct package versions.
