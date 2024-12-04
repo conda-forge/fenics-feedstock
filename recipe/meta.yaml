@@ -15,9 +15,10 @@ source:
       - hdf5-1.12.patch
       - fix-xdmf.patch
       - python-cmake-args.patch
+      - boost-1.86.patch
 
 build:
-  number: 49
+  number: 50
   skip: true  # [win]
   # this doesn't actually affect the build hashes
   # so duplicate where the build hash should actually change
@@ -99,7 +100,9 @@ outputs:
         - libboost-devel
         - python
         - pip
+        - setuptools
         - pkgconfig
+        - zlib
         - {{ mpi }}
         - mpi4py
         - petsc4py
@@ -126,6 +129,7 @@ outputs:
         # https://bitbucket.org/fenics-project/dolfin/src/master/dolfin/parameter/Parameters.h#lines-24
         - libboost-headers
         - setuptools
+        - zlib
         - {{ pin_compatible('mpi4py', max_pin='x') }}
         - petsc4py
         - slepc4py
@@ -194,3 +198,4 @@ extra:
     - mikaem
     - minrk
     - jan-janssen
+    - sblauth
