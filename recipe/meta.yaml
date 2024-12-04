@@ -192,6 +192,7 @@ about:
   dev_url: https://bitbucket.org/fenics-project/
 
 extra:
+  feedstock-name: fenics
   recipe-maintainers:
     - garth-wells
     - johannesring
