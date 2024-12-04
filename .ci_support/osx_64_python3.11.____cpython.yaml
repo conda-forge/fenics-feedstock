@@ -1,15 +1,15 @@
 MACOSX_DEPLOYMENT_TARGET:
-- '11.0'
+- '10.13'
 MACOSX_SDK_VERSION:
-- '11.0'
+- '10.13'
 c_compiler:
 - clang
 c_compiler_version:
-- '17'
+- '18'
 c_stdlib:
 - macosx_deployment_target
 c_stdlib_version:
-- '11.0'
+- '10.13'
 channel_sources:
 - conda-forge/label/fenics-dev,conda-forge
 channel_targets:
@@ -17,17 +17,21 @@ channel_targets:
 cxx_compiler:
 - clangxx
 cxx_compiler_version:
-- '17'
+- '18'
 hdf5:
 - 1.14.3
 libblas:
 - 3.9 *netlib
 libboost_devel:
-- '1.84'
+- '1.86'
+libboost_headers:
+- '1.86'
 libcblas:
 - 3.9 *netlib
+libptscotch:
+- 7.0.5
 macos_machine:
-- arm64-apple-darwin20.0.0
+- x86_64-apple-darwin13.4.0
 mpi:
 - mpich
 mpich:
@@ -45,7 +49,7 @@ pin_run_as_build:
     min_pin: x.x
     max_pin: x.x
 python:
-- 3.10.* *_cpython
+- 3.11.* *_cpython
 slepc:
 - '3.21'
 slepc4py:
@@ -53,7 +57,7 @@ slepc4py:
 suitesparse:
 - '7'
 target_platform:
-- osx-arm64
+- osx-64
 zip_keys:
 - - c_compiler_version
   - cxx_compiler_version
