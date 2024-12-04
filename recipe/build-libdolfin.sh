@@ -69,7 +69,7 @@ if [[ "$(uname)" == "Linux" ]]; then
     # strip libdolfin
     # it's unclear why this doesn't happen from the default flags
     # it seems to on mac
-    strip -s $PREFIX/lib/libdolfin.so
+    $STRIP -s $PREFIX/lib/libdolfin.so
 fi
 
 # patch pkg-config file, which has some wonky stuff
