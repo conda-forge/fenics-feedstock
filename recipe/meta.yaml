@@ -14,6 +14,7 @@ source:
     patches:
       - python-cmake-args.patch
       - boost-1.86.patch
+      - numpy-2.0.patch
 
 build:
   number: 4
