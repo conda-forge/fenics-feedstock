@@ -19,7 +19,7 @@ source:
       - numpy-2.0.patch
 
 build:
-  number: 53
+  number: 54
   skip: true  # [win]
   # this doesn't actually affect the build hashes
   # so duplicate where the build hash should actually change
@@ -136,7 +136,6 @@ outputs:
         - slepc4py
         - pkgconfig  # Python pkgconfig package
         - pybind11
-        - {{ pin_compatible('numpy', max_pin=None) }}
         - six
         - sympy >=1
         - {{ pin_subpackage("fenics-libdolfin", exact=True) }}
