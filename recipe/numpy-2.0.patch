@@ -1,0 +1,103 @@
+From 73b86e7be13855fe337d886b0f7a18c0dd317866 Mon Sep 17 00:00:00 2001
+From: Sebastian Blauth <sebastian.blauth@itwm.fraunhofer.de>
+Date: Tue, 10 Dec 2024 14:45:04 +0100
+Subject: [PATCH] Remove deprecated and removed numpy functions
+
+---
+ python/dolfin_utils/meshconvert/abaqus.py |  4 ++--
+ python/test/unit/common/test_timer.py     |  2 +-
+ python/test/unit/la/test_la_basic.py      |  8 ++++----
+ python/test/unit/la/test_vector.py        | 16 +++++++---------
+ 4 files changed, 14 insertions(+), 16 deletions(-)
+
+diff --git a/python/dolfin_utils/meshconvert/abaqus.py b/python/dolfin_utils/meshconvert/abaqus.py
+index ee71e6958..c45e8e381 100644
+--- a/python/dolfin_utils/meshconvert/abaqus.py
++++ b/python/dolfin_utils/meshconvert/abaqus.py
+@@ -223,14 +223,14 @@ def convert(ifilename, handler):
+         for v_id, v_coords in list(nodes.items()):
+             handler.add_vertex(v_id, v_coords)
+             if process_facets:
+-                mesh_editor.add_vertex(v_id, np.array(v_coords, dtype=np.float_))
++                mesh_editor.add_vertex(v_id, np.array(v_coords, dtype=np.float64))
+ 
+     else:
+ 
+         for idx, (v_id, v_coords) in enumerate(nodes.items()):
+             handler.add_vertex(idx, v_coords)
+             if process_facets:
+-                mesh_editor.add_vertex(idx, np.array(v_coords, dtype=np.float_))
++                mesh_editor.add_vertex(idx, np.array(v_coords, dtype=np.float64))
+ 
+     handler.end_vertices()
+ 
+diff --git a/python/test/unit/common/test_timer.py b/python/test/unit/common/test_timer.py
+index 63c173f5e..65e6cd74e 100644
+--- a/python/test/unit/common/test_timer.py
++++ b/python/test/unit/common/test_timer.py
+@@ -31,7 +31,7 @@ random.seed(0)
+ 
+ def get_random_task_name():
+     """Get pseudo-random string"""
+-    return hex(random.randint(0, 1e32))
++    return hex(random.randint(0, int(1e32)))
+ 
+ 
+ def test_context_manager_named():
+diff --git a/python/test/unit/la/test_la_basic.py b/python/test/unit/la/test_la_basic.py
+index 47f049279..37fc4d95b 100755
+--- a/python/test/unit/la/test_la_basic.py
++++ b/python/test/unit/la/test_la_basic.py
+@@ -89,8 +89,8 @@ class TestBasicLaOperations:
+     def test_vector(self, any_backend):
+         self.backend, self.sub_backend = any_backend
+         from numpy import ndarray, linspace, array, fromiter
+-        from numpy import int,int0,int16,int32,int64
+-        from numpy import uint,uint0,uint16,uint32,uint64
++        from numpy import int_,intp,int16,int32,int64
++        from numpy import uint,uintp,uint16,uint32,uint64
+         mesh = UnitSquareMesh(3, 3)
+         v, w = assemble_vectors(mesh)
+ 
+@@ -102,8 +102,8 @@ class TestBasicLaOperations:
+ 
+         # Test set and access with different integers
+         lind = 2
+-        for T in [int,int16,int32,int64,uint,uint0,uint16,uint32,uint64,\
+-                  int0]:
++        for T in [int_,int16,int32,int64,uint,uintp,uint16,uint32,uint64,\
++                  intp]:
+             v[T(lind)] = 2.0
+             assert round(v[T(lind)] - 2.0, 7) == 0
+ 
+diff --git a/python/test/unit/la/test_vector.py b/python/test/unit/la/test_vector.py
+index 10c42db7e..4865779a1 100755
+--- a/python/test/unit/la/test_vector.py
++++ b/python/test/unit/la/test_vector.py
+@@ -400,16 +400,14 @@ class TestVectorForAnyBackend:
+ 
+ 
+     @pytest.mark.parametrize("operand",
+-                             [int(42), 42.0, numpy.sin(1.0), numpy.float(42.0),
+-                                numpy.float64(42.0), numpy.float_(42.0),
+-                                numpy.int(42.0), numpy.long(42.0),
+-                                numpy.float16(42.0), numpy.float16(42.0),
++                             [int(42), 42.0, numpy.sin(1.0), float(42.0),
++                                numpy.float64(42.0), numpy.float16(42.0),
+                                 numpy.float32(42.0), numpy.float128(42.0),
+-                                numpy.longfloat(42.0), numpy.int8(42.0),
+-                                numpy.int16(42.0), numpy.int32(42.0),
+-                                numpy.intc(42.0), numpy.longdouble(42.0),
+-                                numpy.int0(42.0), numpy.int64(42.0),
+-                                numpy.int_(42.0), numpy.longlong(42.0),
++                                numpy.int8(42.0), numpy.int16(42.0),
++                                numpy.int32(42.0), numpy.intc(42.0),
++                                numpy.longdouble(42.0), numpy.intp(42.0),
++                                numpy.int64(42.0), numpy.int_(42.0),
++                                numpy.longlong(42.0),
+                              ])
+     def test_vector_type_priority_with_numpy(self, any_backend, operand):
+         """Test that DOLFIN return types are prefered over NumPy types for
+-- 
+2.43.5
+
