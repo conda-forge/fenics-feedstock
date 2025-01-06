@@ -8,102 +8,199 @@ jobs:
     vmImage: ubuntu-latest
   strategy:
     matrix:
-      linux_64_mpimpichnumpy1.22python3.10.____cpython:
-        CONFIG: linux_64_mpimpichnumpy1.22python3.10.____cpython
+      linux_64_hdf51.14.3mpimpichnumpy1.22python3.10.____cpython:
+        CONFIG: linux_64_hdf51.14.3mpimpichnumpy1.22python3.10.____cpython
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
-      linux_64_mpimpichnumpy1.22python3.9.____cpython:
-        CONFIG: linux_64_mpimpichnumpy1.22python3.9.____cpython
+      linux_64_hdf51.14.3mpimpichnumpy1.22python3.9.____cpython:
+        CONFIG: linux_64_hdf51.14.3mpimpichnumpy1.22python3.9.____cpython
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
-      linux_64_mpimpichnumpy1.23python3.11.____cpython:
-        CONFIG: linux_64_mpimpichnumpy1.23python3.11.____cpython
+      linux_64_hdf51.14.3mpimpichnumpy1.23python3.11.____cpython:
+        CONFIG: linux_64_hdf51.14.3mpimpichnumpy1.23python3.11.____cpython
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
-      linux_64_mpimpichnumpy1.26python3.12.____cpython:
-        CONFIG: linux_64_mpimpichnumpy1.26python3.12.____cpython
+      linux_64_hdf51.14.3mpimpichnumpy1.26python3.12.____cpython:
+        CONFIG: linux_64_hdf51.14.3mpimpichnumpy1.26python3.12.____cpython
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
-      linux_64_mpiopenmpinumpy1.22python3.10.____cpython:
-        CONFIG: linux_64_mpiopenmpinumpy1.22python3.10.____cpython
+      linux_64_hdf51.14.3mpiopenmpinumpy1.22python3.10.____cpython:
+        CONFIG: linux_64_hdf51.14.3mpiopenmpinumpy1.22python3.10.____cpython
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
-      linux_64_mpiopenmpinumpy1.22python3.9.____cpython:
-        CONFIG: linux_64_mpiopenmpinumpy1.22python3.9.____cpython
+      linux_64_hdf51.14.3mpiopenmpinumpy1.22python3.9.____cpython:
+        CONFIG: linux_64_hdf51.14.3mpiopenmpinumpy1.22python3.9.____cpython
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
-      linux_64_mpiopenmpinumpy1.23python3.11.____cpython:
-        CONFIG: linux_64_mpiopenmpinumpy1.23python3.11.____cpython
+      linux_64_hdf51.14.3mpiopenmpinumpy1.23python3.11.____cpython:
+        CONFIG: linux_64_hdf51.14.3mpiopenmpinumpy1.23python3.11.____cpython
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
-      linux_64_mpiopenmpinumpy1.26python3.12.____cpython:
-        CONFIG: linux_64_mpiopenmpinumpy1.26python3.12.____cpython
+      linux_64_hdf51.14.3mpiopenmpinumpy1.26python3.12.____cpython:
+        CONFIG: linux_64_hdf51.14.3mpiopenmpinumpy1.26python3.12.____cpython
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
-      linux_aarch64_mpimpichnumpy1.22python3.10.____cpython:
-        CONFIG: linux_aarch64_mpimpichnumpy1.22python3.10.____cpython
+      linux_64_hdf51.14.4mpimpichnumpy1.22python3.10.____cpython:
+        CONFIG: linux_64_hdf51.14.4mpimpichnumpy1.22python3.10.____cpython
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
-      linux_aarch64_mpimpichnumpy1.22python3.9.____cpython:
-        CONFIG: linux_aarch64_mpimpichnumpy1.22python3.9.____cpython
+      linux_64_hdf51.14.4mpimpichnumpy1.22python3.9.____cpython:
+        CONFIG: linux_64_hdf51.14.4mpimpichnumpy1.22python3.9.____cpython
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
-      linux_aarch64_mpimpichnumpy1.23python3.11.____cpython:
-        CONFIG: linux_aarch64_mpimpichnumpy1.23python3.11.____cpython
+      linux_64_hdf51.14.4mpimpichnumpy1.23python3.11.____cpython:
+        CONFIG: linux_64_hdf51.14.4mpimpichnumpy1.23python3.11.____cpython
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
-      linux_aarch64_mpimpichnumpy1.26python3.12.____cpython:
-        CONFIG: linux_aarch64_mpimpichnumpy1.26python3.12.____cpython
+      linux_64_hdf51.14.4mpimpichnumpy1.26python3.12.____cpython:
+        CONFIG: linux_64_hdf51.14.4mpimpichnumpy1.26python3.12.____cpython
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
-      linux_aarch64_mpiopenmpinumpy1.22python3.10.____cpython:
-        CONFIG: linux_aarch64_mpiopenmpinumpy1.22python3.10.____cpython
+      linux_64_hdf51.14.4mpiopenmpinumpy1.22python3.10.____cpython:
+        CONFIG: linux_64_hdf51.14.4mpiopenmpinumpy1.22python3.10.____cpython
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
-      linux_aarch64_mpiopenmpinumpy1.22python3.9.____cpython:
-        CONFIG: linux_aarch64_mpiopenmpinumpy1.22python3.9.____cpython
+      linux_64_hdf51.14.4mpiopenmpinumpy1.22python3.9.____cpython:
+        CONFIG: linux_64_hdf51.14.4mpiopenmpinumpy1.22python3.9.____cpython
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
-      linux_aarch64_mpiopenmpinumpy1.23python3.11.____cpython:
-        CONFIG: linux_aarch64_mpiopenmpinumpy1.23python3.11.____cpython
+      linux_64_hdf51.14.4mpiopenmpinumpy1.23python3.11.____cpython:
+        CONFIG: linux_64_hdf51.14.4mpiopenmpinumpy1.23python3.11.____cpython
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
-      linux_aarch64_mpiopenmpinumpy1.26python3.12.____cpython:
-        CONFIG: linux_aarch64_mpiopenmpinumpy1.26python3.12.____cpython
+      linux_64_hdf51.14.4mpiopenmpinumpy1.26python3.12.____cpython:
+        CONFIG: linux_64_hdf51.14.4mpiopenmpinumpy1.26python3.12.____cpython
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
-      linux_ppc64le_mpimpichnumpy1.22python3.10.____cpython:
-        CONFIG: linux_ppc64le_mpimpichnumpy1.22python3.10.____cpython
+      linux_aarch64_hdf51.14.3mpimpichnumpy1.22python3.10.____cpython:
+        CONFIG: linux_aarch64_hdf51.14.3mpimpichnumpy1.22python3.10.____cpython
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
-      linux_ppc64le_mpimpichnumpy1.22python3.9.____cpython:
-        CONFIG: linux_ppc64le_mpimpichnumpy1.22python3.9.____cpython
+      linux_aarch64_hdf51.14.3mpimpichnumpy1.22python3.9.____cpython:
+        CONFIG: linux_aarch64_hdf51.14.3mpimpichnumpy1.22python3.9.____cpython
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
-      linux_ppc64le_mpimpichnumpy1.23python3.11.____cpython:
-        CONFIG: linux_ppc64le_mpimpichnumpy1.23python3.11.____cpython
+      linux_aarch64_hdf51.14.3mpimpichnumpy1.23python3.11.____cpython:
+        CONFIG: linux_aarch64_hdf51.14.3mpimpichnumpy1.23python3.11.____cpython
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
-      linux_ppc64le_mpimpichnumpy1.26python3.12.____cpython:
-        CONFIG: linux_ppc64le_mpimpichnumpy1.26python3.12.____cpython
+      linux_aarch64_hdf51.14.3mpimpichnumpy1.26python3.12.____cpython:
+        CONFIG: linux_aarch64_hdf51.14.3mpimpichnumpy1.26python3.12.____cpython
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
-      linux_ppc64le_mpiopenmpinumpy1.22python3.10.____cpython:
-        CONFIG: linux_ppc64le_mpiopenmpinumpy1.22python3.10.____cpython
+      linux_aarch64_hdf51.14.3mpiopenmpinumpy1.22python3.10.____cpython:
+        CONFIG: linux_aarch64_hdf51.14.3mpiopenmpinumpy1.22python3.10.____cpython
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
-      linux_ppc64le_mpiopenmpinumpy1.22python3.9.____cpython:
-        CONFIG: linux_ppc64le_mpiopenmpinumpy1.22python3.9.____cpython
+      linux_aarch64_hdf51.14.3mpiopenmpinumpy1.22python3.9.____cpython:
+        CONFIG: linux_aarch64_hdf51.14.3mpiopenmpinumpy1.22python3.9.____cpython
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
-      linux_ppc64le_mpiopenmpinumpy1.23python3.11.____cpython:
-        CONFIG: linux_ppc64le_mpiopenmpinumpy1.23python3.11.____cpython
+      linux_aarch64_hdf51.14.3mpiopenmpinumpy1.23python3.11.____cpython:
+        CONFIG: linux_aarch64_hdf51.14.3mpiopenmpinumpy1.23python3.11.____cpython
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
-      linux_ppc64le_mpiopenmpinumpy1.26python3.12.____cpython:
-        CONFIG: linux_ppc64le_mpiopenmpinumpy1.26python3.12.____cpython
+      linux_aarch64_hdf51.14.3mpiopenmpinumpy1.26python3.12.____cpython:
+        CONFIG: linux_aarch64_hdf51.14.3mpiopenmpinumpy1.26python3.12.____cpython
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
+      linux_aarch64_hdf51.14.4mpimpichnumpy1.22python3.10.____cpython:
+        CONFIG: linux_aarch64_hdf51.14.4mpimpichnumpy1.22python3.10.____cpython
+        UPLOAD_PACKAGES: 'True'
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
+      linux_aarch64_hdf51.14.4mpimpichnumpy1.22python3.9.____cpython:
+        CONFIG: linux_aarch64_hdf51.14.4mpimpichnumpy1.22python3.9.____cpython
+        UPLOAD_PACKAGES: 'True'
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
+      linux_aarch64_hdf51.14.4mpimpichnumpy1.23python3.11.____cpython:
+        CONFIG: linux_aarch64_hdf51.14.4mpimpichnumpy1.23python3.11.____cpython
+        UPLOAD_PACKAGES: 'True'
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
+      linux_aarch64_hdf51.14.4mpimpichnumpy1.26python3.12.____cpython:
+        CONFIG: linux_aarch64_hdf51.14.4mpimpichnumpy1.26python3.12.____cpython
+        UPLOAD_PACKAGES: 'True'
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
+      linux_aarch64_hdf51.14.4mpiopenmpinumpy1.22python3.10.____cpython:
+        CONFIG: linux_aarch64_hdf51.14.4mpiopenmpinumpy1.22python3.10.____cpython
+        UPLOAD_PACKAGES: 'True'
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
+      linux_aarch64_hdf51.14.4mpiopenmpinumpy1.22python3.9.____cpython:
+        CONFIG: linux_aarch64_hdf51.14.4mpiopenmpinumpy1.22python3.9.____cpython
+        UPLOAD_PACKAGES: 'True'
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
+      linux_aarch64_hdf51.14.4mpiopenmpinumpy1.23python3.11.____cpython:
+        CONFIG: linux_aarch64_hdf51.14.4mpiopenmpinumpy1.23python3.11.____cpython
+        UPLOAD_PACKAGES: 'True'
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
+      linux_aarch64_hdf51.14.4mpiopenmpinumpy1.26python3.12.____cpython:
+        CONFIG: linux_aarch64_hdf51.14.4mpiopenmpinumpy1.26python3.12.____cpython
+        UPLOAD_PACKAGES: 'True'
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
+      linux_ppc64le_hdf51.14.3mpimpichnumpy1.22python3.10.____cpython:
+        CONFIG: linux_ppc64le_hdf51.14.3mpimpichnumpy1.22python3.10.____cpython
+        UPLOAD_PACKAGES: 'True'
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
+      linux_ppc64le_hdf51.14.3mpimpichnumpy1.22python3.9.____cpython:
+        CONFIG: linux_ppc64le_hdf51.14.3mpimpichnumpy1.22python3.9.____cpython
+        UPLOAD_PACKAGES: 'True'
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
+      linux_ppc64le_hdf51.14.3mpimpichnumpy1.23python3.11.____cpython:
+        CONFIG: linux_ppc64le_hdf51.14.3mpimpichnumpy1.23python3.11.____cpython
+        UPLOAD_PACKAGES: 'True'
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
+      linux_ppc64le_hdf51.14.3mpimpichnumpy1.26python3.12.____cpython:
+        CONFIG: linux_ppc64le_hdf51.14.3mpimpichnumpy1.26python3.12.____cpython
+        UPLOAD_PACKAGES: 'True'
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
+      linux_ppc64le_hdf51.14.3mpiopenmpinumpy1.22python3.10.____cpython:
+        CONFIG: linux_ppc64le_hdf51.14.3mpiopenmpinumpy1.22python3.10.____cpython
+        UPLOAD_PACKAGES: 'True'
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
+      linux_ppc64le_hdf51.14.3mpiopenmpinumpy1.22python3.9.____cpython:
+        CONFIG: linux_ppc64le_hdf51.14.3mpiopenmpinumpy1.22python3.9.____cpython
+        UPLOAD_PACKAGES: 'True'
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
+      linux_ppc64le_hdf51.14.3mpiopenmpinumpy1.23python3.11.____cpython:
+        CONFIG: linux_ppc64le_hdf51.14.3mpiopenmpinumpy1.23python3.11.____cpython
+        UPLOAD_PACKAGES: 'True'
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
+      linux_ppc64le_hdf51.14.3mpiopenmpinumpy1.26python3.12.____cpython:
+        CONFIG: linux_ppc64le_hdf51.14.3mpiopenmpinumpy1.26python3.12.____cpython
+        UPLOAD_PACKAGES: 'True'
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
+      linux_ppc64le_hdf51.14.4mpimpichnumpy1.22python3.10.____cpython:
+        CONFIG: linux_ppc64le_hdf51.14.4mpimpichnumpy1.22python3.10.____cpython
+        UPLOAD_PACKAGES: 'True'
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
+      linux_ppc64le_hdf51.14.4mpimpichnumpy1.22python3.9.____cpython:
+        CONFIG: linux_ppc64le_hdf51.14.4mpimpichnumpy1.22python3.9.____cpython
+        UPLOAD_PACKAGES: 'True'
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
+      linux_ppc64le_hdf51.14.4mpimpichnumpy1.23python3.11.____cpython:
+        CONFIG: linux_ppc64le_hdf51.14.4mpimpichnumpy1.23python3.11.____cpython
+        UPLOAD_PACKAGES: 'True'
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
+      linux_ppc64le_hdf51.14.4mpimpichnumpy1.26python3.12.____cpython:
+        CONFIG: linux_ppc64le_hdf51.14.4mpimpichnumpy1.26python3.12.____cpython
+        UPLOAD_PACKAGES: 'True'
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
+      linux_ppc64le_hdf51.14.4mpiopenmpinumpy1.22python3.10.____cpython:
+        CONFIG: linux_ppc64le_hdf51.14.4mpiopenmpinumpy1.22python3.10.____cpython
+        UPLOAD_PACKAGES: 'True'
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
+      linux_ppc64le_hdf51.14.4mpiopenmpinumpy1.22python3.9.____cpython:
+        CONFIG: linux_ppc64le_hdf51.14.4mpiopenmpinumpy1.22python3.9.____cpython
+        UPLOAD_PACKAGES: 'True'
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
+      linux_ppc64le_hdf51.14.4mpiopenmpinumpy1.23python3.11.____cpython:
+        CONFIG: linux_ppc64le_hdf51.14.4mpiopenmpinumpy1.23python3.11.____cpython
+        UPLOAD_PACKAGES: 'True'
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
+      linux_ppc64le_hdf51.14.4mpiopenmpinumpy1.26python3.12.____cpython:
+        CONFIG: linux_ppc64le_hdf51.14.4mpiopenmpinumpy1.26python3.12.____cpython
+        UPLOAD_PACKAGES: 'True'
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
+    maxParallel: 38
   timeoutInMinutes: 360
   variables: {}
 
