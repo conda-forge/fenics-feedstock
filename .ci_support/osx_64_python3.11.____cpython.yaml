@@ -21,15 +21,15 @@ cxx_compiler_version:
 hdf5:
 - 1.14.3
 libblas:
-- 3.9 *netlib
+- 3.9.* *netlib
 libboost_devel:
 - '1.86'
 libboost_headers:
 - '1.86'
 libcblas:
-- 3.9 *netlib
+- 3.9.* *netlib
 libptscotch:
-- 7.0.5
+- 7.0.6
 macos_machine:
 - x86_64-apple-darwin13.4.0
 mpi:
