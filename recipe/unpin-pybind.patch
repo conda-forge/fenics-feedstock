@@ -1,0 +1,26 @@
+From e09898e05c7ec2a8260bb5182a587ebe9cf99007 Mon Sep 17 00:00:00 2001
+From: Min RK <benjaminrk@gmail.com>
+Date: Thu, 20 Feb 2025 08:57:28 +0100
+Subject: [PATCH] unpin pybind
+
+pin not actually needed
+---
+ python/setup.py | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/python/setup.py b/python/setup.py
+index d4aa8d38e..4323ae4ab 100644
+--- a/python/setup.py
++++ b/python/setup.py
+@@ -18,7 +18,7 @@ RESTRICT_REQUIREMENTS = ">=2019.1.0,<2019.2"
+ 
+ REQUIREMENTS = ["numpy",
+                 "pkgconfig",
+-                "pybind11==2.2.4",
++                "pybind11",
+                 "fenics-ffc{}".format(RESTRICT_REQUIREMENTS),
+                 "fenics-ufl{}".format(RESTRICT_REQUIREMENTS),
+                 "fenics-dijitso{}".format(RESTRICT_REQUIREMENTS)]
+-- 
+2.47.0
+
