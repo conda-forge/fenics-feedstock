@@ -21,21 +21,21 @@ docker_image:
 hdf5:
 - 1.14.3
 libblas:
-- 3.9 *netlib
+- 3.9.* *netlib
 libboost_devel:
 - '1.86'
 libboost_headers:
 - '1.86'
 libcblas:
-- 3.9 *netlib
+- 3.9.* *netlib
 libptscotch:
-- 7.0.5
+- 7.0.6
 mpi:
-- mpich
+- openmpi
 mpich:
 - '4'
 numpy:
-- '2.0'
+- '2'
 openmpi:
 - '5'
 petsc:
@@ -47,7 +47,7 @@ pin_run_as_build:
     min_pin: x.x
     max_pin: x.x
 python:
-- 3.11.* *_cpython
+- 3.13.* *_cp313
 slepc:
 - '3.22'
 slepc4py:
@@ -55,7 +55,7 @@ slepc4py:
 suitesparse:
 - '7'
 target_platform:
-- linux-aarch64
+- linux-64
 zip_keys:
 - - c_compiler_version
   - cxx_compiler_version
