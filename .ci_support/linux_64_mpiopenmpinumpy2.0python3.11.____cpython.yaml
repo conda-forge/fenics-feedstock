@@ -39,9 +39,9 @@ numpy:
 openmpi:
 - '5'
 petsc:
-- '3.22'
+- '3.23'
 petsc4py:
-- '3.22'
+- '3.23'
 pin_run_as_build:
   python:
     min_pin: x.x
@@ -49,9 +49,9 @@ pin_run_as_build:
 python:
 - 3.11.* *_cpython
 slepc:
-- '3.22'
+- '3.23'
 slepc4py:
-- '3.22'
+- '3.23'
 suitesparse:
 - '7'
 target_platform:
