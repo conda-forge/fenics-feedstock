@@ -17,7 +17,7 @@ source:
       - numpy-2.0.patch
 
 build:
-  number: 6
+  number: 7
   skip: true  # [win or ppc64le]
   # this doesn't actually affect the build hashes
   # so duplicate where the build hash should actually change

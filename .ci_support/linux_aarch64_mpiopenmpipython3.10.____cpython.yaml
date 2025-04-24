@@ -1,25 +1,25 @@
-MACOSX_DEPLOYMENT_TARGET:
-- '10.13'
-MACOSX_SDK_VERSION:
-- '10.13'
 c_compiler:
-- clang
+- gcc
 c_compiler_version:
-- '18'
+- '13'
 c_stdlib:
-- macosx_deployment_target
+- sysroot
 c_stdlib_version:
-- '10.13'
+- '2.17'
+cdt_name:
+- conda
 channel_sources:
 - conda-forge/label/fenics-dev,conda-forge
 channel_targets:
 - conda-forge fenics-dev
 cxx_compiler:
-- clangxx
+- gxx
 cxx_compiler_version:
-- '18'
+- '13'
+docker_image:
+- quay.io/condaforge/linux-anvil-x86_64:alma9
 hdf5:
-- 1.14.3
+- 1.14.6
 libblas:
 - 3.9.* *netlib
 libboost_devel:
@@ -30,10 +30,8 @@ libcblas:
 - 3.9.* *netlib
 libptscotch:
 - 7.0.6
-macos_machine:
-- x86_64-apple-darwin13.4.0
 mpi:
-- mpich
+- openmpi
 mpich:
 - '4'
 numpy:
@@ -49,7 +47,7 @@ pin_run_as_build:
     min_pin: x.x
     max_pin: x.x
 python:
-- 3.12.* *_cpython
+- 3.10.* *_cpython
 slepc:
 - '3.23'
 slepc4py:
@@ -57,7 +55,7 @@ slepc4py:
 suitesparse:
 - '7'
 target_platform:
-- osx-64
+- linux-aarch64
 zip_keys:
 - - c_compiler_version
   - cxx_compiler_version
