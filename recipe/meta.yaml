@@ -56,7 +56,10 @@ outputs:
         - eigen
         - parmetis
         - libptscotch  # [target_platform != "osx-arm64"]
-        - suitesparse
+        # suitesparse
+        - libamd
+        - libcholmod
+        - libumfpack
         - zlib
         - {{ mpi }}
         - petsc
