@@ -6,6 +6,9 @@ set -eux
 export CFLAGS=$(echo $CFLAGS | sed -E 's@\-fdebug\-prefix\-map[^ ]*@@g')
 export CXXFLAGS=$(echo $CXXFLAGS | sed -E 's@\-fdebug\-prefix\-map[^ ]*@@g')
 
+# avoid sizeof Session warnings
+export CXXFLAGS="-DMPI4PY_LIMITED_API=1 ${CXXFLAGS}"
+
 if [[ "${CONDA_BUILD_CROSS_COMPILATION:-0}" != "0" ]]; then
   # needed for cross-compile openmpi
   export OMPI_CC="$CC"
