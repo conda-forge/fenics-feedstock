@@ -17,7 +17,7 @@ source:
       - numpy-2.0.patch
 
 build:
-  number: 7
+  number: 8
   skip: true  # [win or ppc64le]
   # this doesn't actually affect the build hashes
   # so duplicate where the build hash should actually change
@@ -56,7 +56,10 @@ outputs:
         - eigen
         - parmetis
         - libptscotch  # [target_platform != "osx-arm64"]
-        - suitesparse
+        # suitesparse
+        - libamd
+        - libcholmod
+        - libumfpack
         - zlib
         - {{ mpi }}
         - petsc
