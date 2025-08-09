@@ -33,7 +33,7 @@ libcblas:
 libcholmod:
 - '5'
 libptscotch:
-- 7.0.6
+- 7.0.7
 libumfpack:
 - '6'
 macos_machine:
