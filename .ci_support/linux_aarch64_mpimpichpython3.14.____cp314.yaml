@@ -9,7 +9,7 @@ c_stdlib_version:
 cdt_name:
 - conda
 channel_sources:
-- conda-forge/label/fenics-dev,conda-forge
+- conda-forge,conda-forge/label/python_rc
 channel_targets:
 - conda-forge fenics-dev
 cxx_compiler:
@@ -33,7 +33,7 @@ libcblas:
 libcholmod:
 - '5'
 libptscotch:
-- 7.0.6
+- 7.0.8
 libumfpack:
 - '6'
 mpi:
@@ -53,15 +53,17 @@ pin_run_as_build:
     min_pin: x.x
     max_pin: x.x
 python:
-- 3.9.* *_cpython
+- 3.14.* *_cp314
 slepc:
 - '3.23'
 slepc4py:
 - '3.23'
 target_platform:
-- linux-64
+- linux-aarch64
 zip_keys:
 - - c_compiler_version
   - cxx_compiler_version
+- - python
+  - channel_sources
 zlib:
 - '1'
