@@ -33,7 +33,7 @@ libcblas:
 libcholmod:
 - '5'
 libptscotch:
-- 7.0.6
+- 7.0.8
 libumfpack:
 - '6'
 macos_machine:
@@ -47,9 +47,9 @@ numpy:
 openmpi:
 - '5'
 petsc:
-- '3.23'
+- '3.24'
 petsc4py:
-- '3.23'
+- '3.24'
 pin_run_as_build:
   python:
     min_pin: x.x
@@ -57,9 +57,9 @@ pin_run_as_build:
 python:
 - 3.13.* *_cp313
 slepc:
-- '3.23'
+- '3.24'
 slepc4py:
-- '3.23'
+- '3.24'
 target_platform:
 - osx-64
 zip_keys:
