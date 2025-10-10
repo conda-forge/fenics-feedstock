@@ -6,8 +6,6 @@ c_stdlib:
 - sysroot
 c_stdlib_version:
 - '2.17'
-cdt_name:
-- conda
 channel_sources:
 - conda-forge/label/fenics-dev,conda-forge
 channel_targets:
@@ -33,7 +31,7 @@ libcblas:
 libcholmod:
 - '5'
 libptscotch:
-- 7.0.6
+- 7.0.10
 libumfpack:
 - '6'
 mpi:
@@ -45,9 +43,9 @@ numpy:
 openmpi:
 - '5'
 petsc:
-- '3.23'
+- '3.24'
 petsc4py:
-- '3.23'
+- '3.24'
 pin_run_as_build:
   python:
     min_pin: x.x
@@ -55,9 +53,9 @@ pin_run_as_build:
 python:
 - 3.11.* *_cpython
 slepc:
-- '3.23'
+- '3.24'
 slepc4py:
-- '3.23'
+- '3.24'
 target_platform:
 - linux-64
 zip_keys:
