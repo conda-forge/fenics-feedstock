@@ -24,6 +24,10 @@ jobs:
         CONFIG: linux_64_mpimpichpython3.13.____cp313
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
+      linux_64_mpimpichpython3.14.____cp314:
+        CONFIG: linux_64_mpimpichpython3.14.____cp314
+        UPLOAD_PACKAGES: 'True'
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
       linux_64_mpiopenmpipython3.10.____cpython:
         CONFIG: linux_64_mpiopenmpipython3.10.____cpython
         UPLOAD_PACKAGES: 'True'
@@ -38,6 +42,10 @@ jobs:
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
       linux_64_mpiopenmpipython3.13.____cp313:
         CONFIG: linux_64_mpiopenmpipython3.13.____cp313
+        UPLOAD_PACKAGES: 'True'
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
+      linux_64_mpiopenmpipython3.14.____cp314:
+        CONFIG: linux_64_mpiopenmpipython3.14.____cp314
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
       linux_aarch64_mpimpichpython3.10.____cpython:
@@ -56,6 +64,10 @@ jobs:
         CONFIG: linux_aarch64_mpimpichpython3.13.____cp313
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
+      linux_aarch64_mpimpichpython3.14.____cp314:
+        CONFIG: linux_aarch64_mpimpichpython3.14.____cp314
+        UPLOAD_PACKAGES: 'True'
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
       linux_aarch64_mpiopenmpipython3.10.____cpython:
         CONFIG: linux_aarch64_mpiopenmpipython3.10.____cpython
         UPLOAD_PACKAGES: 'True'
@@ -70,6 +82,10 @@ jobs:
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
       linux_aarch64_mpiopenmpipython3.13.____cp313:
         CONFIG: linux_aarch64_mpiopenmpipython3.13.____cp313
+        UPLOAD_PACKAGES: 'True'
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
+      linux_aarch64_mpiopenmpipython3.14.____cp314:
+        CONFIG: linux_aarch64_mpiopenmpipython3.14.____cp314
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
   timeoutInMinutes: 360
