@@ -53,6 +53,7 @@ outputs:
         - cross-python_{{ target_platform }}     # [build_platform != target_platform]
         - numpy  # [build_platform != target_platform]
         - fenics-ffc =={{ version }}  # [build_platform != target_platform]
+        - setuptools <82
       host:
         - libblas
         - libcblas
@@ -72,6 +73,7 @@ outputs:
         # pinning from conda_build_config and build pinning from {{ mpi_prefix }}
         - hdf5
         - hdf5 * {{ mpi_prefix }}_*
+        - setuptools <82
       run:
         # only need library dependencies that _lack_ run_exports here
         - eigen
