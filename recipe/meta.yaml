@@ -103,7 +103,7 @@ outputs:
         - libboost-devel
         - python
         - pip
-        - setuptools
+        - setuptools <82
         - pkgconfig
         - zlib
         - {{ mpi }}
@@ -131,7 +131,7 @@ outputs:
         # dolfin depends on the boost headers for its own headers, see
         # https://bitbucket.org/fenics-project/dolfin/src/master/dolfin/parameter/Parameters.h#lines-24
         - libboost-headers
-        - setuptools
+        - setuptools <82
         - zlib
         - {{ pin_compatible('mpi4py', max_pin='x') }}
         - petsc4py
