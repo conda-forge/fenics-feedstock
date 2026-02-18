@@ -27,7 +27,7 @@ libboost_headers:
 libcblas:
 - 3.9.* *netlib
 libptscotch:
-- 7.0.10
+- 7.0.11
 mpi:
 - mpich
 mpich:
