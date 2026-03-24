@@ -20,6 +20,7 @@ cxx_compiler_version:
 - '19'
 hdf5:
 - 1.14.6
+- '2'
 libamd:
 - '3'
 libblas:
