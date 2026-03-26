@@ -37,7 +37,7 @@ libumfpack:
 mpi:
 - mpich
 mpich:
-- '4'
+- '5'
 numpy:
 - '2'
 openmpi:
