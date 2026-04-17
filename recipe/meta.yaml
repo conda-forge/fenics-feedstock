@@ -19,9 +19,10 @@ source:
       - numpy-2.0.patch
       - unpin-pybind.patch
       - c++14.patch
+      - petsc-3.25.patch
 
 build:
-  number: 62
+  number: 63
   skip: true  # [win]
   # this doesn't actually affect the build hashes
   # so duplicate where the build hash should actually change
@@ -57,7 +58,7 @@ outputs:
         - libblas
         - libcblas
         - libboost-devel
-        - eigen
+        - eigen >=3,<4
         - parmetis
         - libptscotch  # [target_platform != "osx-arm64"]
         - suitesparse
@@ -74,7 +75,7 @@ outputs:
         - hdf5 * {{ mpi_prefix }}_*
       run:
         # only need library dependencies that _lack_ run_exports here
-        - eigen
+        - eigen >=3,<4
         - parmetis
     test:
       commands:
