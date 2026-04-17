@@ -1,0 +1,254 @@
+From 2f9a8e7fb00fa4e49eb643f37dff952e9fe1ac3b Mon Sep 17 00:00:00 2001
+From: Sebastian Blauth <sebastian.blauth@itwm.fraunhofer.de>
+Date: Fri, 17 Apr 2026 08:09:19 +0200
+Subject: [PATCH] Update for PETSc 3.25
+
+---
+ dolfin/la/PETScKrylovSolver.cpp     |  8 ++--
+ dolfin/la/SLEPcEigenSolver.cpp      |  2 +-
+ dolfin/nls/PETScSNESSolver.cpp      |  6 +--
+ dolfin/nls/PETScTAOSolver.cpp       | 60 +++++++++++++++++++----------
+ dolfin/nls/TAOLinearBoundSolver.cpp | 24 ++++++------
+ 5 files changed, 59 insertions(+), 41 deletions(-)
+
+diff --git a/dolfin/la/PETScKrylovSolver.cpp b/dolfin/la/PETScKrylovSolver.cpp
+index e72909369..075c75103 100644
+--- a/dolfin/la/PETScKrylovSolver.cpp
++++ b/dolfin/la/PETScKrylovSolver.cpp
+@@ -453,9 +453,9 @@ void PETScKrylovSolver::set_dm_active(bool val)
+ {
+   dolfin_assert(_ksp);
+   if (val)
+-    KSPSetDMActive(_ksp, PETSC_TRUE);
++    KSPSetDMActive(_ksp, KSP_DMACTIVE_ALL, PETSC_TRUE);
+   else
+-    KSPSetDMActive(_ksp, PETSC_FALSE);
++    KSPSetDMActive(_ksp, KSP_DMACTIVE_ALL, PETSC_FALSE);
+ }
+ //-----------------------------------------------------------------------------
+ PETScKrylovSolver::norm_type PETScKrylovSolver::get_norm_type() const
+@@ -497,9 +497,9 @@ void PETScKrylovSolver::monitor(bool monitor_convergence)
+     PetscViewerAndFormat *vf;
+     PetscViewerAndFormatCreate(viewer,format,&vf);
+     ierr = KSPMonitorSet(_ksp,
+-                         (PetscErrorCode (*)(KSP,PetscInt,PetscReal,void*)) KSPMonitorTrueResidualNorm,
++                         (PetscErrorCode (*)(KSP,PetscInt,PetscReal,void*)) KSPMonitorTrueResidual,
+                          vf,
+-                         (PetscErrorCode (*)(void**))PetscViewerAndFormatDestroy);
++                         (PetscCtxDestroyFn *)PetscViewerAndFormatDestroy);
+     if (ierr != 0) petsc_error(ierr, __FILE__, "KSPMonitorSet");
+   }
+   else
+diff --git a/dolfin/la/SLEPcEigenSolver.cpp b/dolfin/la/SLEPcEigenSolver.cpp
+index c5b3349a6..ccdbfbb55 100644
+--- a/dolfin/la/SLEPcEigenSolver.cpp
++++ b/dolfin/la/SLEPcEigenSolver.cpp
+@@ -194,7 +194,7 @@ void SLEPcEigenSolver::solve(std::size_t n)
+       PetscViewerAndFormatCreate(PETSC_VIEWER_STDOUT_WORLD, PETSC_VIEWER_DEFAULT, &vf);
+       EPSMonitorSet(_eps,(PetscErrorCode (*)(EPS,PetscInt,PetscInt,PetscScalar*,PetscScalar*,
+                                              PetscReal*,PetscInt,void*))EPSMonitorAll,vf,
+-                    (PetscErrorCode (*)(void**))PetscViewerAndFormatDestroy);
++                    (PetscCtxDestroyFn *)PetscViewerAndFormatDestroy);
+     }
+   }
+ 
+diff --git a/dolfin/nls/PETScSNESSolver.cpp b/dolfin/nls/PETScSNESSolver.cpp
+index 71bca08a7..182f21bef 100644
+--- a/dolfin/nls/PETScSNESSolver.cpp
++++ b/dolfin/nls/PETScSNESSolver.cpp
+@@ -212,7 +212,7 @@ void PETScSNESSolver::init(NonlinearProblem& nonlinear_problem,
+       ierr = SNESMonitorSet(_snes,
+                             (PetscErrorCode (*)(SNES,PetscInt,PetscReal,void*)) SNESMonitorDefault,
+                             vf,
+-                            (PetscErrorCode (*)(void**))PetscViewerAndFormatDestroy);
++                            (PetscCtxDestroyFn *)PetscViewerAndFormatDestroy);
+       if (ierr != 0) petsc_error(ierr, __FILE__, "SNESMonitorSet");
+     }
+   }
+@@ -517,9 +517,9 @@ void PETScSNESSolver::set_linear_solver_parameters()
+       ierr = PetscViewerAndFormatCreate(viewer,format,&vf);
+       if (ierr != 0) petsc_error(ierr, __FILE__, "PetscViewerAndFormatCreate");
+       ierr = KSPMonitorSet(ksp,
+-                           (PetscErrorCode (*)(KSP,PetscInt,PetscReal,void*)) KSPMonitorTrueResidualNorm,
++                           (PetscErrorCode (*)(KSP,PetscInt,PetscReal,void*)) KSPMonitorTrueResidual,
+                            vf,
+-                           (PetscErrorCode (*)(void**))PetscViewerAndFormatDestroy);
++                           (PetscCtxDestroyFn *)PetscViewerAndFormatDestroy);
+       if (ierr != 0) petsc_error(ierr, __FILE__, "KSPMonitorSet");
+     }
+ 
+diff --git a/dolfin/nls/PETScTAOSolver.cpp b/dolfin/nls/PETScTAOSolver.cpp
+index cebb0dee7..5eda79250 100644
+--- a/dolfin/nls/PETScTAOSolver.cpp
++++ b/dolfin/nls/PETScTAOSolver.cpp
+@@ -96,8 +96,9 @@ PETScTAOSolver::PETScTAOSolver(MPI_Comm comm,
+   if (ierr != 0) petsc_error(ierr, __FILE__, "TaoCreate");
+ 
+   // Set Hessian and preconditioner only once
+-  ierr = TaoSetHessianRoutine(_tao, _matH.mat(), _matP.mat(), nullptr, nullptr);
+-  if (ierr != 0) petsc_error(ierr, __FILE__, "TaoSetHessianRoutine");
++  // Test for PETSc 3.25
++  // ierr = TaoSetHessian(_tao, _matH.mat(), _matP.mat(), nullptr, nullptr);
++  // if (ierr != 0) petsc_error(ierr, __FILE__, "TaoSetHessian");
+ 
+   // Set parameter values
+   parameters = default_parameters();
+@@ -223,8 +224,8 @@ void PETScTAOSolver::init(OptimisationProblem& optimisation_problem,
+   set_ksp_options();
+ 
+   // Set initial vector
+-  ierr = TaoSetInitialVector(_tao, x.vec());
+-  if (ierr != 0) petsc_error(ierr, __FILE__, "TaoSetInitialVector");
++  ierr = TaoSetSolution(_tao, x.vec());
++  if (ierr != 0) petsc_error(ierr, __FILE__, "TaoSetSolution");
+ 
+   // Set the bounds in case of a bound-constrained minimisation problem
+   if (_has_bounds)
+@@ -234,27 +235,44 @@ void PETScTAOSolver::init(OptimisationProblem& optimisation_problem,
+   }
+ 
+   // Set the objective function, gradient and Hessian evaluation routines
+-  ierr = TaoSetObjectiveAndGradientRoutine(_tao, FormFunctionGradient, &_tao_ctx);
+-  if (ierr != 0) petsc_error(ierr, __FILE__, "TaoSetObjectiveAndGradientRoutine");
+-  ierr = TaoSetHessianRoutine(_tao, nullptr, nullptr, FormHessian, &_tao_ctx);
+-  if (ierr != 0) petsc_error(ierr, __FILE__, "TaoSetHessianRoutine");
++  ierr = TaoSetObjectiveAndGradient(_tao, nullptr, FormFunctionGradient, &_tao_ctx);
++  if (ierr != 0) petsc_error(ierr, __FILE__, "TaoSetObjectiveAndGradient");
++  // Test for PETSc 3.25
++  // ierr = TaoSetHessian(_tao, nullptr, nullptr, FormHessian, &_tao_ctx);
++  {
++    PETScVector g(x.mpi_comm());
++    optimisation_problem.form(_matH, _matP, g, x);
++    optimisation_problem.J(_matH, x);
++    optimisation_problem.J_pc(_matP, x);
++  }
++  ierr = TaoSetHessian(_tao, _matH.mat(), _matP.empty() ? _matH.mat() : _matP.mat(),
++                       FormHessian, &_tao_ctx);
++  if (ierr != 0) petsc_error(ierr, __FILE__, "TaoSetHessian");
+ 
+   // Clear previous monitors
+-  ierr = TaoCancelMonitors(_tao);
+-  if (ierr != 0) petsc_error(ierr, __FILE__, "TaoCancelMonitors");
++  ierr = TaoMonitorCancel(_tao);
++  if (ierr != 0) petsc_error(ierr, __FILE__, "TaoMonitorCancel");
+ 
+   // Set the monitor
+   if (parameters["monitor_convergence"])
+   {
+-    ierr = TaoSetMonitor(_tao,
+-#if PETSC_VERSION_MAJOR == 3 && PETSC_VERSION_MINOR <= 8 && PETSC_VERSION_RELEASE == 1
+-                         TaoDefaultMonitor,
+-#else
+-                         TaoMonitorDefault,
+-#endif
++    #if PETSC_VERSION_MAJOR == 3 && PETSC_VERSION_MINOR <= 8 && PETSC_VERSION_RELEASE == 1
++    ierr = TaoSetMonitor(_tao, TaoDefaultMonitor,
+                          PETSC_VIEWER_STDOUT_(PetscObjectComm((PetscObject)_tao)),
+                          NULL);
+-    if (ierr != 0) petsc_error(ierr, __FILE__, "TaoSetMonitor");
++    #else
++    PetscViewerAndFormat *vf;
++    ierr = PetscViewerAndFormatCreate(
++        PETSC_VIEWER_STDOUT_(PetscObjectComm((PetscObject)_tao)),
++        PETSC_VIEWER_DEFAULT, &vf);
++    CHKERRV(ierr);
++    ierr = TaoMonitorSet(
++        _tao,
++        (PetscErrorCode (*)(Tao, void*))TaoMonitorDefault,
++        (void*)vf,
++        (PetscCtxDestroyFn*)PetscViewerAndFormatDestroy);
++    #endif
++    if (ierr != 0) petsc_error(ierr, __FILE__, "TaoMonitorSet");
+   }
+ 
+   // Check for any TAO command line options
+@@ -388,9 +406,9 @@ PetscErrorCode PETScTAOSolver::FormHessian(Tao tao, Vec x, Mat H, Mat P,
+   if (P_wrap.empty())
+   {
+     log(TRACE, "TAO FormHessian: using Hessian as preconditioner matrix");
+-    PetscErrorCode ierr = TaoSetHessianRoutine(tao, nullptr, H,
++    PetscErrorCode ierr = TaoSetHessian(tao, nullptr, H,
+                                                nullptr, nullptr);
+-    if (ierr != 0) petsc_error(ierr, __FILE__, "TaoSetHessianRoutine");
++    if (ierr != 0) petsc_error(ierr, __FILE__, "TaoSetHessian");
+   }
+ 
+   return 0;
+@@ -577,9 +595,9 @@ void PETScTAOSolver::set_ksp_options()
+         PetscViewerAndFormat *vf;
+         ierr = PetscViewerAndFormatCreate(viewer,format,&vf);
+         ierr = KSPMonitorSet(ksp,
+-                         (PetscErrorCode (*)(KSP,PetscInt,PetscReal,void*)) KSPMonitorTrueResidualNorm,
++                         (PetscErrorCode (*)(KSP,PetscInt,PetscReal,void*)) KSPMonitorTrueResidual,
+                          vf,
+-                         (PetscErrorCode (*)(void**))PetscViewerAndFormatDestroy);
++                         (PetscCtxDestroyFn *)PetscViewerAndFormatDestroy);
+         if (ierr != 0) petsc_error(ierr, __FILE__, "KSPMonitorSet");
+       }
+     }
+diff --git a/dolfin/nls/TAOLinearBoundSolver.cpp b/dolfin/nls/TAOLinearBoundSolver.cpp
+index 0ca775cf3..c1c0a19e8 100644
+--- a/dolfin/nls/TAOLinearBoundSolver.cpp
++++ b/dolfin/nls/TAOLinearBoundSolver.cpp
+@@ -172,8 +172,8 @@ std::size_t TAOLinearBoundSolver::solve(const PETScMatrix& A1,
+ 
+   // Set initial vector
+   dolfin_assert(_tao);
+-  ierr = TaoSetInitialVector(_tao, x.vec());
+-  if (ierr != 0) petsc_error(ierr, __FILE__, "TaoSetInitialVector");
++  ierr = TaoSetSolution(_tao, x.vec());
++  if (ierr != 0) petsc_error(ierr, __FILE__, "TaoSetSolution");
+ 
+   // Set the bound on the variables
+   ierr = TaoSetVariableBounds(_tao, xl.vec(), xu.vec());
+@@ -181,28 +181,28 @@ std::size_t TAOLinearBoundSolver::solve(const PETScMatrix& A1,
+ 
+   // Set the user function, gradient, hessian evaluation routines and
+   // data structures
+-  ierr = TaoSetObjectiveAndGradientRoutine(_tao,
++  ierr = TaoSetObjectiveAndGradient(_tao, nullptr,
+            __TAOFormFunctionGradientQuadraticProblem, this);
+   if (ierr != 0) petsc_error(ierr, __FILE__,
+-                             "TaoSetObjectiveAndGradientRoutine");
+-  ierr = TaoSetHessianRoutine(_tao, A->mat(), A->mat(),
++                             "TaoSetObjectiveAndGradient");
++  ierr = TaoSetHessian(_tao, A->mat(), A->mat(),
+                               __TAOFormHessianQuadraticProblem, this);
+-  if (ierr != 0) petsc_error(ierr, __FILE__, "TaoSetHessianRoutine");
++  if (ierr != 0) petsc_error(ierr, __FILE__, "TaoSetHessian");
+ 
+   // Set parameters from local parameters, including ksp parameters
+   read_parameters();
+ 
+   // Clear previous monitors
+-  ierr = TaoCancelMonitors(_tao);
+-  if (ierr != 0) petsc_error(ierr, __FILE__, "TaoCancelMonitors");
++  ierr = TaoMonitorCancel(_tao);
++  if (ierr != 0) petsc_error(ierr, __FILE__, "TaoMonitorCancel");
+ 
+   // Set the monitor
+   if (parameters["monitor_convergence"].is_set())
+   {
+     if (parameters["monitor_convergence"])
+     {
+-      ierr = TaoSetMonitor(_tao, __TAOMonitor, this, NULL);
+-      if (ierr != 0) petsc_error(ierr, __FILE__, "TaoSetMonitor");
++      ierr = TaoMonitorSet(_tao, __TAOMonitor, this, NULL);
++      if (ierr != 0) petsc_error(ierr, __FILE__, "TaoMonitorSet");
+     }
+   }
+ 
+@@ -413,8 +413,8 @@ void TAOLinearBoundSolver::set_ksp_options()
+         PetscViewerFormat format = PETSC_VIEWER_DEFAULT;
+         PetscViewerAndFormat *vf;
+         ierr = PetscViewerAndFormatCreate(viewer,format,&vf);
+-        ierr = KSPMonitorSet(ksp, (PetscErrorCode (*)(KSP,PetscInt,PetscReal,void*)) KSPMonitorTrueResidualNorm,
+-                             vf,(PetscErrorCode (*)(void**))PetscViewerAndFormatDestroy);
++        ierr = KSPMonitorSet(ksp, (PetscErrorCode (*)(KSP,PetscInt,PetscReal,void*)) KSPMonitorTrueResidual,
++                             vf,(PetscCtxDestroyFn *)PetscViewerAndFormatDestroy);
+         if (ierr != 0) petsc_error(ierr, __FILE__, "KSPMonitorSet");
+       }
+     }
+-- 
+2.43.0
+

@@ -19,6 +19,7 @@ source:
       - numpy-2.0.patch
       - unpin-pybind.patch
       - c++14.patch
+      - petsc-3.25.patch
 
 build:
   number: 63
