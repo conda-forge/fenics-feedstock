@@ -16,6 +16,7 @@ source:
       - boost-1.86.patch
       - numpy-2.0.patch
       - c++14.patch
+      - petsc-3.25.patch
 
 build:
   number: 13
