@@ -22,7 +22,11 @@ source:
       - petsc-3.25.patch
 
 build:
+<<<<<<< rebuild-hdf52-0-1_h919814
   number: 64
+=======
+  number: 63
+>>>>>>> main
   skip: true  # [win]
   # this doesn't actually affect the build hashes
   # so duplicate where the build hash should actually change
