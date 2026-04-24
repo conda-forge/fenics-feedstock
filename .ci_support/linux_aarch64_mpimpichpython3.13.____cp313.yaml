@@ -18,6 +18,7 @@ docker_image:
 - quay.io/condaforge/linux-anvil-x86_64:alma9
 hdf5:
 - 1.14.6
+- '2'
 libamd:
 - '3'
 libblas:
