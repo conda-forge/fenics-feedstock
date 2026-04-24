@@ -44,9 +44,9 @@ numpy:
 openmpi:
 - '5'
 petsc:
-- '3.24'
+- '3.25'
 petsc4py:
-- '3.24'
+- '3.25'
 pin_run_as_build:
   python:
     min_pin: x.x
@@ -54,9 +54,9 @@ pin_run_as_build:
 python:
 - 3.14.* *_cp314
 slepc:
-- '3.24'
+- '3.25'
 slepc4py:
-- '3.24'
+- '3.25'
 target_platform:
 - linux-64
 zip_keys:
