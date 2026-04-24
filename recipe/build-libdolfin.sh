@@ -23,6 +23,9 @@ else
   export CMAKE_ARGS="${CMAKE_ARGS} -DDOLFIN_ENABLE_SCOTCH=ON"
 fi
 
+# disable HDF5 config mode
+export CMAKE_ARGS="${CMAKE_ARGS} -DHDF5_NO_FIND_PACKAGE_CONFIG_FILE=TRUE"
+
 # dolfinx pkg-config records compilers
 # avoid recording build prefix
 export CC=$(basename $CC)
