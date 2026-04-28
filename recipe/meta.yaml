@@ -19,7 +19,7 @@ source:
       - petsc-3.25.patch
 
 build:
-  number: 14
+  number: 15
   skip: true  # [win or ppc64le]
   # this doesn't actually affect the build hashes
   # so duplicate where the build hash should actually change
