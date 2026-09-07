@@ -178,7 +178,7 @@ outputs:
             - decorator
         script:
           - pip check
-          - bash ${{ RECIPE_DIR }}/test-dolfin.sh
+          - bash ${{ RECIPE_DIR }}/parent/test-dolfin.sh
   - package:
       name: fenics
     build:
@@ -197,7 +197,7 @@ outputs:
         - ${{ pin_subpackage("fenics-dolfin", exact=True) }}
     tests:
       - script:
-          - bash ${{ RECIPE_DIR }}/test-fenics.sh
+          - bash ${{ RECIPE_DIR }}/parent/test-fenics.sh
 
 about:
   license: LGPL-3.0-or-later
