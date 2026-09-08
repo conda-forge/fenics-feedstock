@@ -169,6 +169,8 @@ outputs:
       - files:
           source:
             - python/test
+          recipe:
+            - test-dolfin.sh
         requirements:
           run:
             - pip
@@ -178,7 +180,7 @@ outputs:
             - decorator
         script:
           - pip check
-          - bash "${RECIPE_DIR}/parent/test-dolfin.sh"
+          - bash test-dolfin.sh
   - package:
       name: fenics
     build:
@@ -198,6 +200,9 @@ outputs:
     tests:
       - script:
           - bash "${RECIPE_DIR}/parent/test-fenics.sh"
+        files:
+          recipe:
+            - test-fenics.sh
 
 about:
   license: LGPL-3.0-or-later
