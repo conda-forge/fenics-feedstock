@@ -1,0 +1,230 @@
+schema_version: 1
+
+context:
+  version: "2019.1.0"
+  mpi_prefix: ${{ "mpi_" + mpi }}
+
+recipe:
+  name: fenics-pkgs
+  version: ${{ version }}
+
+source:
+  - url: https://bitbucket.org/fenics-project/dolfin/downloads/dolfin-${{ version }}.post0.tar.gz
+    sha256: 61abdcdb13684ba2a3ba4afb7ea6c7907aa0896a46439d3af7e8848483d4392f
+    patches:
+      - boost.patch
+      - if: linux
+        then: linuxboost.patch
+      - find-petsc-slepc.patch
+      - hdf5-1.12.patch
+      - fix-xdmf.patch
+      - python-cmake-args.patch
+      - boost-1.86.patch
+      - numpy-2.0.patch
+      - unpin-pybind.patch
+      - c++14.patch
+      - petsc-3.25.patch
+
+build:
+  # this doesn't actually affect the build hashes
+  # so duplicate where the build hash should actually change
+  number: 66
+  skip: win
+  variant:
+    use_keys:
+      - python
+      - mpi
+
+outputs:
+  - package:
+      name: fenics-libdolfin
+    build:
+      skip: win
+      script: ${RECIPE_DIR}/build-libdolfin.sh
+    requirements:
+      build:
+        - ${{ compiler('c') }}
+        - ${{ stdlib("c") }}
+        - ${{ compiler('cxx') }}
+        - cmake >=3.9
+        - make
+        - pkg-config
+        - if: mpi == 'openmpi' and build_platform != target_platform
+          then: ${{ mpi }}
+        # python needed for ufc discovery via ffc
+        - if: build_platform != target_platform
+          then: python
+        - if: build_platform != target_platform
+          then: cross-python_${{ target_platform }}
+        - if: build_platform != target_platform
+          then: numpy
+        - if: build_platform != target_platform
+          then: fenics-ffc ==${{ version }}
+      host:
+        - libblas
+        - libcblas
+        - libboost-devel
+        - eigen >=3,<4
+        - parmetis
+        - if: target_platform != "osx-arm64"
+          then: libptscotch
+        - suitesparse
+        - zlib
+        - ${{ mpi }}
+        - petsc
+        - slepc
+        - python
+        - numpy
+        - fenics-ffc ==${{ version }}
+        # need to list libnetcdf and netcdf-fortran twice to get version
+        # pinning from conda_build_config and build pinning from {{ mpi_prefix }}
+        - hdf5
+        - hdf5 * ${{ mpi_prefix }}_*
+      run:
+        # only need library dependencies that _lack_ run_exports here
+        - eigen >=3,<4
+        - parmetis
+      ignore_run_exports:
+        from_package:
+          - python
+          - numpy
+          - cross-python_${{ target_platform }}
+    tests:
+      - script:
+          - test -f ${PREFIX}/lib/libdolfin${SHLIB_EXT}
+          - if: osx
+            then: test -f ${PREFIX}/lib/libdolfin.${{ version }}${SHLIB_EXT}
+          - if: linux
+            then: test -f ${PREFIX}/lib/libdolfin${SHLIB_EXT}.${{ version }}
+  - package:
+      name: fenics-dolfin
+    build:
+      script: ${RECIPE_DIR}/build-dolfin.sh
+    requirements:
+      build:
+        - ${{ compiler('c') }}
+        - ${{ stdlib("c") }}
+        - ${{ compiler('cxx') }}
+        - cmake >=3.9
+        - make
+        - pkg-config
+        - if: build_platform != target_platform
+          then: python
+        - if: build_platform != target_platform
+          then: cross-python_${{ target_platform }}
+        - if: build_platform != target_platform
+          then: pybind11
+        - if: mpi == 'openmpi' and build_platform != target_platform
+          then: ${{ mpi }}
+      host:
+        - libblas
+        - libcblas
+        - libboost-devel
+        - python
+        - pip
+        - setuptools
+        - pkgconfig
+        - zlib
+        - ${{ mpi }}
+        - mpi4py
+        - petsc4py
+        - slepc4py
+        - numpy
+        - pybind11
+        - six
+        - sympy >=1
+        - ${{ pin_subpackage("fenics-libdolfin", exact=True) }}
+        - fenics-dijitso ==${{ version }}
+        - fenics-fiat ==${{ version }}
+        - fenics-ufl ==${{ version }}
+        - fenics-ffc ==${{ version }}
+        # need to list libnetcdf and netcdf-fortran twice to get version
+        # pinning from conda_build_config and build pinning from {{ mpi_prefix }}
+        - hdf5
+        - hdf5 * ${{ mpi_prefix }}_*
+      run:
+        - ${{ compiler('cxx') }}
+        # gxx provides default 'c++' executable on linux
+        - if: linux
+          then: gxx
+        - python
+        # dolfin depends on the boost headers for its own headers, see
+        # https://bitbucket.org/fenics-project/dolfin/src/master/dolfin/parameter/Parameters.h#lines-24
+        - libboost-headers
+        - setuptools
+        - zlib
+        - ${{ pin_compatible('mpi4py', upper_bound='x') }}
+        - petsc4py
+        - slepc4py
+        - pkgconfig  # Python pkgconfig package
+        - pybind11
+        - six
+        - sympy >=1
+        - ${{ pin_subpackage("fenics-libdolfin", exact=True) }}
+        - fenics-dijitso ==${{ version }}
+        - fenics-fiat ==${{ version }}
+        - fenics-ufl ==${{ version }}
+        - fenics-ffc ==${{ version }}
+    tests:
+      - files:
+          source:
+            - python/test
+          recipe:
+            - test-dolfin.sh
+        requirements:
+          run:
+            - pip
+            - nose
+            - pytest
+            - git
+            - decorator
+        script:
+          - pip check
+          - bash test-dolfin.sh
+  - package:
+      name: fenics
+    build:
+      skip: win
+      script: echo 1
+      variant:
+        use_keys:
+          - mpi
+          - python
+    requirements:
+      build: []
+      host: []
+      run:
+        - python
+        - ${{ pin_subpackage("fenics-libdolfin", exact=True) }}
+        - ${{ pin_subpackage("fenics-dolfin", exact=True) }}
+    tests:
+      - script:
+          - bash "${RECIPE_DIR}/parent/test-fenics.sh"
+        files:
+          recipe:
+            - test-fenics.sh
+
+about:
+  license: LGPL-3.0-or-later
+  license_file:
+    - COPYING
+    - COPYING.LESSER
+  summary: FEniCS is a collection of free software for automated, efficient solution of differential equations
+  description: |
+    FEniCS is a collection of free software for automated, efficient solution of differential equations
+    (<http://fenicsproject.org>). It provides C++ and Python interfaces, and creates effecient solvers via
+    expression of finite variational statements in a domain-specific language that are transformed and
+    just-in-time compiled into efficient implementations.
+  homepage: http://www.fenicsproject.org
+  repository: https://bitbucket.org/fenics-project/
+  documentation: https://fenics.readthedocs.io/
+
+extra:
+  feedstock-name: fenics
+  recipe-maintainers:
+    - garth-wells
+    - johannesring
+    - mikaem
+    - minrk
+    - jan-janssen
+    - sblauth
