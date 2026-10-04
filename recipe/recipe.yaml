@@ -30,7 +30,7 @@ source:
 build:
   # this doesn't actually affect the build hashes
   # so duplicate where the build hash should actually change
-  number: 66
+  number: 67
   skip: win
   variant:
     use_keys:
@@ -51,17 +51,15 @@ outputs:
         - cmake >=3.9
         - make
         - pkg-config
-        - if: mpi == 'openmpi' and build_platform != target_platform
-          then: ${{ mpi }}
+        - if: build_platform != target_platform
+          then:
+            - if: mpi == 'openmpi'
+              then: ${{ mpi }}
         # python needed for ufc discovery via ffc
-        - if: build_platform != target_platform
-          then: python
-        - if: build_platform != target_platform
-          then: cross-python_${{ target_platform }}
-        - if: build_platform != target_platform
-          then: numpy
-        - if: build_platform != target_platform
-          then: fenics-ffc ==${{ version }}
+            - python
+            - cross-python_${{ target_platform }}
+            - numpy
+            - fenics-ffc ==${{ version }}
       host:
         - libblas
         - libcblas
@@ -111,13 +109,12 @@ outputs:
         - make
         - pkg-config
         - if: build_platform != target_platform
-          then: python
-        - if: build_platform != target_platform
-          then: cross-python_${{ target_platform }}
-        - if: build_platform != target_platform
-          then: pybind11
-        - if: mpi == 'openmpi' and build_platform != target_platform
-          then: ${{ mpi }}
+          then:
+            - python
+            - cross-python_${{ target_platform }}
+            - pybind11
+            - if: mpi == 'openmpi'
+              then: ${{ mpi }}
       host:
         - libblas
         - libcblas
