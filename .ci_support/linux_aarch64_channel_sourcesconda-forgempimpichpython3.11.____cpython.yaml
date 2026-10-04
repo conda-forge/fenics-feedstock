@@ -15,7 +15,7 @@ cxx_compiler:
 cxx_compiler_version:
 - '15'
 docker_image:
-- quay.io/condaforge/linux-anvil-x86_64:alma10
+- quay.io/condaforge/linux-anvil-aarch64:alma10
 hdf5:
 - 1.14.6
 - '2'
@@ -44,7 +44,7 @@ pin_run_as_build:
     min_pin: x.x
     max_pin: x.x
 python:
-- 3.14.* *_cp314
+- 3.11.* *_cpython
 slepc:
 - '3.25'
 slepc4py:
@@ -52,9 +52,11 @@ slepc4py:
 suitesparse:
 - '7'
 target_platform:
-- linux-64
+- linux-aarch64
 zip_keys:
 - - c_compiler_version
   - cxx_compiler_version
+- - python
+  - channel_sources
 zlib:
 - '1'
