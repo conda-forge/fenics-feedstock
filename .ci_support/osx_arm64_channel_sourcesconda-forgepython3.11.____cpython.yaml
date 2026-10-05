@@ -27,10 +27,8 @@ libboost_devel:
 - '1.90'
 libcblas:
 - 3.9.* *netlib
-libptscotch:
-- 7.0.11
 macos_machine:
-- x86_64-apple-darwin13.4.0
+- arm64-apple-darwin20.0.0
 mpi:
 - mpich
 mpich:
@@ -48,7 +46,7 @@ pin_run_as_build:
     min_pin: x.x
     max_pin: x.x
 python:
-- 3.12.* *_cpython
+- 3.11.* *_cpython
 slepc:
 - '3.25'
 slepc4py:
@@ -56,9 +54,11 @@ slepc4py:
 suitesparse:
 - '7'
 target_platform:
-- osx-64
+- osx-arm64
 zip_keys:
 - - c_compiler_version
   - cxx_compiler_version
+- - python
+  - channel_sources
 zlib:
 - '1'

@@ -44,7 +44,7 @@ pin_run_as_build:
     min_pin: x.x
     max_pin: x.x
 python:
-- 3.13.* *_cp313
+- 3.11.* *_cpython
 slepc:
 - '3.25'
 slepc4py:
@@ -56,5 +56,7 @@ target_platform:
 zip_keys:
 - - c_compiler_version
   - cxx_compiler_version
+- - python
+  - channel_sources
 zlib:
 - '1'

@@ -7,7 +7,7 @@ c_stdlib:
 c_stdlib_version:
 - '2.17'
 channel_sources:
-- conda-forge
+- conda-forge,conda-forge/label/python_rc
 channel_targets:
 - conda-forge main
 cxx_compiler:
@@ -28,7 +28,7 @@ libcblas:
 libptscotch:
 - 7.0.11
 mpi:
-- mpich
+- openmpi
 mpich:
 - '5'
 numpy:
@@ -44,7 +44,7 @@ pin_run_as_build:
     min_pin: x.x
     max_pin: x.x
 python:
-- 3.14.* *_cp314
+- 3.15.* *_cp315
 slepc:
 - '3.25'
 slepc4py:
@@ -56,5 +56,7 @@ target_platform:
 zip_keys:
 - - c_compiler_version
   - cxx_compiler_version
+- - python
+  - channel_sources
 zlib:
 - '1'
