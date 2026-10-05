@@ -143,7 +143,7 @@ jobs:
             runs_on: ['ubuntu-latest']
             tools_install_dir: ~/miniforge3
           - CONFIG: linux_aarch64_channel_sourcesconda-forgeconda-forgelabelpython_rcmpimpichpython3.15.____cp315
-            DOCKER_IMAGE: quay.io/condaforge/linux-anvil-aarch64:alma10
+            DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma10
             STORE_BUILD_ARTIFACTS: False
             UPLOAD_PACKAGES: True
             build_workspace_dir: build_artifacts
@@ -152,10 +152,10 @@ jobs:
             os: ubuntu
             pagefile_size: 0
             resize_partitions: False
-            runs_on: ['ubuntu-24.04-arm']
+            runs_on: ['ubuntu-latest']
             tools_install_dir: ~/miniforge3
           - CONFIG: linux_aarch64_channel_sourcesconda-forgeconda-forgelabelpython_rcmpiopenmpipython3.15.____cp315
-            DOCKER_IMAGE: quay.io/condaforge/linux-anvil-aarch64:alma10
+            DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma10
             STORE_BUILD_ARTIFACTS: False
             UPLOAD_PACKAGES: True
             build_workspace_dir: build_artifacts
@@ -164,10 +164,10 @@ jobs:
             os: ubuntu
             pagefile_size: 0
             resize_partitions: False
-            runs_on: ['ubuntu-24.04-arm']
+            runs_on: ['ubuntu-latest']
             tools_install_dir: ~/miniforge3
           - CONFIG: linux_aarch64_channel_sourcesconda-forgempimpichpython3.11.____cpython
-            DOCKER_IMAGE: quay.io/condaforge/linux-anvil-aarch64:alma10
+            DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma10
             STORE_BUILD_ARTIFACTS: False
             UPLOAD_PACKAGES: True
             build_workspace_dir: build_artifacts
@@ -176,10 +176,10 @@ jobs:
             os: ubuntu
             pagefile_size: 0
             resize_partitions: False
-            runs_on: ['ubuntu-24.04-arm']
+            runs_on: ['ubuntu-latest']
             tools_install_dir: ~/miniforge3
           - CONFIG: linux_aarch64_channel_sourcesconda-forgempimpichpython3.12.____cpython
-            DOCKER_IMAGE: quay.io/condaforge/linux-anvil-aarch64:alma10
+            DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma10
             STORE_BUILD_ARTIFACTS: False
             UPLOAD_PACKAGES: True
             build_workspace_dir: build_artifacts
@@ -188,10 +188,10 @@ jobs:
             os: ubuntu
             pagefile_size: 0
             resize_partitions: False
-            runs_on: ['ubuntu-24.04-arm']
+            runs_on: ['ubuntu-latest']
             tools_install_dir: ~/miniforge3
           - CONFIG: linux_aarch64_channel_sourcesconda-forgempimpichpython3.13.____cp313
-            DOCKER_IMAGE: quay.io/condaforge/linux-anvil-aarch64:alma10
+            DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma10
             STORE_BUILD_ARTIFACTS: False
             UPLOAD_PACKAGES: True
             build_workspace_dir: build_artifacts
@@ -200,10 +200,10 @@ jobs:
             os: ubuntu
             pagefile_size: 0
             resize_partitions: False
-            runs_on: ['ubuntu-24.04-arm']
+            runs_on: ['ubuntu-latest']
             tools_install_dir: ~/miniforge3
           - CONFIG: linux_aarch64_channel_sourcesconda-forgempimpichpython3.14.____cp314
-            DOCKER_IMAGE: quay.io/condaforge/linux-anvil-aarch64:alma10
+            DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma10
             STORE_BUILD_ARTIFACTS: False
             UPLOAD_PACKAGES: True
             build_workspace_dir: build_artifacts
@@ -212,10 +212,10 @@ jobs:
             os: ubuntu
             pagefile_size: 0
             resize_partitions: False
-            runs_on: ['ubuntu-24.04-arm']
+            runs_on: ['ubuntu-latest']
             tools_install_dir: ~/miniforge3
           - CONFIG: linux_aarch64_channel_sourcesconda-forgempiopenmpipython3.11.____cpython
-            DOCKER_IMAGE: quay.io/condaforge/linux-anvil-aarch64:alma10
+            DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma10
             STORE_BUILD_ARTIFACTS: False
             UPLOAD_PACKAGES: True
             build_workspace_dir: build_artifacts
@@ -224,10 +224,10 @@ jobs:
             os: ubuntu
             pagefile_size: 0
             resize_partitions: False
-            runs_on: ['ubuntu-24.04-arm']
+            runs_on: ['ubuntu-latest']
             tools_install_dir: ~/miniforge3
           - CONFIG: linux_aarch64_channel_sourcesconda-forgempiopenmpipython3.12.____cpython
-            DOCKER_IMAGE: quay.io/condaforge/linux-anvil-aarch64:alma10
+            DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma10
             STORE_BUILD_ARTIFACTS: False
             UPLOAD_PACKAGES: True
             build_workspace_dir: build_artifacts
@@ -236,10 +236,10 @@ jobs:
             os: ubuntu
             pagefile_size: 0
             resize_partitions: False
-            runs_on: ['ubuntu-24.04-arm']
+            runs_on: ['ubuntu-latest']
             tools_install_dir: ~/miniforge3
           - CONFIG: linux_aarch64_channel_sourcesconda-forgempiopenmpipython3.13.____cp313
-            DOCKER_IMAGE: quay.io/condaforge/linux-anvil-aarch64:alma10
+            DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma10
             STORE_BUILD_ARTIFACTS: False
             UPLOAD_PACKAGES: True
             build_workspace_dir: build_artifacts
@@ -248,10 +248,10 @@ jobs:
             os: ubuntu
             pagefile_size: 0
             resize_partitions: False
-            runs_on: ['ubuntu-24.04-arm']
+            runs_on: ['ubuntu-latest']
             tools_install_dir: ~/miniforge3
           - CONFIG: linux_aarch64_channel_sourcesconda-forgempiopenmpipython3.14.____cp314
-            DOCKER_IMAGE: quay.io/condaforge/linux-anvil-aarch64:alma10
+            DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma10
             STORE_BUILD_ARTIFACTS: False
             UPLOAD_PACKAGES: True
             build_workspace_dir: build_artifacts
@@ -260,7 +260,7 @@ jobs:
             os: ubuntu
             pagefile_size: 0
             resize_partitions: False
-            runs_on: ['ubuntu-24.04-arm']
+            runs_on: ['ubuntu-latest']
             tools_install_dir: ~/miniforge3
     steps:
 
