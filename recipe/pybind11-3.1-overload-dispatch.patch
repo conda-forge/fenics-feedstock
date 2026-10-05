@@ -1,0 +1,77 @@
+From fd72a6166d1c73bcb5f8facc426661fd0a93958f Mon Sep 17 00:00:00 2001
+From: Sebastian Blauth <sebastian.blauth@itwm.fraunhofer.de>
+Date: Wed, 9 Sep 2026 13:55:41 +0200
+Subject: [PATCH] Fix overload registration for pybind11 3.1.0 changes
+
+---
+ python/src/io.cpp        | 2 +-
+ python/src/la.cpp        | 4 ++--
+ python/src/parameter.cpp | 6 +++---
+ 3 files changed, 6 insertions(+), 6 deletions(-)
+
+diff --git a/python/src/io.cpp b/python/src/io.cpp
+index 553fdd8b6..5c5890544 100644
+--- a/python/src/io.cpp
++++ b/python/src/io.cpp
+@@ -116,8 +116,8 @@ namespace dolfin_wrappers
+     py::class_<dolfin::HDF5Attribute, std::shared_ptr<dolfin::HDF5Attribute>>(m, "HDF5Attribute")
+       //.def("__getitem__", [](const dolfin::HDF5Attribute& instance, std::string name){ return instance[name]; })
+       .def("__setitem__", [](dolfin::HDF5Attribute& instance, std::string name, std::string value){ instance.set(name, value); })
+-      .def("__setitem__", [](dolfin::HDF5Attribute& instance, std::string name, double value){ instance.set(name, value); })
+       .def("__setitem__", [](dolfin::HDF5Attribute& instance, std::string name, std::size_t value){ instance.set(name, value); })
++      .def("__setitem__", [](dolfin::HDF5Attribute& instance, std::string name, double value){ instance.set(name, value); })
+       .def("__setitem__", [](dolfin::HDF5Attribute& instance, std::string name, py::array_t<double> values)
+            {
+              std::vector<double> _values(values.shape()[0]);
+diff --git a/python/src/la.cpp b/python/src/la.cpp
+index 4918bbbe6..3f0e6f855 100644
+--- a/python/src/la.cpp
++++ b/python/src/la.cpp
+@@ -470,8 +470,6 @@ namespace dolfin_wrappers
+ 
+              return py::array_t<double>(filtered.size(), filtered.data());
+            }, py::arg().noconvert())  // Use noconvert to avoid integers being converted to bool
+-      .def("__getitem__", [](dolfin::GenericVector& self, double index)
+-           { throw py::type_error("Cannot use float for GenericVector indexing with floats"); }, py::arg().noconvert())
+       .def("__getitem__", [](dolfin::GenericVector& self, py::array_t<dolfin::la_index> indices)
+            {
+              if (indices.ndim() > 1)
+@@ -492,6 +490,8 @@ namespace dolfin_wrappers
+                throw py::index_error("Index exceeds (local) size of GenericVector");
+              return self.getitem(index);
+            })
++      .def("__getitem__", [](dolfin::GenericVector& self, double index)
++           { throw py::type_error("Cannot use float for GenericVector indexing with floats"); }, py::arg().noconvert())
+       // __setitem__
+       .def("__setitem__", [](dolfin::GenericVector& self, py::slice slice, double value)
+            {
+diff --git a/python/src/parameter.cpp b/python/src/parameter.cpp
+index 99193ff27..48cd7ea53 100644
+--- a/python/src/parameter.cpp
++++ b/python/src/parameter.cpp
+@@ -102,10 +102,10 @@ namespace dolfin_wrappers
+              return keys;
+            })
+       // These set_range function should be remove - they're just duplication
+-      .def("set_range", [](dolfin::Parameters& self, std::string name, double min, double max)
+-           { self[name].set_range(min, max);} )
+       .def("set_range", [](dolfin::Parameters& self, std::string name, int min, int max)
+            { self[name].set_range(min, max);} )
++      .def("set_range", [](dolfin::Parameters& self, std::string name, double min, double max)
++           { self[name].set_range(min, max);} )
+       .def("set_range", [](dolfin::Parameters& self, std::string name, std::set<std::string> range)
+            { self[name].set_range(range);} )
+       .def("get_range", [](dolfin::Parameters& self, std::string key)
+@@ -238,8 +238,8 @@ namespace dolfin_wrappers
+                value = py::none();
+              return value;
+            })
+-      .def("set_range", (void (dolfin::Parameter::*)(double, double)) &dolfin::Parameter::set_range)
+       .def("set_range", (void (dolfin::Parameter::*)(int, int)) &dolfin::Parameter::set_range)
++      .def("set_range", (void (dolfin::Parameter::*)(double, double)) &dolfin::Parameter::set_range)
+       .def("set_range", (void (dolfin::Parameter::*)(std::set<std::string>)) &dolfin::Parameter::set_range)
+       .def("__str__", &dolfin::Parameter::value_str);
+ 
+-- 
+2.52.0
+
