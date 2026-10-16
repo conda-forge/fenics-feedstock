@@ -34,7 +34,7 @@ libptscotch:
 libumfpack:
 - '6'
 mpi:
-- openmpi
+- mpich
 mpich:
 - '5'
 numpy:
@@ -50,17 +50,15 @@ pin_run_as_build:
     min_pin: x.x
     max_pin: x.x
 python:
-- 3.13.* *_cp313
+- 3.14.* *_cp314
 slepc:
 - '3.25'
 slepc4py:
 - '3.25'
 target_platform:
-- linux-aarch64
+- linux-64
 zip_keys:
 - - c_compiler_version
   - cxx_compiler_version
-- - python
-  - channel_sources
 zlib:
 - '1'
