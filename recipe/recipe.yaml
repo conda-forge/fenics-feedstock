@@ -30,7 +30,7 @@ source:
 build:
   # this doesn't actually affect the build hashes
   # so duplicate where the build hash should actually change
-  number: 67
+  number: 68
   skip: win
   variant:
     use_keys:
