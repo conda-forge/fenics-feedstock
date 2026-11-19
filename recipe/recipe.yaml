@@ -25,6 +25,7 @@ source:
       - c++14.patch
       - petsc-3.25.patch
       - pybind11-3.1-overload-dispatch.patch
+      - petsc-3.26.patch
 
 
 build:
