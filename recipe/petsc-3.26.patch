@@ -1,4 +1,4 @@
-From c8e7fdafba0d821680d605e8f877a1471b128b6d Mon Sep 17 00:00:00 2001
+From df1d8b42b94b469d1325de5292e6d8b72b958c77 Mon Sep 17 00:00:00 2001
 From: Sebastian Blauth <sebastian.blauth@itwm.fraunhofer.de>
 Date: Thu, 19 Nov 2026 08:53:39 +0100
 Subject: [PATCH] fix for ReusePreconditioner for PETSc 3.26
@@ -8,28 +8,28 @@ Subject: [PATCH] fix for ReusePreconditioner for PETSc 3.26
  1 file changed, 31 insertions(+)
 
 diff --git a/dolfin/la/PETScKrylovSolver.cpp b/dolfin/la/PETScKrylovSolver.cpp
-index e72909369..fbd31d775 100644
+index e72909369..53a296880 100644
 --- a/dolfin/la/PETScKrylovSolver.cpp
 +++ b/dolfin/la/PETScKrylovSolver.cpp
 @@ -327,6 +327,37 @@ std::size_t PETScKrylovSolver::solve(PETScVector& x, const PETScVector& b,
        x.zero();
    }
  
-+  // Set up the KSP so PCBJACOBI sub-KSPs can inherit the reuse setting
-+  // before their own setup is triggered by KSPSolve().
-+  ierr = KSPSetUp(_ksp);
-+  if (ierr != 0) petsc_error(ierr, __FILE__, "KSPSetUp");
-+
 +  PC pc;
 +  ierr = KSPGetPC(_ksp, &pc);
 +  if (ierr != 0) petsc_error(ierr, __FILE__, "KSPGetPC");
 +
-+  PCType pc_type;
++  PCType pc_type = nullptr;
 +  ierr = PCGetType(pc, &pc_type);
 +  if (ierr != 0) petsc_error(ierr, __FILE__, "PCGetType");
 +
-+  if (std::string(pc_type) == PCBJACOBI)
++  if (pc_type && std::string(pc_type) == PCBJACOBI)
 +  {
++    // Set up the KSP so PCBJACOBI sub-KSPs can inherit the reuse setting
++    // before their own setup is triggered by KSPSolve().
++    ierr = KSPSetUp(_ksp);
++    if (ierr != 0) petsc_error(ierr, __FILE__, "KSPSetUp");
++
 +    PetscBool reuse_preconditioner;
 +    ierr = KSPGetReusePreconditioner(_ksp, &reuse_preconditioner);
 +    if (ierr != 0) petsc_error(ierr, __FILE__, "KSPGetReusePreconditioner");
