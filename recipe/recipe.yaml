@@ -51,12 +51,12 @@ outputs:
         - ${{ compiler('cxx') }}
         - cmake >=3.9
         - make
-        - pkg-config
+        - pkgconf
         - if: build_platform != target_platform
           then:
             - if: mpi == 'openmpi'
               then: ${{ mpi }}
-        # python needed for ufc discovery via ffc
+            # python needed for ufc discovery via ffc
             - python
             - cross-python_${{ target_platform }}
             - numpy
@@ -108,7 +108,7 @@ outputs:
         - ${{ compiler('cxx') }}
         - cmake >=3.9
         - make
-        - pkg-config
+        - pkgconf
         - if: build_platform != target_platform
           then:
             - python
