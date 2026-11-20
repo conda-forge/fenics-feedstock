@@ -21,11 +21,12 @@ source:
       - c++14.patch
       - petsc-3.25.patch
       - pybind11-3.1-overload-dispatch.patch
+      - petsc-3.26.patch
 
 build:
   # this doesn't actually affect the build hashes
   # so duplicate where the build hash should actually change
-  number: 17
+  number: 18
   skip: win or ppc64le
   variant:
     use_keys:
@@ -45,7 +46,7 @@ outputs:
         - ${{ compiler('cxx') }}
         - cmake >=3.9
         - make
-        - pkg-config
+        - pkgconf
         - if: mpi == 'openmpi' and build_platform != target_platform
           then: ${{ mpi }}
         # python needed for ufc discovery via ffc
@@ -107,7 +108,7 @@ outputs:
         - ${{ compiler('cxx') }}
         - cmake >=3.9
         - make
-        - pkg-config
+        - pkgconf
         - if: build_platform != target_platform
           then: python
         - if: build_platform != target_platform
