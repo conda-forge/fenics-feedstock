@@ -25,12 +25,13 @@ source:
       - c++14.patch
       - petsc-3.25.patch
       - pybind11-3.1-overload-dispatch.patch
+      - petsc-3.26.patch
 
 
 build:
   # this doesn't actually affect the build hashes
   # so duplicate where the build hash should actually change
-  number: 67
+  number: 68
   skip: win
   variant:
     use_keys:
@@ -50,12 +51,12 @@ outputs:
         - ${{ compiler('cxx') }}
         - cmake >=3.9
         - make
-        - pkg-config
+        - pkgconf
         - if: build_platform != target_platform
           then:
             - if: mpi == 'openmpi'
               then: ${{ mpi }}
-        # python needed for ufc discovery via ffc
+            # python needed for ufc discovery via ffc
             - python
             - cross-python_${{ target_platform }}
             - numpy
@@ -107,7 +108,7 @@ outputs:
         - ${{ compiler('cxx') }}
         - cmake >=3.9
         - make
-        - pkg-config
+        - pkgconf
         - if: build_platform != target_platform
           then:
             - python
