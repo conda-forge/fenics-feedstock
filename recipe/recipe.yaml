@@ -26,7 +26,7 @@ source:
 build:
   # this doesn't actually affect the build hashes
   # so duplicate where the build hash should actually change
-  number: 18
+  number: 19
   skip: win or ppc64le
   variant:
     use_keys:
